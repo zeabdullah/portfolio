@@ -19,7 +19,8 @@
     "clsx": "^1.2.1",
     "eslint": "^8.22.0",
     "eslint-plugin-astro": "^0.17.1",
-    "eslint-plugin-jsx-a11y": "^6.6.1"
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "react-icons": "^4.4.0"
   },
   "dependencies": {
     "react": "^18.1.0",

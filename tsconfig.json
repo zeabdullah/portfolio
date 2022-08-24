@@ -9,6 +9,7 @@
     "resolveJsonModule": true,
     // Enable stricter transpilation for better output.
     "isolatedModules": true,
+    "strict": true,
     "noEmit": true,
     "baseUrl": "./src",
     "paths": {

@@ -1,8 +1,29 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import Hero from "@sections/Hero.astro";
+import Header from "@sections/Header";
+import Projects from "@sections/Projects";
+import Technologies from "@sections/Technologies";
+import Resume from "@sections/Resume";
+import HR from "@components/HR";
 ---
 
 <Layout>
-	<Hero />
+	<div class="h-20"></div>
+
+	<Header />
+	<HR />
+	<Projects />
+	<Technologies />
+	<HR />
+	<Resume />
 </Layout>
+
+<style is:global>
+	html {
+		scroll-behavior: smooth;
+	}
+	section,
+	header {
+		@apply pt-10;
+	}
+</style>

@@ -13,6 +13,7 @@ specifiers:
   eslint-plugin-jsx-a11y: ^6.6.1
   react: ^18.1.0
   react-dom: ^18.1.0
+  react-icons: ^4.4.0
 
 dependencies:
   react: 18.2.0
@@ -29,6 +30,7 @@ devDependencies:
   eslint: 8.22.0
   eslint-plugin-astro: 0.17.1_eslint@8.22.0
   eslint-plugin-jsx-a11y: 6.6.1_eslint@8.22.0
+  react-icons: 4.4.0_react@18.2.0
 
 packages:
 
@@ -3468,6 +3470,14 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+
+  /react-icons/4.4.0_react@18.2.0:
+    resolution: {integrity: sha512-fSbvHeVYo/B5/L4VhB7sBA1i2tS8MkT0Hb9t2H1AVPkwGfVHLJCqyr2Py9dKMxsyM63Eng1GkdZfbWj+Fmv8Rg==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 18.2.0
+    dev: true
 
   /react/18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
