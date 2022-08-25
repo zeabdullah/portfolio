@@ -5,25 +5,27 @@ import Projects from "@sections/Projects";
 import Technologies from "@sections/Technologies";
 import Resume from "@sections/Resume";
 import HR from "@components/HR";
+import Container from "@layouts/Container";
 ---
 
 <Layout>
-	<div class="h-20"></div>
-
-	<Header />
-	<HR />
-	<Projects />
-	<Technologies />
-	<HR />
-	<Resume />
+	<Container>
+		<Header />
+		<HR />
+		<Projects />
+		<Technologies />
+		<HR />
+		<Resume />
+	</Container>
 </Layout>
 
 <style is:global>
 	html {
 		scroll-behavior: smooth;
+		scroll-padding-top: 5rem;
 	}
 	section,
 	header {
-		@apply pt-10;
+		@apply py-10;
 	}
 </style>

@@ -1,0 +1,13 @@
+.cursor {
+    animation: 1s blink step-end infinite;
+}
+
+@keyframes blink {
+    from,
+    to {
+        color: transparent;
+    }
+    50% {
+        color: initial;
+    }
+}

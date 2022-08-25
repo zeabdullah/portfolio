@@ -1,18 +1,18 @@
-import Container from '@layouts/Container';
-import Subheading from '@components/Typography/Subheading';
+import Subtitle from '@components/Typography/Subtitle';
 import ProjectCards from '@components/ProjectCards';
 import H2 from '@components/Typography/H2';
 import Section from '@components/Section';
+import SectionHeading from '@components/SectionHeading';
 
 const title = 'Projects';
 export default function Projects() {
     return (
-        <Container>
-            <Section id="projects" aria-label={title}>
+        <Section id="projects" aria-label={title}>
+            <SectionHeading>
                 <H2>{title}</H2>
-                <Subheading>A collection of my projects that I have developed</Subheading>
-                <ProjectCards />
-            </Section>
-        </Container>
+                <Subtitle>A collection of my projects that I have developed</Subtitle>
+            </SectionHeading>
+            <ProjectCards />
+        </Section>
     );
 }

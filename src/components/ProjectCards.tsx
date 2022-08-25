@@ -7,7 +7,7 @@ const PROJECT_LIST = [
         link: '#',
         content:
             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus voluptatem Hic quos impedit quidem, hic quos impedit quidem!',
-        stack: 'Node.js, TypeScript, oclif, Mocha (TDD)',
+        stack: 'Node.js, TypeScript, oclif, Mocha TDD',
         image: '/react-logo.png',
     },
     {
@@ -47,7 +47,7 @@ const PROJECT_LIST = [
 
 export default function ProjectCards() {
     return (
-        <div id="project-cards" className={cn('grid gap-6')}>
+        <div id="project-cards" className={cn('grid gap-6', 'group')}>
             {PROJECT_LIST.map(project => (
                 <ProjectCard key={project.title} {...project} />
             ))}
