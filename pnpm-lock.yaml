@@ -14,6 +14,7 @@ specifiers:
   react: ^18.1.0
   react-dom: ^18.1.0
   react-icons: ^4.4.0
+  react-motion: ^0.5.2
   typewriter-effect: ^2.19.0
 
 dependencies:
@@ -32,6 +33,7 @@ devDependencies:
   eslint-plugin-astro: 0.17.1_eslint@8.22.0
   eslint-plugin-jsx-a11y: 6.6.1_eslint@8.22.0
   react-icons: 4.4.0_react@18.2.0
+  react-motion: 0.5.2_react@18.2.0
   typewriter-effect: 2.19.0_biqbaboplfbrettd7655fr4n2y
 
 packages:
@@ -3327,6 +3329,10 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /performance-now/0.2.0:
+    resolution: {integrity: sha512-YHk5ez1hmMR5LOkb9iJkLKqoBlL7WD5M8ljC75ZfzXriuBIVNuecaXuU7e+hOwyqf24Wxhh7Vxgt7Hnw9288Tg==}
+    dev: true
+
   /performance-now/2.1.0:
     resolution: {integrity: sha512-7EAHlyLHI56VEIdK57uwHdHKIaAGbnXPiw0yWbarQZOKaKpvUIgW0jWRVLiatnM+XXlSwsanIBH/hzGMJulMow==}
     dev: true
@@ -3506,6 +3512,17 @@ packages:
 
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+    dev: true
+
+  /react-motion/0.5.2_react@18.2.0:
+    resolution: {integrity: sha512-9q3YAvHoUiWlP3cK0v+w1N5Z23HXMj4IF4YuvjvWegWqNPfLXsOBE/V7UvQGpXxHFKRQQcNcVQE31g9SB/6qgQ==}
+    peerDependencies:
+      react: ^0.14.9 || ^15.3.0 || ^16.0.0
+    dependencies:
+      performance-now: 0.2.0
+      prop-types: 15.8.1
+      raf: 3.4.1
+      react: 18.2.0
     dev: true
 
   /react/18.2.0:

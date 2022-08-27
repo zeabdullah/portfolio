@@ -5,9 +5,9 @@ import P from './P';
 
 export default function Subtitle({ children }: ComponentPropsWithoutRef<typeof P>) {
     return (
-        <p className={cn('text-gray-500 tracking-wider')}>
+        <p className={cn('text-gray-600 tracking-wider')}>
             {children}
-            <BlinkingCursor type="_" />
+            <BlinkingCursor type="|" />
         </p>
     );
 }

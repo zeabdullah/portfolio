@@ -1,5 +1,5 @@
 import cn from 'clsx';
-import { RiMoonClearFill } from 'react-icons/ri';
+import { RiMoonClearFill, RiMenuFill } from 'react-icons/ri';
 import { NavLink } from '@components/NavLink';
 
 const btnClasses = cn('text-gray-600 hover:text-black', 'hover:bg-gray-200', 'rounded-md');
@@ -24,7 +24,7 @@ export default function Navbar(): JSX.Element {
                         href="/"
                         aria-label="Home"
                         title="This means home"
-                        className="text-xl !p-4"
+                        className="text-xl !p-3"
                     >
                         ../
                     </NavLink>
@@ -32,7 +32,7 @@ export default function Navbar(): JSX.Element {
 
                 <nav className="flex justify-between items-center gap-1">
                     <button
-                        className={cn(btnClasses, 'p-3 mr-5', 'text-xl')}
+                        className={cn(btnClasses, 'p-3 mr-4', 'text-xl')}
                         title="Toggle Theme"
                         onClick={() => {}}
                     >
@@ -46,13 +46,14 @@ export default function Navbar(): JSX.Element {
                         <NavLink href="#resume">Resume</NavLink>
                     </div>
 
-                    <NavLink
-                        href="#"
-                        className={cn(btnClasses, 'sm:hidden', 'px-5 py-1.5')}
+                    <button
+                        title="menu"
+                        aria-label="menu"
+                        className={cn(btnClasses, 'sm:hidden', 'px-3 py-2', 'text-2xl')}
                         onClick={() => {}}
                     >
-                        MENU
-                    </NavLink>
+                        <RiMenuFill />
+                    </button>
                 </nav>
             </div>
         </>

@@ -1,5 +1,5 @@
 .cursor {
-    animation: 1s blink step-end infinite;
+    animation: 1s blink linear infinite;
 }
 
 @keyframes blink {

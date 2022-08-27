@@ -1,10 +1,11 @@
+import { useState } from 'react';
 import cn from 'clsx';
 import Typewriter from 'typewriter-effect';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { MdAlternateEmail } from 'react-icons/md';
 import P from '@components/Typography/P';
 import { linkBtnCls } from '@components/BtnLink';
-import BlinkingCursor from '@components/BlinkingCursor';
+import Section from '@components/Section';
 
 const sectionLabel = 'header-heading';
 const linkCls = cn(
@@ -14,14 +15,19 @@ const linkCls = cn(
 );
 
 export default function Header() {
+    const [firstTyperDone, setFirstTyperDone] = useState(false);
+    function endFirstTypewriter() {
+        setFirstTyperDone(true);
+    }
+
     return (
-        <section id="header" aria-labelledby={sectionLabel}>
+        <Section id="header" aria-labelledby={sectionLabel}>
             <h1
                 id={sectionLabel}
                 className={cn(
                     'text-3xl sm:text-4xl md:text-5xl font-medium !leading-snug',
                     'max-w-xl md:max-w-3xl',
-                    'mb-6',
+                    'mb-16',
                 )}
             >
                 <strong
@@ -31,10 +37,40 @@ export default function Header() {
                         'mb-4',
                     )}
                 >
-                    I&apos;m Abdullah
-                    <BlinkingCursor type="_" />
-                </strong>{' '}
-                A dev with a passion to make the web a cooler place.
+                    {firstTyperDone ? (
+                        <>I'm Abdullah.</>
+                    ) : (
+                        <Typewriter
+                            options={{ delay: 80 }}
+                            onInit={typewriter => {
+                                typewriter
+                                    .pauseFor(500)
+                                    .typeString("I'm Abdullah.")
+                                    .pauseFor(500)
+                                    .callFunction(endFirstTypewriter)
+                                    .start();
+                            }}
+                        />
+                    )}
+                </strong>
+                A dev with a passion to{' '}
+                {firstTyperDone && (
+                    <Typewriter
+                        options={{ delay: 100 }}
+                        onInit={typewriter => {
+                            typewriter
+                                .pauseFor(250)
+                                .typeString('make the web a nicer place')
+                                .pauseFor(1500)
+                                .deleteChars(11)
+                                .typeString('cooler place')
+                                .pauseFor(500)
+                                .deleteChars(12)
+                                .typeString('greater place.')
+                                .start();
+                        }}
+                    />
+                )}
             </h1>
             <article>
                 <P>
@@ -77,6 +113,6 @@ export default function Header() {
                     <MdAlternateEmail /> Email Me
                 </a>
             </div>
-        </section>
+        </Section>
     );
 }

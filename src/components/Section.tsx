@@ -7,7 +7,7 @@ export default function Section({
     ...props
 }: ComponentPropsWithoutRef<'section'>): JSX.Element {
     return (
-        <section className={cn(className ? className : 'py-10')} {...props}>
+        <section className={cn('py-12 md:py-16', className)} {...props}>
             {children}
         </section>
     );

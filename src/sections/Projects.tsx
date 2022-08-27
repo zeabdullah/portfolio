@@ -10,8 +10,9 @@ export default function Projects() {
         <Section id="projects" aria-label={title}>
             <SectionHeading>
                 <H2>{title}</H2>
-                <Subtitle>A collection of my projects that I have developed</Subtitle>
+                <Subtitle>A collection of projects that I have developed.</Subtitle>
             </SectionHeading>
+
             <ProjectCards />
         </Section>
     );

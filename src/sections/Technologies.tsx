@@ -8,19 +8,27 @@ import { SiRedux, SiTailwindcss, SiVisualstudiocode, SiTypescript } from 'react-
 
 const title = 'Technologies';
 const logoCls = cn(
-    'opacity-60 group-hover:opacity-40 hover:!opacity-90 transition-all duration-300',
+    'opacity-60 group-hover:opacity-40 hover:!opacity-90',
+    'duration-300',
+    'transition',
 );
 
 export default function Technologies() {
     return (
-        <Section id="tech" aria-label={title} className="text-center">
+        <Section id="tech" aria-label={title} className="text-center !pt-4">
             <SectionHeading>
                 <H2>{title}</H2>
-                <Subtitle>My arsenal of technologies that drive my day-to-day craft.</Subtitle>
+                <Subtitle>
+                    The arsenal of technologies that power my day-to-day craft.
+                </Subtitle>
             </SectionHeading>
             <div
                 id="tech-logos"
-                className={cn('flex gap-6 justify-center', 'text-6xl', 'group')}
+                className={cn(
+                    'flex gap-6 sm:gap-8 justify-center flex-wrap',
+                    'text-4xl sm:text-5xl',
+                    'group',
+                )}
             >
                 <div
                     title="Visual Studio Code"
@@ -53,7 +61,7 @@ export default function Technologies() {
                     title="Bootstrap"
                     className={cn(
                         logoCls,
-                        'hover:text-indigo-800 hover:-rotate-12 duration-300',
+                        'hover:text-purple-700 hover:-rotate-12 duration-300',
                     )}
                 >
                     <FaBootstrap />

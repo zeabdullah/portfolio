@@ -1,47 +1,57 @@
 import cn from 'clsx';
-import ProjectCard from './ProjectCard';
+import ProjectCard, { ProjectCardProps } from './ProjectCard';
 
-const PROJECT_LIST = [
-    {
-        title: 'react-scaffold',
-        link: '#',
-        content:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus voluptatem Hic quos impedit quidem, hic quos impedit quidem!',
-        stack: 'Node.js, TypeScript, oclif, Mocha TDD',
-        image: '/react-logo.png',
-    },
+const PROJECT_LIST: ProjectCardProps[] = [
     {
         title: 'IMT',
-        link: '#',
-        content:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus voluptatem Hic quos impedit quidem, hic quos impedit quidem!',
+        link: 'http://imt-med.com',
+        content: 'A landing page for a medical company client, powered by Astro.',
         stack: 'React, TypeScript, Tailwind, Astro.js',
         image: '/astro-logo.png',
+        extraClasses: 'bg-stone-800',
+    },
+    {
+        title: 'RGB Guessing Game',
+        link: 'https://rgbguess-game.netlify.app',
+        content:
+            'A lightweight educational guessing game which teaches people how to determine colors from their RGB values',
+        stack: 'HTML/CSS, JavaScript',
+        image: '/js-logo.png',
+        extraClasses: 'p-1 bg-[#f7e018]',
+    },
+    {
+        title: 'Car Rental Website',
+        link: 'https://mock-carrentals.netlify.app',
+        content: "A simple Bootstrap car rental website's frontend",
+        stack: 'HTML/CSS, Bootstrap, jQuery',
+        image: 'https://brandlogos.net/wp-content/uploads/2021/09/bootstrap-logo.png',
+        extraClasses: 'bg-purple-200',
+    },
+    {
+        title: 'Simple Weather App',
+        link: 'https://abdullahzeidan-vue-weather.netlify.app',
+        content:
+            'A super simple and basic weather application, used to quickly show weather data of any city. Built for trying out Vue.js',
+        stack: 'Vue 2, Sass, REST API',
+        image: '/vue-logo.png',
+        extraClasses: 'p-2 bg-slate-200',
+    },
+    {
+        title: 'react-scaffold',
+        link: 'https://github.com/AbdullahZeidan/react-scaffold',
+        content: 'Scaffold your React app from the command line. Built with TypeScript',
+        stack: 'Node.js, TypeScript, oclif, Mocha TDD',
+        image: '/react-logo2.png',
+        extraClasses: 'py-2 px-1 bg-slate-800',
     },
     {
         title: 'MIPS.js',
-        link: '#',
+        link: 'https://github.com/AbdullahZeidan/mips.js',
         content:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus voluptatem dolor inventore quisquam eaque maiores similique odio hic quos impedit quidem, quis voluptatibus. Hic!',
+            'A terminal-based MIPS emulator written in vanilla JavaScript; a simple CLI app that can be used for educational purposes',
         stack: 'Node.js, JavaScript',
         image: '/js-logo.png',
-    },
-
-    {
-        title: 'RGB Guessing Game',
-        link: '#',
-        content:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus voluptatem Hic quos impedit quidem, hic quos impedit quidem!',
-        stack: 'HTML/CSS, JavaScript',
-        image: '/js-logo.png',
-    },
-    {
-        title: 'Project ZY',
-        link: '#',
-        content:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus voluptatem Hic quos impedit quidem, hic quos impedit quidem!',
-        stack: 'React, TypeScript, Tailwind, Node.js, MongoDB, KeystoneJS',
-        image: '/astro-logo.png',
+        extraClasses: 'p-1 bg-[#f7e018]',
     },
 ];
 

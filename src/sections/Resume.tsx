@@ -11,9 +11,9 @@ export default function Resume() {
         <Section id="resume" aria-label={title}>
             <SectionHeading>
                 <H2>{title}</H2>
-                <Subtitle>You can view my resume or download it directly!</Subtitle>
+                <Subtitle>You can view my resume or download it directly.</Subtitle>
             </SectionHeading>
-            <div className="flex gap-6">
+            <div className="flex flex-col gap-4 sm:flex-row">
                 <BtnLink href="#" className="flex-grow">
                     <RiDriveLine className="text-xl" /> View on GDrive
                 </BtnLink>
@@ -21,6 +21,14 @@ export default function Resume() {
                     <RiDownloadCloud2Line className="text-xl" /> Download
                 </BtnLink>
             </div>
+
+            <embed
+                src="/resume.pdf"
+                type="application/pdf"
+                width="100%"
+                className="mt-12 min-h-[55rem] rounded-xl"
+            />
+            {/*  */}
         </Section>
     );
 }
