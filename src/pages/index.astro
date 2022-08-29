@@ -1,14 +1,14 @@
 ---
-import Layout from "@layouts/Layout.astro";
+import SkeletonLayout from "@layouts/SkeletonLayout.astro";
+import Container from "@layouts/Container";
 import Header from "@sections/Header";
 import Projects from "@sections/Projects";
 import Technologies from "@sections/Technologies";
 import Resume from "@sections/Resume";
 import HR from "@components/HR";
-import Container from "@layouts/Container";
 ---
 
-<Layout>
+<SkeletonLayout>
 	<Container>
 		<Header client:load />
 		<HR />
@@ -17,7 +17,7 @@ import Container from "@layouts/Container";
 		<HR />
 		<Resume client:visible />
 	</Container>
-</Layout>
+</SkeletonLayout>
 
 <style is:global>
 	html {
@@ -26,5 +26,11 @@ import Container from "@layouts/Container";
 	}
 	.Typewriter {
 		display: inline;
+	}
+
+	#navbar,
+	#footer {
+		@apply border-b-neutral-200 dark:border-opacity-5;
+		@apply transition-colors duration-300;
 	}
 </style>

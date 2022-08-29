@@ -5,7 +5,7 @@ import P from './P';
 
 export default function Subtitle({ children }: ComponentPropsWithoutRef<typeof P>) {
     return (
-        <p className={cn('text-gray-600 tracking-wider')}>
+        <p className={cn('text-neutral-600 dark:text-neutral-300 tracking-wider')}>
             {children}
             <BlinkingCursor type="|" />
         </p>

@@ -1,12 +1,20 @@
 import { useState } from 'react';
+import { useStore } from '@nanostores/react';
 import cn from 'clsx';
-import { RiMoonClearFill, RiMenuFill, RiCloseFill } from 'react-icons/ri';
+import themeStore from 'themeStore';
+import { RiMoonClearFill, RiMenuFill, RiCloseLine } from 'react-icons/ri';
 import { navItemCls, NavLink } from '@components/NavLink';
 
-const btnClasses = cn(navItemCls, 'text-neutral-600 hover:text-dark');
+const btnClasses = cn(navItemCls, 'p-2', 'text-neutral-600 hover:text-dark');
 
 export default function Navbar(): JSX.Element {
     const [mobileNavActive, setMobileNavActive] = useState(false);
+
+    const $theme = useStore(themeStore);
+    const toggleTheme = () => {
+        if ($theme === 'light') themeStore.set('dark');
+        else themeStore.set('light');
+    };
 
     const toggleMobileNav = () => setMobileNavActive(!mobileNavActive);
     const hideMobileNav = () => setMobileNavActive(false);
@@ -19,10 +27,10 @@ export default function Navbar(): JSX.Element {
                 className={cn(
                     'fixed z-10 top-0 min-w-full',
                     'flex justify-between items-center flex-wrap',
-                    'border-b border-b-neutral-200',
                     'bg-white/90 backdrop-blur-md',
+                    'dark:bg-dark/95 dark:text-light',
+                    'border-b',
                     'px-3.5 py-4',
-                    'dark:bg-dark dark:text-light',
                 )}
             >
                 <div className="flex-grow">
@@ -30,17 +38,17 @@ export default function Navbar(): JSX.Element {
                         href="/"
                         aria-label="Home"
                         title="This means home, smartypants."
-                        className="text-xl !p-3"
+                        className="text-xl"
                     >
                         ../
                     </NavLink>
                 </div>
 
-                <span>
+                <span className="space-x-4">
                     <button
-                        className={cn(btnClasses, 'p-3 mr-4', 'text-xl')}
+                        className={cn(btnClasses, 'text-2xl')}
                         title="Toggle Theme"
-                        onClick={() => {}}
+                        onClick={toggleTheme}
                     >
                         <RiMoonClearFill aria-label="Switch to dark" />
                     </button>
@@ -48,10 +56,10 @@ export default function Navbar(): JSX.Element {
                     <button
                         title="Menu"
                         aria-label="Menu"
-                        className={cn(btnClasses, 'sm:hidden', 'px-3 py-2', 'text-2xl')}
+                        className={cn(btnClasses, 'sm:hidden', 'text-2xl')}
                         onClick={toggleMobileNav}
                     >
-                        {mobileNavActive ? <RiCloseFill /> : <RiMenuFill />}
+                        {mobileNavActive ? <RiCloseLine /> : <RiMenuFill />}
                     </button>
                 </span>
                 <div

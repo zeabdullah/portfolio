@@ -12,9 +12,7 @@ import Anchor from '@components/Typography/Anchor';
 const sectionLabel = 'header-heading';
 export default function Header() {
     const [firstTyperDone, setFirstTyperDone] = useState(false);
-    function endFirstTypewriter() {
-        setFirstTyperDone(true);
-    }
+    const endFirstTypewriter = () => setFirstTyperDone(true);
 
     return (
         <Section id="header" aria-labelledby={sectionLabel}>
@@ -52,14 +50,14 @@ export default function Header() {
                 A dev with a passion to{' '}
                 {firstTyperDone && (
                     <Typewriter
-                        options={{ delay: 100, deleteSpeed: 40 }}
+                        options={{ delay: 100, deleteSpeed: 30 }}
                         onInit={typewriter => {
                             typewriter
                                 .pauseFor(250)
                                 .typeString('make the web a nicer...')
                                 .pauseFor(1500)
                                 .deleteChars(8)
-                                .typeString('cooler 😎')
+                                .typeString('cooler...')
                                 .pauseFor(1000)
                                 .deleteChars(9)
                                 .typeString('greater place.')
@@ -98,30 +96,36 @@ export default function Header() {
                     <em>(highly recommend btw).</em>
                 </P>
             </article>
-            <div className={cn('flex gap-2 flex-wrap')}>
-                <IconLink
-                    href="https://www.github.com/AbdullahZeidan"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    aria-label="GitHub"
-                    title="GitHub"
-                >
-                    <FaGithub />
-                </IconLink>
-                <IconLink
-                    href="https://www.linkedin.com/in/abdullah-z-b4653a213/"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    aria-label="LinkedIn"
-                    title="LinkedIn"
-                >
-                    <FaLinkedin />
-                </IconLink>
-
-                <BtnLink href="mailto:abdullahzeidan@gmail.com">
-                    <MdAlternateEmail /> Email Me
-                </BtnLink>
-            </div>
+            <Socials />
         </Section>
     );
 }
+
+const Socials: React.FC = () => (
+    <div className={cn('flex gap-2 flex-wrap')}>
+        <div className="contents mr-8">
+            <IconLink
+                href="https://www.github.com/AbdullahZeidan"
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="GitHub"
+                title="GitHub"
+            >
+                <FaGithub />
+            </IconLink>
+            <IconLink
+                href="https://www.linkedin.com/in/abdullah-z-b4653a213/"
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="LinkedIn"
+                title="LinkedIn"
+            >
+                <FaLinkedin />
+            </IconLink>
+        </div>
+
+        <BtnLink href="mailto:abdullahzeidan@gmail.com">
+            <MdAlternateEmail /> Email Me
+        </BtnLink>
+    </div>
+);

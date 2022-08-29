@@ -8,7 +8,12 @@ export default function P({
 }: ComponentPropsWithoutRef<'p'>): JSX.Element {
     return (
         <p
-            className={cn('mb-5', 'text-sm sm:text-base !leading-relaxed', className)}
+            className={cn(
+                'mb-5',
+                'text-sm sm:text-base',
+                '!leading-relaxed tracking-wide',
+                className,
+            )}
             {...props}
         >
             {children}

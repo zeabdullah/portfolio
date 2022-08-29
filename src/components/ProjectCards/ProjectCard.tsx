@@ -1,4 +1,5 @@
 import cn from 'clsx';
+import TechStackText from './TechStackText';
 
 export type ProjectCardProps = {
     title: string;
@@ -17,10 +18,12 @@ export default function ProjectCard(props: ProjectCardProps): JSX.Element {
             className={cn(
                 'flex justify-start items-start gap-4 flex-col sm:flex-row',
                 'bg-neutral-50 md:hover:bg-neutral-200 focus:bg-neutral-200',
+                'dark:bg-neutral-800/75 dark:md:hover:bg-neutral-700 dark:md:focus:bg-neutral-700',
                 'p-8 rounded-md',
                 'border border-neutral-200 md:hover:border-neutral-400 focus:border-neutral-400',
-                'shadow-sm',
-                'md:group-hover:opacity-50',
+                'dark:border-neutral-800 dark:md:hover:border-neutral-600 dark:focus:border-neutral-600',
+                'shadow-sm dark:shadow-none',
+                'md:group-hover:opacity-50 dark:group-hover:opacity-40',
                 'hover:!opacity-100',
                 'lg:hover:scale-[1.075]',
                 'transition',
@@ -35,12 +38,17 @@ export default function ProjectCard(props: ProjectCardProps): JSX.Element {
             </div>
             <div>
                 <div className={cn('flex items-center flex-wrap gap-x-5', 'mb-2')}>
-                    <h3 className={cn('text-lg font-bold', 'flex-shrink-0')}>{props.title}</h3>
-                    <em>
-                        <p className="text-neutral-400 text-xs flex-shrink">({props.stack})</p>
-                    </em>
+                    <h3 className={cn('text-lg font-bold dark:text-light', 'flex-shrink-0')}>
+                        {props.title}
+                    </h3>
+                    <TechStackText>{props.stack}</TechStackText>
                 </div>
-                <p className={cn('text-neutral-800 text-md font-light leading-relaxed')}>
+                <p
+                    className={cn(
+                        'text-neutral-800 dark:text-light',
+                        'text-md font-light leading-relaxed',
+                    )}
+                >
                     {props.content}
                 </p>
             </div>
