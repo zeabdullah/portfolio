@@ -23,7 +23,7 @@ export default function ProjectCard(props: ProjectCardProps): JSX.Element {
                 'border border-neutral-200 md:hover:border-neutral-400 focus:border-neutral-400',
                 'dark:border-neutral-800 dark:md:hover:border-neutral-600 dark:focus:border-neutral-600',
                 'shadow-sm dark:shadow-none',
-                'md:group-hover:opacity-50 dark:group-hover:opacity-40',
+                'group-hover:opacity-50 dark:group-hover:opacity-40',
                 'hover:!opacity-100',
                 'lg:hover:scale-[1.075]',
                 'transition',

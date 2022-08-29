@@ -1,4 +1,4 @@
-import { useStore } from '@nanostores/react';
+import { useLayoutEffect, useState } from 'react';
 import cn from 'clsx';
 import themeStore from 'themeStore';
 
@@ -7,10 +7,16 @@ export default function InnerLayout({
     className,
     ...props
 }: React.ComponentPropsWithoutRef<'main'>) {
-    const $theme = useStore(themeStore);
+    const [isDark, setIsDark] = useState(true);
+
+    useLayoutEffect(() => {
+        themeStore.subscribe(theme => {
+            setIsDark(theme === 'dark');
+        });
+    }, []);
 
     return (
-        <div className={cn($theme === 'dark' && 'dark', className)} {...props}>
+        <div className={cn(isDark && 'dark', className)} {...props}>
             {children}
         </div>
     );

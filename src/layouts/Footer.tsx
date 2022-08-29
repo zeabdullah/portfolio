@@ -1,8 +1,8 @@
 import cn from 'clsx';
 import { FaGithub, FaReact } from 'react-icons/fa';
-import { SiTailwindcss } from 'react-icons/si';
 import AstroLogo from '@components/AstroLogo';
 import Anchor from '@components/Typography/Anchor';
+import { navAndFooterCls } from 'commonClasses';
 
 export default function Footer() {
     return (
@@ -12,22 +12,26 @@ export default function Footer() {
                 'px-3.5 py-6',
                 'space-y-4',
                 'text-sm text-center',
-                'bg-neutral-50 dark:bg-dark dark:text-light',
-                'border-t border-t-neutral-200',
+                'bg-neutral-100 dark:bg-dark daxt-light',
+                'border-t',
+                navAndFooterCls,
             )}
         >
             <p>
-                Made by me using{' '}
-                <FaReact title="React" className="inline text-xl fill-sky-600" />,{' '}
-                <span aria-label="Astro" title="Astro">
-                    <AstroLogo className="inline text-xl fill-neutral-700" />{' '}
-                </span>
-                and <SiTailwindcss title="Tailwind" className="inline text-xl fill-teal-600" />
+                Made with{' '}
+                <a
+                    href="https://astro.build"
+                    aria-label="Astro"
+                    title="Astro"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                >
+                    <AstroLogo className="inline text-2xl fill-dark dark:fill-light" />{' '}
+                </a>
             </p>
             <p>
-                <Anchor href="https://github.com/abdullahzeidan/portfolio">
-                    Source code on{' '}
-                    <FaGithub aria-label="GitHub" title="GitHub" className="inline text-lg" />
+                <Anchor href="https://github.com/abdullahzeidan/portfolio" title="GitHub">
+                    Source code on <FaGithub aria-label="GitHub" className="inline text-lg" />
                 </Anchor>
             </p>
         </footer>

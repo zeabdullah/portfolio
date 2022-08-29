@@ -102,7 +102,7 @@ export default function Header() {
 }
 
 const Socials: React.FC = () => (
-    <div className={cn('flex gap-2 flex-wrap')}>
+    <div className={cn('flex gap-2 flex-wrap', 'mt-16')}>
         <div className="contents mr-8">
             <IconLink
                 href="https://www.github.com/AbdullahZeidan"

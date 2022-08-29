@@ -9,7 +9,7 @@ export default function P({
     return (
         <p
             className={cn(
-                'mb-5',
+                'mb-4',
                 'text-sm sm:text-base',
                 '!leading-relaxed tracking-wide',
                 className,

@@ -1,20 +1,21 @@
-import { useState } from 'react';
-import { useStore } from '@nanostores/react';
+import { useLayoutEffect, useState } from 'react';
 import cn from 'clsx';
-import themeStore from 'themeStore';
-import { RiMoonClearFill, RiMenuFill, RiCloseLine } from 'react-icons/ri';
+import themeStore, { toggleTheme } from 'themeStore';
+import { RiMoonClearFill, RiMenuFill, RiCloseLine, RiSunFill } from 'react-icons/ri';
 import { navItemCls, NavLink } from '@components/NavLink';
+import { navAndFooterCls } from 'commonClasses';
 
 const btnClasses = cn(navItemCls, 'p-2', 'text-neutral-600 hover:text-dark');
 
 export default function Navbar(): JSX.Element {
+    const [isDark, setIsDark] = useState(true);
     const [mobileNavActive, setMobileNavActive] = useState(false);
 
-    const $theme = useStore(themeStore);
-    const toggleTheme = () => {
-        if ($theme === 'light') themeStore.set('dark');
-        else themeStore.set('light');
-    };
+    useLayoutEffect(() => {
+        themeStore.subscribe(theme => {
+            setIsDark(theme === 'dark');
+        });
+    }, []);
 
     const toggleMobileNav = () => setMobileNavActive(!mobileNavActive);
     const hideMobileNav = () => setMobileNavActive(false);
@@ -27,10 +28,12 @@ export default function Navbar(): JSX.Element {
                 className={cn(
                     'fixed z-10 top-0 min-w-full',
                     'flex justify-between items-center flex-wrap',
-                    'bg-white/90 backdrop-blur-md',
+                    mobileNavActive ? 'bg-neutral-100' : 'bg-light',
+                    'bg-opacity-90 backdrop-blur-md',
                     'dark:bg-dark/95 dark:text-light',
-                    'border-b',
                     'px-3.5 py-4',
+                    'border-b',
+                    navAndFooterCls,
                 )}
             >
                 <div className="flex-grow">
@@ -48,9 +51,10 @@ export default function Navbar(): JSX.Element {
                     <button
                         className={cn(btnClasses, 'text-2xl')}
                         title="Toggle Theme"
-                        onClick={toggleTheme}
+                        aria-label="Toggle Theme"
+                        onClick={() => toggleTheme()}
                     >
-                        <RiMoonClearFill aria-label="Switch to dark" />
+                        {isDark ? <RiSunFill /> : <RiMoonClearFill />}
                     </button>
 
                     <button
