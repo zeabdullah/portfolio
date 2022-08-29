@@ -8,5 +8,5 @@ export const btnColors = cn(
 
 export const navAndFooterCls = cn(
     'border-neutral-200 dark:border-opacity-10',
-    'transition-colors duration-300',
+    'transition-[background-color] duration-300',
 );
