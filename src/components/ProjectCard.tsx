@@ -16,9 +16,9 @@ export default function ProjectCard(props: ProjectCardProps): JSX.Element {
             rel="noreferrer noopener"
             className={cn(
                 'flex justify-start items-start gap-4 flex-col sm:flex-row',
-                'bg-gray-50 md:hover:bg-gray-200 focus:bg-gray-200',
+                'bg-neutral-50 md:hover:bg-neutral-200 focus:bg-neutral-200',
                 'p-8 rounded-md',
-                'border border-gray-200 md:hover:border-gray-400 focus:border-gray-400',
+                'border border-neutral-200 md:hover:border-neutral-400 focus:border-neutral-400',
                 'shadow-sm',
                 'md:group-hover:opacity-50',
                 'hover:!opacity-100',
@@ -37,10 +37,10 @@ export default function ProjectCard(props: ProjectCardProps): JSX.Element {
                 <div className={cn('flex items-center flex-wrap gap-x-5', 'mb-2')}>
                     <h3 className={cn('text-lg font-bold', 'flex-shrink-0')}>{props.title}</h3>
                     <em>
-                        <p className="text-gray-400 text-xs flex-shrink">({props.stack})</p>
+                        <p className="text-neutral-400 text-xs flex-shrink">({props.stack})</p>
                     </em>
                 </div>
-                <p className={cn('text-gray-800 text-md font-light leading-relaxed')}>
+                <p className={cn('text-neutral-800 text-md font-light leading-relaxed')}>
                     {props.content}
                 </p>
             </div>

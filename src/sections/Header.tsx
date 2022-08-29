@@ -3,17 +3,13 @@ import cn from 'clsx';
 import Typewriter from 'typewriter-effect';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { MdAlternateEmail } from 'react-icons/md';
-import P from '@components/Typography/P';
+import IconLink from '@components/IconLink';
 import BtnLink from '@components/BtnLink';
 import Section from '@components/Section';
+import P from '@components/Typography/P';
+import Anchor from '@components/Typography/Anchor';
 
 const sectionLabel = 'header-heading';
-const linkCls = cn(
-    'p-2 rounded-md',
-    'text-2xl text-gray-600 hover:text-black',
-    'hover:bg-gray-200',
-);
-
 export default function Header() {
     const [firstTyperDone, setFirstTyperDone] = useState(false);
     function endFirstTypewriter() {
@@ -27,7 +23,7 @@ export default function Header() {
                 className={cn(
                     'text-3xl sm:text-4xl md:text-5xl font-medium !leading-snug',
                     'max-w-xl md:max-w-3xl',
-                    'mb-16',
+                    'mb-12 md:mb-16',
                 )}
             >
                 <strong
@@ -61,10 +57,10 @@ export default function Header() {
                             typewriter
                                 .pauseFor(250)
                                 .typeString('make the web a nicer...')
-                                .pauseFor(1000)
+                                .pauseFor(1500)
                                 .deleteChars(8)
                                 .typeString('cooler 😎')
-                                .pauseFor(250)
+                                .pauseFor(1000)
                                 .deleteChars(9)
                                 .typeString('greater place.')
                                 .start();
@@ -74,37 +70,53 @@ export default function Header() {
             </h1>
             <article>
                 <P>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
-                    repudiandae, veniam dolore sit ipsa nostrum, laboriosam assumenda
-                    voluptates voluptate provident est sunt pariatur odio vel corrupti
-                    excepturi consectetur nihil voluptatibus.
+                    I'm a developer with over a year of experience. I like to make awesome
+                    things on the web and see people enjoy and benefit from them.
                 </P>
                 <P>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
-                    repudiandae, veniam dolore sit uptatibus.
+                    I'm currently a software engineer at{' '}
+                    <Anchor
+                        href="https:distin-gui.com"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                    >
+                        Distin-Gui
+                    </Anchor>
+                    , working on creating web experiences for clients small and large.
+                </P>
+                <P>
+                    Frontend development is my focus, and I love to develop some CLI projects
+                    on the side for fun. I've also been recently interested in reading books
+                    about software development, such as{' '}
+                    <Anchor
+                        href="https://www.oreilly.com/library/view/the-clean-coder/9780132542913"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                    >
+                        Clean Coder
+                    </Anchor>{' '}
+                    <em>(highly recommend btw).</em>
                 </P>
             </article>
             <div className={cn('flex gap-2 flex-wrap')}>
-                <a
+                <IconLink
                     href="https://www.github.com/AbdullahZeidan"
                     target="_blank"
                     rel="noreferrer noopener"
-                    className={linkCls}
                     aria-label="GitHub"
                     title="GitHub"
                 >
                     <FaGithub />
-                </a>
-                <a
+                </IconLink>
+                <IconLink
                     href="https://www.linkedin.com/in/abdullah-z-b4653a213/"
                     target="_blank"
                     rel="noreferrer noopener"
-                    className={linkCls}
                     aria-label="LinkedIn"
                     title="LinkedIn"
                 >
                     <FaLinkedin />
-                </a>
+                </IconLink>
 
                 <BtnLink href="mailto:abdullahzeidan@gmail.com">
                     <MdAlternateEmail /> Email Me

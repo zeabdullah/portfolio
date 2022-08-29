@@ -23,7 +23,7 @@ const { darkMode = false } = Astro.props;
 	</head>
 	<body class:list={[darkMode && "dark", "dark:bg-dark dark:text-light"]}>
 		<main>
-			<Navbar />
+			<Navbar client:load />
 			<slot />
 			<Footer />
 		</main>
