@@ -5,9 +5,9 @@
 @keyframes blink {
     from,
     to {
-        color: transparent;
+        opacity: 0;
     }
     50% {
-        color: initial;
+        opacity: 1;
     }
 }

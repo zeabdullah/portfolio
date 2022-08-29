@@ -16,14 +16,14 @@ export default function Navbar(): JSX.Element {
                     'border-b border-b-gray-200',
                     'bg-white/90 backdrop-blur-md',
                     'px-3.5 py-5',
-                    'dark:bg-dark/90 dark:text-light',
+                    'dark:bg-dark/95 dark:text-light',
                 )}
             >
                 <div>
                     <NavLink
                         href="/"
                         aria-label="Home"
-                        title="This means home"
+                        title="This means home, smartypants."
                         className="text-xl !p-3"
                     >
                         ../

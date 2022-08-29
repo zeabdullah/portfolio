@@ -12,15 +12,15 @@ export default function ProjectCard(props: ProjectCardProps): JSX.Element {
     return (
         <a
             href={props.link}
-            target="blank"
+            target="_blank"
             rel="noreferrer noopener"
             className={cn(
                 'flex justify-start items-start gap-4 flex-col sm:flex-row',
-                'bg-gray-50 hover:bg-gray-200',
+                'bg-gray-50 md:hover:bg-gray-200 focus:bg-gray-200',
                 'p-8 rounded-md',
-                'border border-gray-200 hover:border-gray-400',
+                'border border-gray-200 md:hover:border-gray-400 focus:border-gray-400',
                 'shadow-sm',
-                'group-hover:opacity-50',
+                'md:group-hover:opacity-50',
                 'hover:!opacity-100',
                 'lg:hover:scale-[1.075]',
                 'transition',

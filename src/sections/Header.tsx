@@ -4,7 +4,7 @@ import Typewriter from 'typewriter-effect';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { MdAlternateEmail } from 'react-icons/md';
 import P from '@components/Typography/P';
-import { linkBtnCls } from '@components/BtnLink';
+import BtnLink from '@components/BtnLink';
 import Section from '@components/Section';
 
 const sectionLabel = 'header-heading';
@@ -56,16 +56,16 @@ export default function Header() {
                 A dev with a passion to{' '}
                 {firstTyperDone && (
                     <Typewriter
-                        options={{ delay: 100 }}
+                        options={{ delay: 100, deleteSpeed: 40 }}
                         onInit={typewriter => {
                             typewriter
                                 .pauseFor(250)
-                                .typeString('make the web a nicer place')
-                                .pauseFor(1500)
-                                .deleteChars(11)
-                                .typeString('cooler place')
-                                .pauseFor(500)
-                                .deleteChars(12)
+                                .typeString('make the web a nicer...')
+                                .pauseFor(1000)
+                                .deleteChars(8)
+                                .typeString('cooler 😎')
+                                .pauseFor(250)
+                                .deleteChars(9)
                                 .typeString('greater place.')
                                 .start();
                         }}
@@ -87,7 +87,7 @@ export default function Header() {
             <div className={cn('flex gap-2 flex-wrap')}>
                 <a
                     href="https://www.github.com/AbdullahZeidan"
-                    target="blank"
+                    target="_blank"
                     rel="noreferrer noopener"
                     className={linkCls}
                     aria-label="GitHub"
@@ -97,7 +97,7 @@ export default function Header() {
                 </a>
                 <a
                     href="https://www.linkedin.com/in/abdullah-z-b4653a213/"
-                    target="blank"
+                    target="_blank"
                     rel="noreferrer noopener"
                     className={linkCls}
                     aria-label="LinkedIn"
@@ -106,12 +106,9 @@ export default function Header() {
                     <FaLinkedin />
                 </a>
 
-                <a
-                    href="mailto:abdullahzeidan@gmail.com"
-                    className={cn('flex items-center gap-2', linkBtnCls)}
-                >
+                <BtnLink href="mailto:abdullahzeidan@gmail.com">
                     <MdAlternateEmail /> Email Me
-                </a>
+                </BtnLink>
             </div>
         </Section>
     );

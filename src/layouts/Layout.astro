@@ -1,5 +1,11 @@
 ---
 import Navbar from "@layouts/Navbar";
+import Footer from "@layouts/Footer";
+
+export interface LayoutProps {
+	darkMode?: boolean;
+}
+const { darkMode = false } = Astro.props;
 ---
 
 <html lang="en">
@@ -15,10 +21,11 @@ import Navbar from "@layouts/Navbar";
 			rel="stylesheet"
 		/>
 	</head>
-	<body class="dark:bg-dark dark:text-light">
+	<body class:list={[darkMode && "dark", "dark:bg-dark dark:text-light"]}>
 		<main>
 			<Navbar />
 			<slot />
+			<Footer />
 		</main>
 	</body>
 </html>

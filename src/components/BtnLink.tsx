@@ -7,6 +7,7 @@ export const linkBtnCls = cn(
     'bg-gray-100 hover:bg-gray-200',
     'border border-gray-300 hover:border-gray-400',
     'rounded-lg py-2 px-4',
+    'transition-colors',
 );
 
 export default function BtnLink({ className, ...props }: ComponentPropsWithoutRef<'a'>) {

@@ -7,7 +7,7 @@ const PROJECT_LIST: ProjectCardProps[] = [
         link: 'http://imt-med.com',
         content: 'A landing page for a medical company client, powered by Astro.',
         stack: 'React, TypeScript, Tailwind, Astro.js',
-        image: '/astro-logo.png',
+        image: '/images/astro-logo.png',
         extraClasses: 'bg-stone-800',
     },
     {
@@ -16,7 +16,7 @@ const PROJECT_LIST: ProjectCardProps[] = [
         content:
             'A lightweight educational guessing game which teaches people how to determine colors from their RGB values',
         stack: 'HTML/CSS, JavaScript',
-        image: '/js-logo.png',
+        image: '/images/js-logo.png',
         extraClasses: 'p-1 bg-[#f7e018]',
     },
     {
@@ -33,7 +33,7 @@ const PROJECT_LIST: ProjectCardProps[] = [
         content:
             'A super simple and basic weather application, used to quickly show weather data of any city. Built for trying out Vue.js',
         stack: 'Vue 2, Sass, REST API',
-        image: '/vue-logo.png',
+        image: '/images/vue-logo.png',
         extraClasses: 'p-2 bg-slate-200',
     },
     {
@@ -41,7 +41,7 @@ const PROJECT_LIST: ProjectCardProps[] = [
         link: 'https://github.com/AbdullahZeidan/react-scaffold',
         content: 'Scaffold your React app from the command line. Built with TypeScript',
         stack: 'Node.js, TypeScript, oclif, Mocha TDD',
-        image: '/react-logo2.png',
+        image: '/images/react-logo2.png',
         extraClasses: 'py-2 px-1 bg-slate-800',
     },
     {
@@ -50,7 +50,7 @@ const PROJECT_LIST: ProjectCardProps[] = [
         content:
             'A terminal-based MIPS emulator written in vanilla JavaScript; a simple CLI app that can be used for educational purposes',
         stack: 'Node.js, JavaScript',
-        image: '/js-logo.png',
+        image: '/images/js-logo.png',
         extraClasses: 'p-1 bg-[#f7e018]',
     },
 ];
