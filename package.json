@@ -1,6 +1,6 @@
 {
-  "name": "@example/framework-react",
-  "version": "0.0.1",
+  "name": "portfolio",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",

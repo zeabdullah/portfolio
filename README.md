@@ -1,11 +1,5 @@
-# Astro + React Example
+# My Portfolio
 
-```
-npm init astro -- --template framework-react
-```
+## Welcome to my portfolio
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/framework-react)
-
-This example showcases Astro working with [React](https://reactjs.org/).
-
-Write your React components as `.jsx` or `.tsx` files in your project.
+### [View it Live](https://abdullahzeidan.github.io)
