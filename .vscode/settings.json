@@ -1,5 +1,9 @@
 {
     "prettier.tabWidth": 4,
     "editor.tabSize": 4,
-    "svg.preview.background": "transparent"
+    "svg.preview.background": "transparent",
+    "yaml.schemas": {
+        "file:///c%3A/Users/Abdullah/.vscode/extensions/atlassian.atlascode-2.10.12/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml",
+        "https://json.schemastore.org/github-workflow.json": "file:///c%3A/SHARED-Multiboot/MY-PROJECTS/portfolio/.github/workflows/deploy.yml"
+    }
 }
