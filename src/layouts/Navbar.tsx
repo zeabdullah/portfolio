@@ -8,8 +8,19 @@ import ThemeToggler from '@components/ThemeToggler';
 export default function Navbar(): JSX.Element {
     const [mobileNavActive, setMobileNavActive] = useState(false);
 
-    const toggleMobileNav = () => setMobileNavActive(!mobileNavActive);
+    const toggleNavCollapse = () => setMobileNavActive(!mobileNavActive);
     const hideMobileNav = () => setMobileNavActive(false);
+
+    const NavCollapseToggler = (
+        <button
+            title="Menu"
+            aria-label="Menu"
+            className={clsx(navBtnCls, 'sm:hidden', 'text-2xl')}
+            onClick={toggleNavCollapse}
+        >
+            {mobileNavActive ? <RiCloseLine /> : <RiMenuFill />}
+        </button>
+    );
 
     return (
         <>
@@ -40,15 +51,7 @@ export default function Navbar(): JSX.Element {
 
                 <span className="space-x-4">
                     <ThemeToggler />
-
-                    <button
-                        title="Menu"
-                        aria-label="Menu"
-                        className={clsx(navBtnCls, 'sm:hidden', 'text-2xl')}
-                        onClick={toggleMobileNav}
-                    >
-                        {mobileNavActive ? <RiCloseLine /> : <RiMenuFill />}
-                    </button>
+                    {NavCollapseToggler}
                 </span>
                 <div
                     className={clsx(

@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@astrojs/react': ^1.0.0
   '@astrojs/tailwind': ^1.0.0
+  '@nanostores/persistent': ^0.6.1
   '@nanostores/react': ^0.3.0
   '@types/react': ^18.0.10
   '@types/react-dom': ^18.0.5
@@ -28,6 +29,7 @@ dependencies:
 devDependencies:
   '@astrojs/react': 1.0.0_biqbaboplfbrettd7655fr4n2y
   '@astrojs/tailwind': 1.0.0
+  '@nanostores/persistent': 0.6.1_nanostores@0.6.0
   '@nanostores/react': 0.3.0_resngft2y545aodfc4fe35fzvu
   '@types/react': 18.0.17
   '@types/react-dom': 18.0.6
@@ -523,6 +525,15 @@ packages:
 
   /@ljharb/has-package-exports-patterns/0.0.2:
     resolution: {integrity: sha512-4/RWEeXDO6bocPONheFe6gX/oQdP/bEpv0oL4HqjPP5DCenBSt0mHgahppY49N0CpsaqffdwPq+TlX9CYOq2Dw==}
+    dev: true
+
+  /@nanostores/persistent/0.6.1_nanostores@0.6.0:
+    resolution: {integrity: sha512-lInvqshXvXKVWDxqTzs8E232O+Uc2iZ2gaw9m1o8s1OsIzfyRWtwuf7LTZWoUS0wq77g1qjj9ZPSrmBfMVmbNw==}
+    engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
+    peerDependencies:
+      nanostores: ^0.6.0
+    dependencies:
+      nanostores: 0.6.0
     dev: true
 
   /@nanostores/react/0.3.0_resngft2y545aodfc4fe35fzvu:
