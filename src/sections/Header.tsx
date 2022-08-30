@@ -75,11 +75,11 @@ export default function Header() {
                     things on the web and see people enjoy and benefit from them.
                 </P>
                 <P>
-                    I'm currently a software engineer at{' '}
+                    As a current software engineer at{' '}
                     <Anchor href="https://distin-gui.com" outer>
                         Distin-Gui
                     </Anchor>
-                    , working on creating web experiences for clients small and large.
+                    , I work on creating web experiences for clients small and large.
                 </P>
                 <P>
                     Frontend development is my focus, and I love to develop some CLI projects

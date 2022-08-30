@@ -40,7 +40,13 @@ export default function ProjectCard(props: ProjectCardProps): JSX.Element {
                 </div>
             </div>
             <div>
-                <div className={clsx('flex items-center flex-wrap gap-x-5', 'mb-2')}>
+                <div
+                    className={clsx(
+                        'flex gap-x-5',
+                        'flex-col sm:flex-row sm:items-center',
+                        'mb-2',
+                    )}
+                >
                     <h3 className={clsx('text-lg font-bold dark:text-light', 'flex-shrink-0')}>
                         {props.title}
                     </h3>

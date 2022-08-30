@@ -8,7 +8,7 @@ export const linkBtnCls = clsx(
     'dark:bg-dark dark:hover:bg-neutral-800 dark:focus:bg-neutral-800',
     'border border-neutral-300 hover:border-neutral-400 dark:border-opacity-50',
     'rounded-lg py-2 px-4',
-    'transition-colors',
+    'transition-[background-color]',
 );
 
 export default function BtnLink({ className, ...props }: ComponentPropsWithoutRef<'a'>) {

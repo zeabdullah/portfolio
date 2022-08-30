@@ -10,7 +10,8 @@ export default function P({
         <p
             className={clsx(
                 'mb-4',
-                'text-sm sm:text-base',
+                'text-black dark:text-light sm:text-lg',
+                'dark:font-light',
                 '!leading-relaxed tracking-wide',
                 className,
             )}
