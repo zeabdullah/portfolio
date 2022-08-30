@@ -1,28 +1,41 @@
 import { useState } from 'react';
-import cn from 'clsx';
-import { RiMoonClearFill, RiMenuFill, RiCloseFill } from 'react-icons/ri';
-import { navItemCls, NavLink } from '@components/NavLink';
-
-const btnClasses = cn(navItemCls, 'text-neutral-600 hover:text-dark');
+import clsx from 'clsx';
+import { RiMenuFill, RiCloseLine } from 'react-icons/ri/index.js';
+import { NavLink } from '@components/NavLink';
+import { navAndFooterCls, navBtnCls } from 'commonClasses';
+import ThemeToggler from '@components/ThemeToggler';
 
 export default function Navbar(): JSX.Element {
     const [mobileNavActive, setMobileNavActive] = useState(false);
 
-    const toggleMobileNav = () => setMobileNavActive(!mobileNavActive);
+    const toggleNavCollapse = () => setMobileNavActive(!mobileNavActive);
     const hideMobileNav = () => setMobileNavActive(false);
+
+    const NavCollapseToggler = (
+        <button
+            title="Menu"
+            aria-label="Menu"
+            className={clsx(navBtnCls, 'sm:hidden', 'text-2xl')}
+            onClick={toggleNavCollapse}
+        >
+            {mobileNavActive ? <RiCloseLine /> : <RiMenuFill />}
+        </button>
+    );
 
     return (
         <>
-            <div className={cn('SPACER', 'h-20')} />
+            <div className={clsx('SPACER', 'h-20')} />
             <nav
                 id="navbar"
-                className={cn(
+                className={clsx(
                     'fixed z-10 top-0 min-w-full',
                     'flex justify-between items-center flex-wrap',
-                    'border-b border-b-neutral-200',
-                    'bg-white/90 backdrop-blur-md',
+                    mobileNavActive ? 'bg-neutral-100' : 'bg-light',
+                    'bg-opacity-90 backdrop-blur-md',
+                    'dark:bg-dark/95 dark:text-light',
                     'px-3.5 py-4',
-                    'dark:bg-dark dark:text-light',
+                    'border-b',
+                    navAndFooterCls,
                 )}
             >
                 <div className="flex-grow">
@@ -30,32 +43,18 @@ export default function Navbar(): JSX.Element {
                         href="/"
                         aria-label="Home"
                         title="This means home, smartypants."
-                        className="text-xl !p-3"
+                        className="text-xl"
                     >
                         ../
                     </NavLink>
                 </div>
 
-                <span>
-                    <button
-                        className={cn(btnClasses, 'p-3 mr-4', 'text-xl')}
-                        title="Toggle Theme"
-                        onClick={() => {}}
-                    >
-                        <RiMoonClearFill aria-label="Switch to dark" />
-                    </button>
-
-                    <button
-                        title="Menu"
-                        aria-label="Menu"
-                        className={cn(btnClasses, 'sm:hidden', 'px-3 py-2', 'text-2xl')}
-                        onClick={toggleMobileNav}
-                    >
-                        {mobileNavActive ? <RiCloseFill /> : <RiMenuFill />}
-                    </button>
+                <span className="space-x-4">
+                    <ThemeToggler />
+                    {NavCollapseToggler}
                 </span>
                 <div
-                    className={cn(
+                    className={clsx(
                         mobileNavActive
                             ? 'flex flex-col justify-between items-stretch gap-4 basis-full'
                             : 'hidden',

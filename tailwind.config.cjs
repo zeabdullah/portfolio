@@ -8,8 +8,8 @@ module.exports = {
                 sans: ['JetBrains Mono', 'Lucida Console', 'Monaco', 'monospace'],
             },
             colors: {
-                dark: 'hsl(0, 0%, 9%)',
-                light: 'hsl(0, 0%, 89%)',
+                dark: 'hsl(0, 0%, 6%)',
+                light: 'hsl(0, 0%, 100%)',
             },
         },
     },

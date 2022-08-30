@@ -1,5 +1,5 @@
 import Subtitle from '@components/Typography/Subtitle';
-import ProjectCards from '@components/ProjectCards';
+import ProjectCards from '@components/ProjectCards/ProjectCards';
 import H2 from '@components/Typography/H2';
 import Section from '@components/Section';
 import SectionHeading from '@components/SectionHeading';

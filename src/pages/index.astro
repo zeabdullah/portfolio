@@ -1,14 +1,14 @@
 ---
-import Layout from "@layouts/Layout.astro";
+import MetaLayout from "@layouts/MetaLayout.astro";
+import Container from "@layouts/Container";
 import Header from "@sections/Header";
 import Projects from "@sections/Projects";
 import Technologies from "@sections/Technologies";
 import Resume from "@sections/Resume";
 import HR from "@components/HR";
-import Container from "@layouts/Container";
 ---
 
-<Layout>
+<MetaLayout>
 	<Container>
 		<Header client:load />
 		<HR />
@@ -17,7 +17,7 @@ import Container from "@layouts/Container";
 		<HR />
 		<Resume client:visible />
 	</Container>
-</Layout>
+</MetaLayout>
 
 <style is:global>
 	html {

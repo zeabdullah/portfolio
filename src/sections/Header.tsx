@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import cn from 'clsx';
+import clsx from 'clsx';
 import Typewriter from 'typewriter-effect';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { MdAlternateEmail } from 'react-icons/md';
+import { FaGithub, FaLinkedin } from 'react-icons/fa/index.js';
+import { MdAlternateEmail } from 'react-icons/md/index.js';
 import IconLink from '@components/IconLink';
 import BtnLink from '@components/BtnLink';
 import Section from '@components/Section';
@@ -12,22 +12,20 @@ import Anchor from '@components/Typography/Anchor';
 const sectionLabel = 'header-heading';
 export default function Header() {
     const [firstTyperDone, setFirstTyperDone] = useState(false);
-    function endFirstTypewriter() {
-        setFirstTyperDone(true);
-    }
+    const endFirstTypewriter = () => setFirstTyperDone(true);
 
     return (
-        <Section id="header" aria-labelledby={sectionLabel}>
+        <Section id="header" role="banner" aria-labelledby={sectionLabel}>
             <h1
                 id={sectionLabel}
-                className={cn(
+                className={clsx(
                     'text-3xl sm:text-4xl md:text-5xl font-medium !leading-snug',
                     'max-w-xl md:max-w-3xl',
                     'mb-12 md:mb-16',
                 )}
             >
                 <strong
-                    className={cn(
+                    className={clsx(
                         'block',
                         'font-extrabold text-4xl sm:text-5xl md:text-6xl',
                         'mb-4',
@@ -36,30 +34,33 @@ export default function Header() {
                     {firstTyperDone ? (
                         <>I'm Abdullah.</>
                     ) : (
-                        <Typewriter
-                            options={{ delay: 80 }}
-                            onInit={typewriter => {
-                                typewriter
-                                    .pauseFor(500)
-                                    .typeString("I'm Abdullah.")
-                                    .pauseFor(500)
-                                    .callFunction(endFirstTypewriter)
-                                    .start();
-                            }}
-                        />
+                        <>
+                            I'm{' '}
+                            <Typewriter
+                                options={{ delay: 80 }}
+                                onInit={typewriter => {
+                                    typewriter
+                                        .pauseFor(500)
+                                        .typeString('Abdullah.')
+                                        .pauseFor(500)
+                                        .callFunction(endFirstTypewriter)
+                                        .start();
+                                }}
+                            />
+                        </>
                     )}
                 </strong>
                 A dev with a passion to{' '}
                 {firstTyperDone && (
                     <Typewriter
-                        options={{ delay: 100, deleteSpeed: 40 }}
+                        options={{ delay: 100, deleteSpeed: 30 }}
                         onInit={typewriter => {
                             typewriter
                                 .pauseFor(250)
                                 .typeString('make the web a nicer...')
                                 .pauseFor(1500)
                                 .deleteChars(8)
-                                .typeString('cooler 😎')
+                                .typeString('cooler...')
                                 .pauseFor(1000)
                                 .deleteChars(9)
                                 .typeString('greater place.')
@@ -74,15 +75,11 @@ export default function Header() {
                     things on the web and see people enjoy and benefit from them.
                 </P>
                 <P>
-                    I'm currently a software engineer at{' '}
-                    <Anchor
-                        href="https:distin-gui.com"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                    >
+                    As a current software engineer at{' '}
+                    <Anchor href="https://distin-gui.com" outer>
                         Distin-Gui
                     </Anchor>
-                    , working on creating web experiences for clients small and large.
+                    , I work on creating web experiences for clients small and large.
                 </P>
                 <P>
                     Frontend development is my focus, and I love to develop some CLI projects
@@ -90,38 +87,39 @@ export default function Header() {
                     about software development, such as{' '}
                     <Anchor
                         href="https://www.oreilly.com/library/view/the-clean-coder/9780132542913"
-                        target="_blank"
-                        rel="noreferrer noopener"
+                        outer
                     >
                         Clean Coder
                     </Anchor>{' '}
                     <em>(highly recommend btw).</em>
                 </P>
             </article>
-            <div className={cn('flex gap-2 flex-wrap')}>
-                <IconLink
-                    href="https://www.github.com/AbdullahZeidan"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    aria-label="GitHub"
-                    title="GitHub"
-                >
-                    <FaGithub />
-                </IconLink>
-                <IconLink
-                    href="https://www.linkedin.com/in/abdullah-z-b4653a213/"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    aria-label="LinkedIn"
-                    title="LinkedIn"
-                >
-                    <FaLinkedin />
-                </IconLink>
-
-                <BtnLink href="mailto:abdullahzeidan@gmail.com">
-                    <MdAlternateEmail /> Email Me
-                </BtnLink>
-            </div>
+            <Socials />
         </Section>
     );
 }
+
+const linkedinLabel = 'LinkedIn';
+const githubLabel = 'GitHub';
+
+const Socials: React.FC = () => (
+    <div className={clsx('flex gap-2 flex-wrap', 'mt-16')}>
+        <div className="contents mr-8">
+            <IconLink aria-label={githubLabel} title={githubLabel} outer>
+                <FaGithub role="img" aria-label={githubLabel} />
+            </IconLink>
+            <IconLink
+                href="https://www.linkedin.com/in/abdullah-z-b4653a213/"
+                aria-label={linkedinLabel}
+                title={linkedinLabel}
+                outer
+            >
+                <FaLinkedin role="img" aria-label={linkedinLabel} />
+            </IconLink>
+        </div>
+
+        <BtnLink href="mailto:abdullahzeidan@gmail.com">
+            <MdAlternateEmail /> Email Me
+        </BtnLink>
+    </div>
+);
