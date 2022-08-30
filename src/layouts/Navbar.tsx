@@ -1,33 +1,22 @@
-import { useEffect, useState } from 'react';
-import cn from 'clsx';
-import themeStore, { toggleTheme } from 'themeStore';
-import { RiMoonClearFill, RiMenuFill, RiCloseLine, RiSunFill } from 'react-icons/ri/index.js';
-import { navItemCls, NavLink } from '@components/NavLink';
-import { navAndFooterCls } from 'commonClasses';
-
-const btnClasses = cn(navItemCls, 'p-2', 'text-neutral-600 hover:text-dark');
+import { useState } from 'react';
+import clsx from 'clsx';
+import { RiMenuFill, RiCloseLine } from 'react-icons/ri/index.js';
+import { NavLink } from '@components/NavLink';
+import { navAndFooterCls, navBtnCls } from 'commonClasses';
+import ThemeToggler from '@components/ThemeToggler';
 
 export default function Navbar(): JSX.Element {
-    const [isDark, setIsDark] = useState(true);
     const [mobileNavActive, setMobileNavActive] = useState(false);
-
-    useEffect(() => {
-        const unsub = themeStore.subscribe(theme => {
-            setIsDark(theme === 'dark');
-        });
-
-        return unsub;
-    }, []);
 
     const toggleMobileNav = () => setMobileNavActive(!mobileNavActive);
     const hideMobileNav = () => setMobileNavActive(false);
 
     return (
         <>
-            <div className={cn('SPACER', 'h-20')} />
+            <div className={clsx('SPACER', 'h-20')} />
             <nav
                 id="navbar"
-                className={cn(
+                className={clsx(
                     'fixed z-10 top-0 min-w-full',
                     'flex justify-between items-center flex-wrap',
                     mobileNavActive ? 'bg-neutral-100' : 'bg-light',
@@ -50,26 +39,19 @@ export default function Navbar(): JSX.Element {
                 </div>
 
                 <span className="space-x-4">
-                    <button
-                        className={cn(btnClasses, 'text-2xl')}
-                        title="Toggle Theme"
-                        aria-label="Toggle Theme"
-                        onClick={() => toggleTheme()}
-                    >
-                        {isDark ? <RiSunFill /> : <RiMoonClearFill />}
-                    </button>
+                    <ThemeToggler />
 
                     <button
                         title="Menu"
                         aria-label="Menu"
-                        className={cn(btnClasses, 'sm:hidden', 'text-2xl')}
+                        className={clsx(navBtnCls, 'sm:hidden', 'text-2xl')}
                         onClick={toggleMobileNav}
                     >
                         {mobileNavActive ? <RiCloseLine /> : <RiMenuFill />}
                     </button>
                 </span>
                 <div
-                    className={cn(
+                    className={clsx(
                         mobileNavActive
                             ? 'flex flex-col justify-between items-stretch gap-4 basis-full'
                             : 'hidden',

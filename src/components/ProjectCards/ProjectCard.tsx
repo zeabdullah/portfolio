@@ -1,4 +1,4 @@
-import cn from 'clsx';
+import clsx from 'clsx';
 import TechStackText from './TechStackText';
 
 export type ProjectCardProps = {
@@ -15,7 +15,7 @@ export default function ProjectCard(props: ProjectCardProps): JSX.Element {
             href={props.link}
             target="_blank"
             rel="noreferrer noopener"
-            className={cn(
+            className={clsx(
                 'flex justify-start items-start gap-4 flex-col sm:flex-row',
                 'bg-neutral-50 md:hover:bg-neutral-200 focus:bg-neutral-200',
                 'dark:bg-neutral-800/75 dark:md:hover:bg-neutral-700 dark:md:focus:bg-neutral-700',
@@ -31,20 +31,23 @@ export default function ProjectCard(props: ProjectCardProps): JSX.Element {
         >
             <div className="mr-4">
                 <div
-                    className={cn('w-14 h-14 rounded-lg overflow-hidden', props.extraClasses)}
+                    className={clsx(
+                        'w-14 h-14 rounded-lg overflow-hidden',
+                        props.extraClasses,
+                    )}
                 >
                     <img src={props.image} alt="" className="object-cover" />
                 </div>
             </div>
             <div>
-                <div className={cn('flex items-center flex-wrap gap-x-5', 'mb-2')}>
-                    <h3 className={cn('text-lg font-bold dark:text-light', 'flex-shrink-0')}>
+                <div className={clsx('flex items-center flex-wrap gap-x-5', 'mb-2')}>
+                    <h3 className={clsx('text-lg font-bold dark:text-light', 'flex-shrink-0')}>
                         {props.title}
                     </h3>
                     <TechStackText>{props.stack}</TechStackText>
                 </div>
                 <p
-                    className={cn(
+                    className={clsx(
                         'text-neutral-800 dark:text-light',
                         'text-md font-light leading-relaxed',
                     )}

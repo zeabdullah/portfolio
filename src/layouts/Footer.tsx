@@ -1,4 +1,4 @@
-import cn from 'clsx';
+import clsx from 'clsx';
 import { FaGithub } from 'react-icons/fa/index.js';
 import AstroLogo from '@components/AstroLogo';
 import Anchor from '@components/Typography/Anchor';
@@ -9,7 +9,7 @@ export default function Footer() {
         <footer
             role="contentinfo"
             id="footer"
-            className={cn(
+            className={clsx(
                 'px-3.5 py-6',
                 'space-y-4',
                 'text-sm text-center',

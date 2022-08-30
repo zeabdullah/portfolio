@@ -1,5 +1,5 @@
 import { ComponentPropsWithoutRef } from 'react';
-import cn from 'clsx';
+import clsx from 'clsx';
 
 export default function P({
     className,
@@ -8,7 +8,7 @@ export default function P({
 }: ComponentPropsWithoutRef<'p'>): JSX.Element {
     return (
         <p
-            className={cn(
+            className={clsx(
                 'mb-4',
                 'text-sm sm:text-base',
                 '!leading-relaxed tracking-wide',

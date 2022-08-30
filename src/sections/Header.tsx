@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import cn from 'clsx';
+import clsx from 'clsx';
 import Typewriter from 'typewriter-effect';
 import { FaGithub, FaLinkedin } from 'react-icons/fa/index.js';
 import { MdAlternateEmail } from 'react-icons/md/index.js';
@@ -18,14 +18,14 @@ export default function Header() {
         <Section id="header" role="banner" aria-labelledby={sectionLabel}>
             <h1
                 id={sectionLabel}
-                className={cn(
+                className={clsx(
                     'text-3xl sm:text-4xl md:text-5xl font-medium !leading-snug',
                     'max-w-xl md:max-w-3xl',
                     'mb-12 md:mb-16',
                 )}
             >
                 <strong
-                    className={cn(
+                    className={clsx(
                         'block',
                         'font-extrabold text-4xl sm:text-5xl md:text-6xl',
                         'mb-4',
@@ -103,7 +103,7 @@ const linkedinLabel = 'LinkedIn';
 const githubLabel = 'GitHub';
 
 const Socials: React.FC = () => (
-    <div className={cn('flex gap-2 flex-wrap', 'mt-16')}>
+    <div className={clsx('flex gap-2 flex-wrap', 'mt-16')}>
         <div className="contents mr-8">
             <IconLink aria-label={githubLabel} title={githubLabel} outer>
                 <FaGithub role="img" aria-label={githubLabel} />

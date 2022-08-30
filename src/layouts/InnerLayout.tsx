@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import cn from 'clsx';
+import clsx from 'clsx';
 import themeStore from 'themeStore';
 
 export default function InnerLayout({
@@ -18,7 +18,7 @@ export default function InnerLayout({
     }, []);
 
     return (
-        <div className={cn(isDark && 'dark', className)} {...props}>
+        <div className={clsx(isDark && 'dark', className)} {...props}>
             {children}
         </div>
     );

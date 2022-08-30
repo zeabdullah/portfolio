@@ -1,7 +1,7 @@
-import cn from 'clsx';
+import clsx from 'clsx';
 import { ComponentPropsWithoutRef } from 'react';
 
-export const linkBtnCls = cn(
+export const linkBtnCls = clsx(
     'flex justify-center items-center gap-2',
     'font-bold dark:text-light',
     'bg-neutral-100 hover:bg-neutral-200 focus:bg-neutral-200',
@@ -13,7 +13,7 @@ export const linkBtnCls = cn(
 
 export default function BtnLink({ className, ...props }: ComponentPropsWithoutRef<'a'>) {
     return (
-        <a className={cn(linkBtnCls, className)} {...props}>
+        <a className={clsx(linkBtnCls, className)} {...props}>
             {props.children}
         </a>
     );
