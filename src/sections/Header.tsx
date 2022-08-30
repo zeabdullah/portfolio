@@ -105,7 +105,12 @@ const githubLabel = 'GitHub';
 const Socials: React.FC = () => (
     <div className={clsx('flex gap-2 flex-wrap', 'mt-16')}>
         <div className="contents mr-8">
-            <IconLink aria-label={githubLabel} title={githubLabel} outer>
+            <IconLink
+                href="https://github.com/abdullahzeidan"
+                aria-label={githubLabel}
+                title={githubLabel}
+                outer
+            >
                 <FaGithub role="img" aria-label={githubLabel} />
             </IconLink>
             <IconLink
