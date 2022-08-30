@@ -1,7 +1,7 @@
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import cn from 'clsx';
 import themeStore, { toggleTheme } from 'themeStore';
-import { RiMoonClearFill, RiMenuFill, RiCloseLine, RiSunFill } from 'react-icons/ri';
+import { RiMoonClearFill, RiMenuFill, RiCloseLine, RiSunFill } from 'react-icons/ri/index.js';
 import { navItemCls, NavLink } from '@components/NavLink';
 import { navAndFooterCls } from 'commonClasses';
 
@@ -11,10 +11,12 @@ export default function Navbar(): JSX.Element {
     const [isDark, setIsDark] = useState(true);
     const [mobileNavActive, setMobileNavActive] = useState(false);
 
-    useLayoutEffect(() => {
-        themeStore.subscribe(theme => {
+    useEffect(() => {
+        const unsub = themeStore.subscribe(theme => {
             setIsDark(theme === 'dark');
         });
+
+        return unsub;
     }, []);
 
     const toggleMobileNav = () => setMobileNavActive(!mobileNavActive);

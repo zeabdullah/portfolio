@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import cn from 'clsx';
 import themeStore from 'themeStore';
 
@@ -9,10 +9,12 @@ export default function InnerLayout({
 }: React.ComponentPropsWithoutRef<'main'>) {
     const [isDark, setIsDark] = useState(true);
 
-    useLayoutEffect(() => {
-        themeStore.subscribe(theme => {
+    useEffect(() => {
+        const unsub = themeStore.subscribe(theme => {
             setIsDark(theme === 'dark');
         });
+
+        return unsub;
     }, []);
 
     return (

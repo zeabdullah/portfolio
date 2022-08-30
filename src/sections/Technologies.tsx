@@ -1,7 +1,12 @@
 import cn from 'clsx';
 import { type IconType } from 'react-icons/lib';
-import { FaReact, FaBootstrap, FaNodeJs } from 'react-icons/fa';
-import { SiRedux, SiTailwindcss, SiVisualstudiocode, SiTypescript } from 'react-icons/si';
+import { FaReact, FaBootstrap, FaNodeJs } from 'react-icons/fa/index.js';
+import {
+    SiRedux,
+    SiTailwindcss,
+    SiVisualstudiocode,
+    SiTypescript,
+} from 'react-icons/si/index.js';
 import H2 from '@components/Typography/H2';
 import Section from '@components/Section';
 import Subtitle from '@components/Typography/Subtitle';
@@ -71,8 +76,14 @@ export default function Technologies() {
                 )}
             >
                 {ICONS.map(({ label, classes, ...icon }) => (
-                    <div key={label} title={label} aria-label={label} className={classes}>
-                        <icon.iconName />
+                    <div
+                        key={label}
+                        role="presentation"
+                        aria-label={label}
+                        title={label}
+                        className={classes}
+                    >
+                        <icon.iconName role="img" aria-label={label} title={label} />
                     </div>
                 ))}
             </div>

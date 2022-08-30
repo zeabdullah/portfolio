@@ -1,4 +1,4 @@
-import { RiDriveLine, RiDownloadCloud2Line, RiExternalLinkLine } from 'react-icons/ri';
+import { RiDriveLine, RiDownloadCloud2Line } from 'react-icons/ri/index.js';
 import H2 from '@components/Typography/H2';
 import Section from '@components/Section';
 import Subtitle from '@components/Typography/Subtitle';

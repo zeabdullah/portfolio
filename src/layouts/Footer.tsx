@@ -1,5 +1,5 @@
 import cn from 'clsx';
-import { FaGithub, FaReact } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa/index.js';
 import AstroLogo from '@components/AstroLogo';
 import Anchor from '@components/Typography/Anchor';
 import { navAndFooterCls } from 'commonClasses';
@@ -7,6 +7,7 @@ import { navAndFooterCls } from 'commonClasses';
 export default function Footer() {
     return (
         <footer
+            role="contentinfo"
             id="footer"
             className={cn(
                 'px-3.5 py-6',
