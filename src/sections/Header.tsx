@@ -40,9 +40,9 @@ export default function Header() {
                                 options={{ delay: 80 }}
                                 onInit={typewriter => {
                                     typewriter
-                                        .pauseFor(500)
+                                        .pauseFor(250)
                                         .typeString('Abdullah.')
-                                        .pauseFor(500)
+                                        .pauseFor(250)
                                         .callFunction(endFirstTypewriter)
                                         .start();
                                 }}
@@ -53,16 +53,14 @@ export default function Header() {
                 A dev with a passion to{' '}
                 {firstTyperDone && (
                     <Typewriter
-                        options={{ delay: 100, deleteSpeed: 30 }}
+                        options={{ delay: 80, deleteSpeed: 20 }}
                         onInit={typewriter => {
                             typewriter
                                 .pauseFor(250)
-                                .typeString('make the web a nicer...')
-                                .pauseFor(1500)
-                                .deleteChars(8)
-                                .typeString('cooler...')
+                                .typeString('make the web a cooler...')
                                 .pauseFor(1000)
                                 .deleteChars(9)
+                                .pauseFor(250)
                                 .typeString('greater place.')
                                 .start();
                         }}
