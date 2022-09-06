@@ -1,21 +1,15 @@
-import { useEffect, useState } from 'react';
 import clsx from 'clsx';
-import themeStore from 'themeStore';
+import { useTheme } from 'themeStore';
 
 export default function InnerLayout({
     children,
     className,
     ...props
 }: React.ComponentPropsWithoutRef<'div'>) {
-    const [isDark, setIsDark] = useState(true);
-
-    useEffect(() => {
-        const unsub = themeStore.subscribe(theme => setIsDark(theme === 'dark'));
-        return unsub;
-    }, []);
+    const { isDarkMode } = useTheme();
 
     return (
-        <div className={clsx(isDark && 'dark', className)} {...props}>
+        <div className={clsx(isDarkMode && 'dark', className)} {...props}>
             {children}
         </div>
     );

@@ -13,6 +13,7 @@ export default function Navbar(): JSX.Element {
 
     const NavCollapseToggler = (
         <button
+            type="button"
             title="Menu"
             aria-label="Menu"
             className={clsx(navBtnCls, 'sm:hidden', 'text-2xl')}
