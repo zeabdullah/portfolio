@@ -24,8 +24,8 @@ const PROJECT_LIST: ProjectCardProps[] = [
         link: 'https://mock-carrentals.netlify.app',
         content: "A simple Bootstrap car rental website's frontend",
         stack: 'HTML/CSS, Bootstrap, jQuery',
-        image: 'https://brandlogos.net/wp-content/uploads/2021/09/bootstrap-logo.png',
-        extraClasses: 'bg-purple-200',
+        image: '/images/bootstrap-logo.png',
+        extraClasses: 'bg-purple-200 dark:bg-purple-300',
     },
     {
         title: 'Simple Weather App',
