@@ -6,14 +6,11 @@ export default function InnerLayout({
     children,
     className,
     ...props
-}: React.ComponentPropsWithoutRef<'main'>) {
+}: React.ComponentPropsWithoutRef<'div'>) {
     const [isDark, setIsDark] = useState(true);
 
     useEffect(() => {
-        const unsub = themeStore.subscribe(theme => {
-            setIsDark(theme === 'dark');
-        });
-
+        const unsub = themeStore.subscribe(theme => setIsDark(theme === 'dark'));
         return unsub;
     }, []);
 

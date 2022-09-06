@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import clsx from 'clsx';
+import { RiMoonClearFill, RiSunFill } from 'react-icons/ri/index.js';
 import { navBtnCls } from 'commonClasses';
 import themeStore, { toggleTheme } from 'themeStore';
-import { RiMoonClearFill, RiSunFill } from 'react-icons/ri/index.js';
 
 /**
  * I was supposed to use nanostore's `useStore` hook to automatically
