@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { githubProfileUrl } from 'common/variables';
 import ProjectCard, { ProjectCardProps } from './ProjectCard';
 
 const PROJECT_LIST: ProjectCardProps[] = [
@@ -38,7 +39,7 @@ const PROJECT_LIST: ProjectCardProps[] = [
     },
     {
         title: 'react-scaffold',
-        link: 'https://github.com/AbdullahZeidan/react-scaffold',
+        link: `${githubProfileUrl}/react-scaffold`,
         content: 'Scaffold your React app from the command line. Built with TypeScript',
         stack: 'Node.js, TypeScript, oclif, Mocha TDD',
         image: '/images/react-logo2.png',
@@ -46,7 +47,7 @@ const PROJECT_LIST: ProjectCardProps[] = [
     },
     {
         title: 'MIPS.js',
-        link: 'https://github.com/AbdullahZeidan/mips.js',
+        link: `${githubProfileUrl}/mips.js`,
         content:
             'A terminal-based MIPS emulator written in vanilla JavaScript; a simple CLI app that can be used for educational purposes',
         stack: 'Node.js, JavaScript',

@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { navItemCls } from 'commonClasses';
+import { navItemCls } from 'common/classnames';
 import { ComponentPropsWithoutRef } from 'react';
 
 export function NavLink({

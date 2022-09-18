@@ -31,12 +31,13 @@ export default function Resume() {
             </div>
 
             <div className="resume-container border-2 border-neutral-400 mt-8 rounded-xl overflow-hidden">
-                <embed
-                    src={resumePath}
-                    type="application/pdf"
+                <iframe
+                    title="resume embed"
+                    src="https://drive.google.com/file/d/1F46afVwdRy_cAWP1FPXgCc2enqv-0rQp/preview"
                     width="100%"
                     className="min-h-[50rem]"
-                />
+                    allow="autoplay"
+                ></iframe>
             </div>
         </Section>
     );

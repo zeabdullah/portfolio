@@ -2,7 +2,7 @@ import { useState } from 'react';
 import clsx from 'clsx';
 import { RiMenuFill, RiCloseLine } from 'react-icons/ri/index.js';
 import { NavLink } from '@components/NavLink';
-import { navAndFooterCls, navBtnCls } from 'commonClasses';
+import { navAndFooterCls, navBtnCls } from 'common/classnames';
 import ThemeToggler from '@components/ThemeToggler';
 
 export default function Navbar(): JSX.Element {

@@ -8,6 +8,7 @@ import BtnLink from '@components/BtnLink';
 import Section from '@components/Section';
 import P from '@components/Typography/P';
 import Anchor from '@components/Typography/Anchor';
+import { githubProfileUrl } from 'common/variables';
 
 const sectionLabel = 'header-heading';
 export default function Header() {
@@ -104,7 +105,7 @@ const Socials: React.FC = () => (
     <div className={clsx('flex gap-2 flex-wrap', 'mt-16')}>
         <div className="contents mr-8">
             <IconLink
-                href="https://github.com/abdullahzeidan"
+                href={githubProfileUrl}
                 aria-label={githubLabel}
                 title={githubLabel}
                 external
@@ -112,7 +113,7 @@ const Socials: React.FC = () => (
                 <FaGithub role="img" aria-label={githubLabel} />
             </IconLink>
             <IconLink
-                href="https://www.linkedin.com/in/abdullah-z-b4653a213/"
+                href="https://www.linkedin.com/in/abdullah-zd"
                 aria-label={linkedinLabel}
                 title={linkedinLabel}
                 external

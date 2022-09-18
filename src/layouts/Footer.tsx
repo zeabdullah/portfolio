@@ -2,7 +2,10 @@ import clsx from 'clsx';
 import { FaGithub } from 'react-icons/fa/index.js';
 import AstroLogo from '@components/AstroLogo';
 import Anchor from '@components/Typography/Anchor';
-import { navAndFooterCls } from 'commonClasses';
+import { navAndFooterCls } from 'common/classnames';
+import { githubProfileUrl } from 'common/variables';
+
+const githubLabel = 'GitHub';
 
 export default function Footer() {
     return (
@@ -30,11 +33,9 @@ export default function Footer() {
                 </Anchor>
             </p>
             <p>
-                <Anchor
-                    href="https://github.com/abdullahzeidan/abdullahzeidan.github.io"
-                    title="GitHub"
-                >
-                    Source code on <FaGithub aria-label="GitHub" className="inline text-lg" />
+                <Anchor href={`${githubProfileUrl}/zeabdullah.github.io`} title={githubLabel}>
+                    Source code on{' '}
+                    <FaGithub aria-label={githubLabel} className="inline text-lg" />
                 </Anchor>
             </p>
         </footer>

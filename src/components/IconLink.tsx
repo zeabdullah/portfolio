@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { btnColors } from 'commonClasses';
+import { btnColors } from 'common/classnames';
 
 interface IconLinkProps extends React.ComponentPropsWithoutRef<'a'> {
     children: React.ReactNode;

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import { RiMoonClearFill, RiSunFill } from 'react-icons/ri/index.js';
-import { navBtnCls } from 'commonClasses';
+import { navBtnCls } from 'common/classnames';
 import { useTheme } from 'themeStore';
 
 /**
