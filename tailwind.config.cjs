@@ -4,6 +4,9 @@ module.exports = {
     darkMode: 'class',
     theme: {
         extend: {
+            screens: {
+                sm: '700px'
+            },
             fontFamily: {
                 sans: ['JetBrains Mono', 'Lucida Console', 'Monaco', 'monospace'],
             },

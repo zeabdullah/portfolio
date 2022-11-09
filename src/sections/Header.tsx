@@ -2,7 +2,7 @@ import { useState } from 'react'
 import clsx from 'clsx'
 import Typewriter from 'typewriter-effect'
 import { FaGithub, FaLinkedin } from 'react-icons/fa/index.js'
-import { MdAlternateEmail } from 'react-icons/md/index.js'
+import { MdPersonOutline } from 'react-icons/md/index.js'
 import IconLink from '@components/IconLink'
 import BtnLink from '@components/BtnLink'
 import Section from '@components/Section'
@@ -125,8 +125,8 @@ const Socials: React.FC = () => (
             </IconLink>
         </div>
 
-        <BtnLink href='mailto:abdullahzeidan@gmail.com'>
-            <MdAlternateEmail /> Email Me
+        <BtnLink href='mailto:abdullahzeidan@gmail.com' attractive>
+            <MdPersonOutline className='text-xl' /> Hire me
         </BtnLink>
     </div>
 )
