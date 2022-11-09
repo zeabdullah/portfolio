@@ -1,20 +1,20 @@
-import clsx from 'clsx';
-import TechStackText from './TechStackText';
+import clsx from 'clsx'
+import TechStackText from './TechStackText'
 
 export type ProjectCardProps = {
-    title: string;
-    link: string;
-    content: string;
-    stack: string;
-    image: string;
-    extraClasses?: string;
-};
+    title: string
+    link: string
+    content: string
+    stack: string
+    image: string
+    extraClasses?: string
+}
 export default function ProjectCard(props: ProjectCardProps): JSX.Element {
     return (
         <a
             href={props.link}
-            target="_blank"
-            rel="noreferrer noopener"
+            target='_blank'
+            rel='noreferrer noopener'
             className={clsx(
                 'flex justify-start items-start gap-4 flex-col sm:flex-row',
                 'bg-neutral-50 md:hover:bg-neutral-200 focus:bg-neutral-200',
@@ -29,14 +29,14 @@ export default function ProjectCard(props: ProjectCardProps): JSX.Element {
                 'transition',
             )}
         >
-            <div className="mr-4">
+            <div className='mr-4'>
                 <div
                     className={clsx(
                         'w-14 h-14 rounded-lg overflow-hidden',
                         props.extraClasses,
                     )}
                 >
-                    <img src={props.image} alt="" className="object-cover" />
+                    <img src={props.image} alt='' className='object-cover' />
                 </div>
             </div>
             <div>
@@ -47,7 +47,12 @@ export default function ProjectCard(props: ProjectCardProps): JSX.Element {
                         'mb-2',
                     )}
                 >
-                    <h3 className={clsx('text-lg font-bold dark:text-light', 'flex-shrink-0')}>
+                    <h3
+                        className={clsx(
+                            'text-lg font-bold dark:text-light',
+                            'flex-shrink-0',
+                        )}
+                    >
                         {props.title}
                     </h3>
                     <TechStackText>{props.stack}</TechStackText>
@@ -62,5 +67,5 @@ export default function ProjectCard(props: ProjectCardProps): JSX.Element {
                 </p>
             </div>
         </a>
-    );
+    )
 }

@@ -1,10 +1,15 @@
-import clsx from 'clsx';
+import clsx from 'clsx'
 
 interface AnchorProps extends React.ComponentPropsWithoutRef<'a'> {
-    href: string;
-    external?: boolean;
+    href: string
+    external?: boolean
 }
-export default function Anchor({ className, children, external, ...props }: AnchorProps) {
+export default function Anchor({
+    className,
+    children,
+    external,
+    ...props
+}: AnchorProps) {
     return (
         <a
             {...props}
@@ -20,5 +25,5 @@ export default function Anchor({ className, children, external, ...props }: Anch
         >
             {children}
         </a>
-    );
+    )
 }

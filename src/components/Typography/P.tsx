@@ -1,5 +1,5 @@
-import { ComponentPropsWithoutRef } from 'react';
-import clsx from 'clsx';
+import { ComponentPropsWithoutRef } from 'react'
+import clsx from 'clsx'
 
 export default function P({
     className,
@@ -19,5 +19,5 @@ export default function P({
         >
             {children}
         </p>
-    );
+    )
 }

@@ -1,1 +1,1 @@
-export const githubProfileUrl = "https://github.com/zeabdullah"
+export const githubProfileUrl = 'https://github.com/zeabdullah'

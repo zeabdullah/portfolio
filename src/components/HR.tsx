@@ -1,3 +1,3 @@
 export default function HR() {
-    return <hr className="dark:opacity-30" />;
+    return <hr className='dark:opacity-30' />
 }

@@ -1,22 +1,22 @@
-import { useState } from 'react';
-import clsx from 'clsx';
-import Typewriter from 'typewriter-effect';
-import { FaGithub, FaLinkedin } from 'react-icons/fa/index.js';
-import { MdAlternateEmail } from 'react-icons/md/index.js';
-import IconLink from '@components/IconLink';
-import BtnLink from '@components/BtnLink';
-import Section from '@components/Section';
-import P from '@components/Typography/P';
-import Anchor from '@components/Typography/Anchor';
-import { githubProfileUrl } from 'common/variables';
+import { useState } from 'react'
+import clsx from 'clsx'
+import Typewriter from 'typewriter-effect'
+import { FaGithub, FaLinkedin } from 'react-icons/fa/index.js'
+import { MdAlternateEmail } from 'react-icons/md/index.js'
+import IconLink from '@components/IconLink'
+import BtnLink from '@components/BtnLink'
+import Section from '@components/Section'
+import P from '@components/Typography/P'
+import Anchor from '@components/Typography/Anchor'
+import { githubProfileUrl } from 'common/variables'
 
-const sectionLabel = 'header-heading';
+const sectionLabel = 'header-heading'
 export default function Header() {
-    const [firstTyperDone, setFirstTyperDone] = useState(false);
-    const endFirstTypewriter = () => setFirstTyperDone(true);
+    const [firstTyperDone, setFirstTyperDone] = useState(false)
+    const endFirstTypewriter = () => setFirstTyperDone(true)
 
     return (
-        <Section id="header" role="banner" aria-labelledby={sectionLabel}>
+        <Section id='header' role='banner' aria-labelledby={sectionLabel}>
             <h1
                 id={sectionLabel}
                 className={clsx(
@@ -45,7 +45,7 @@ export default function Header() {
                                         .typeString('Abdullah.')
                                         .pauseFor(250)
                                         .callFunction(endFirstTypewriter)
-                                        .start();
+                                        .start()
                                 }}
                             />
                         </>
@@ -63,29 +63,32 @@ export default function Header() {
                                 .deleteChars(9)
                                 .pauseFor(250)
                                 .typeString('greater place.')
-                                .start();
+                                .start()
                         }}
                     />
                 )}
             </h1>
             <article>
                 <P>
-                    I'm a developer with over a year of experience. I like to make awesome
-                    things on the web and see people enjoy and benefit from them.
+                    I'm a developer with over a year of experience. I like to
+                    make awesome things on the web and see people enjoy and
+                    benefit from them.
                 </P>
                 <P>
                     As a current software engineer at{' '}
-                    <Anchor href="https://distin-gui.com" external>
+                    <Anchor href='https://distin-gui.com' external>
                         Distin-Gui
                     </Anchor>
-                    , I work on creating web experiences for clients small and large.
+                    , I work on creating web experiences for clients small and
+                    large.
                 </P>
                 <P>
-                    Frontend development is my focus, and I love to develop some CLI projects
-                    on the side for fun. I've also been recently interested in reading books
-                    about software development, such as{' '}
+                    Frontend development is my focus, and I love to develop some
+                    CLI projects on the side for fun. I've also been recently
+                    interested in reading books about software development, such
+                    as{' '}
                     <Anchor
-                        href="https://www.oreilly.com/library/view/the-clean-coder/9780132542913"
+                        href='https://www.oreilly.com/library/view/the-clean-coder/9780132542913'
                         external
                     >
                         Clean Coder
@@ -95,35 +98,35 @@ export default function Header() {
             </article>
             <Socials />
         </Section>
-    );
+    )
 }
 
-const linkedinLabel = 'LinkedIn';
-const githubLabel = 'GitHub';
+const linkedinLabel = 'LinkedIn'
+const githubLabel = 'GitHub'
 
 const Socials: React.FC = () => (
     <div className={clsx('flex gap-2 flex-wrap', 'mt-16')}>
-        <div className="contents mr-8">
+        <div className='contents mr-8'>
             <IconLink
                 href={githubProfileUrl}
                 aria-label={githubLabel}
                 title={githubLabel}
                 external
             >
-                <FaGithub role="img" aria-label={githubLabel} />
+                <FaGithub role='img' aria-label={githubLabel} />
             </IconLink>
             <IconLink
-                href="https://www.linkedin.com/in/abdullah-zd"
+                href='https://www.linkedin.com/in/abdullah-zd'
                 aria-label={linkedinLabel}
                 title={linkedinLabel}
                 external
             >
-                <FaLinkedin role="img" aria-label={linkedinLabel} />
+                <FaLinkedin role='img' aria-label={linkedinLabel} />
             </IconLink>
         </div>
 
-        <BtnLink href="mailto:abdullahzeidan@gmail.com">
+        <BtnLink href='mailto:abdullahzeidan@gmail.com'>
             <MdAlternateEmail /> Email Me
         </BtnLink>
     </div>
-);
+)

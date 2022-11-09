@@ -1,5 +1,5 @@
-import { ComponentPropsWithoutRef } from 'react';
-import clsx from 'clsx';
+import { ComponentPropsWithoutRef } from 'react'
+import clsx from 'clsx'
 
 export default function Section({
     className,
@@ -10,5 +10,5 @@ export default function Section({
         <section className={clsx('py-12 md:py-16', className)} {...props}>
             {children}
         </section>
-    );
+    )
 }

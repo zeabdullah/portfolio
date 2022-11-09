@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import clsx from 'clsx'
 
 const TechStackText: React.FC<{ children: React.ReactNode }> = props => {
     return (
@@ -13,7 +13,7 @@ const TechStackText: React.FC<{ children: React.ReactNode }> = props => {
                 ({props.children})
             </p>
         </em>
-    );
-};
+    )
+}
 
-export default TechStackText;
+export default TechStackText

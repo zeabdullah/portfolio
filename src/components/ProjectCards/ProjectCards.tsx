@@ -1,12 +1,13 @@
-import clsx from 'clsx';
-import { githubProfileUrl } from 'common/variables';
-import ProjectCard, { ProjectCardProps } from './ProjectCard';
+import clsx from 'clsx'
+import { githubProfileUrl } from 'common/variables'
+import ProjectCard, { ProjectCardProps } from './ProjectCard'
 
 const PROJECT_LIST: ProjectCardProps[] = [
     {
         title: 'IMT',
         link: 'http://imt-med.com',
-        content: 'A landing page for a medical company client, powered by Astro.',
+        content:
+            'A landing page for a medical company client, powered by Astro.',
         stack: 'React, TypeScript, Tailwind, Astro.js',
         image: '/images/astro-logo.png',
         extraClasses: 'bg-stone-800',
@@ -40,7 +41,8 @@ const PROJECT_LIST: ProjectCardProps[] = [
     {
         title: 'react-scaffold',
         link: `${githubProfileUrl}/react-scaffold`,
-        content: 'Scaffold your React app from the command line. Built with TypeScript',
+        content:
+            'Scaffold your React app from the command line. Built with TypeScript',
         stack: 'Node.js, TypeScript, oclif, Mocha TDD',
         image: '/images/react-logo2.png',
         extraClasses: 'py-2 px-1 bg-slate-800',
@@ -54,14 +56,14 @@ const PROJECT_LIST: ProjectCardProps[] = [
         image: '/images/js-logo.png',
         extraClasses: 'p-1 bg-[#f7e018]',
     },
-];
+]
 
 export default function ProjectCards() {
     return (
-        <div id="project-cards" className={clsx('grid gap-6', 'group')}>
+        <div id='project-cards' className={clsx('grid gap-6', 'group')}>
             {PROJECT_LIST.map(project => (
                 <ProjectCard key={project.title} {...project} />
             ))}
         </div>
-    );
+    )
 }

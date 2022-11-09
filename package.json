@@ -1,36 +1,39 @@
 {
-  "name": "portfolio",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "devDependencies": {
-    "@astrojs/react": "^1.0.0",
-    "@astrojs/tailwind": "^1.0.0",
-    "@nanostores/persistent": "^0.6.1",
-    "@nanostores/react": "^0.3.0",
-    "@types/react": "^18.0.10",
-    "@types/react-dom": "^18.0.5",
-    "@typescript-eslint/parser": "^5.34.0",
-    "astro": "^1.0.8",
-    "astro-compress": "^1.0.6",
-    "astro-seo": "^0.6.0",
-    "clsx": "^1.2.1",
-    "eslint": "^8.22.0",
-    "eslint-plugin-astro": "^0.17.1",
-    "eslint-plugin-jsx-a11y": "^6.6.1",
-    "nanostores": "^0.6.0",
-    "react-icons": "^4.4.0",
-    "react-motion": "^0.5.2",
-    "typewriter-effect": "^2.19.0"
-  },
-  "dependencies": {
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0"
-  }
+    "name": "portfolio",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "astro dev",
+        "start": "astro dev",
+        "lint": "eslint --fix && prettier --write .",
+        "build": "astro build",
+        "preview": "astro preview",
+        "astro": "astro"
+    },
+    "devDependencies": {
+        "@astrojs/react": "^1.0.0",
+        "@astrojs/tailwind": "^1.0.0",
+        "@nanostores/persistent": "^0.6.1",
+        "@nanostores/react": "^0.3.0",
+        "@types/react": "^18.0.10",
+        "@types/react-dom": "^18.0.5",
+        "@typescript-eslint/parser": "^5.34.0",
+        "astro": "^1.0.8",
+        "astro-compress": "^1.0.6",
+        "astro-seo": "^0.6.0",
+        "clsx": "^1.2.1",
+        "eslint": "^8.22.0",
+        "eslint-plugin-astro": "^0.17.1",
+        "eslint-plugin-jsx-a11y": "^6.6.1",
+        "nanostores": "^0.6.0",
+        "prettier": "^2.7.1",
+        "prettier-plugin-astro": "^0.7.0",
+        "react-icons": "^4.4.0",
+        "react-motion": "^0.5.2",
+        "typewriter-effect": "^2.19.0"
+    },
+    "dependencies": {
+        "react": "^18.1.0",
+        "react-dom": "^18.1.0"
+    }
 }

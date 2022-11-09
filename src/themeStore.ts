@@ -1,27 +1,26 @@
-import { useState, useEffect } from 'react';
-import { persistentAtom } from '@nanostores/persistent';
+import { useState, useEffect } from 'react'
+import { persistentAtom } from '@nanostores/persistent'
 
-type Theme = 'light' | 'dark';
-const themeStore = persistentAtom<Theme>('theme', 'dark');
-
+type Theme = 'light' | 'dark'
+const themeStore = persistentAtom<Theme>('theme', 'dark')
 
 function toggleTheme(themeVal: Theme = themeStore.get()) {
     if (themeVal === 'dark') {
-        themeStore.set('light');
+        themeStore.set('light')
     } else {
-        themeStore.set('dark');
+        themeStore.set('dark')
     }
 }
 
 export const useTheme = () => {
-    const [isDark, setIsDark] = useState(true);
+    const [isDark, setIsDark] = useState(true)
 
     useEffect(() => {
-        const unsub = themeStore.subscribe(theme => setIsDark(theme === 'dark'));
-        return unsub;
-    }, []);
+        const unsub = themeStore.subscribe(theme => setIsDark(theme === 'dark'))
+        return unsub
+    }, [])
 
-    return { isDarkMode: isDark, toggleTheme };
-};
+    return { isDarkMode: isDark, toggleTheme }
+}
 
-export default themeStore;
+export default themeStore
