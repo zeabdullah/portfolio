@@ -38,6 +38,7 @@ export default function Resume() {
                     src='https://drive.google.com/file/d/1F46afVwdRy_cAWP1FPXgCc2enqv-0rQp/preview'
                     width='100%'
                     className='min-h-[50rem]'
+                    loading='lazy'
                     allow='autoplay'
                 ></iframe>
             </div>
