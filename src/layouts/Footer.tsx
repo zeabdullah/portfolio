@@ -16,7 +16,7 @@ export default function Footer() {
                 navAndFooterCls,
                 'space-y-4',
                 'text-sm text-center',
-                'bg-neutral-100 dark:bg-dark daxt-light',
+                'bg-neutral-100 dark:bg-dark dark:text-light',
                 'border-t',
             )}
         >
