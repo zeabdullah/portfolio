@@ -1,24 +1,25 @@
 ---
-import Head from "./Head.astro";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import InnerLayout from "./InnerLayout";
+import Head from './Head.astro'
+import Navbar from './Navbar'
+import Footer from './Footer'
+import InnerLayout from './InnerLayout'
 ---
 
-<html lang="en">
-	<Head />
-	<body>
-		<InnerLayout client:load>
-			<main
-				class:list={[
-					"bg-light text-dark dark:bg-dark dark:text-light",
-					"transition-colors duration-300",
-				]}
-			>
-				<Navbar client:load />
-				<slot />
-				<Footer />
-			</main>
-		</InnerLayout>
-	</body>
+<html lang='en'>
+    <Head />
+
+    <body>
+        <InnerLayout client:load>
+            <main
+                class:list={[
+                    'bg-light text-dark dark:bg-dark dark:text-light',
+                    'transition-colors duration-300',
+                ]}
+            >
+                <Navbar client:load />
+                <slot />
+                <Footer />
+            </main>
+        </InnerLayout>
+    </body>
 </html>

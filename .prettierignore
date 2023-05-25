@@ -29,3 +29,4 @@ pnpm-lock.yml
 *.config.cjs
 *.config.mjs
 *.config.js
+tsconfig.json
