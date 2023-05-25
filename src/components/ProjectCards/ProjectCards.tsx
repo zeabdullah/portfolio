@@ -44,7 +44,7 @@ const PROJECT_LIST: ProjectCardProps[] = [
         content:
             'Scaffold your React app from the command line. Built with TypeScript',
         stack: 'Node.js, TypeScript, oclif, Mocha TDD',
-        image: '/images/react-logo2.png',
+        image: '/images/react-logo.png',
         extraClasses: 'py-2 px-1 bg-slate-800',
     },
     {
