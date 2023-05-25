@@ -2,15 +2,15 @@ import clsx from 'clsx'
 import { type IconType } from 'react-icons/lib'
 import { FaReact, FaBootstrap, FaNodeJs } from 'react-icons/fa/index.js'
 import {
-    SiRedux,
     SiTailwindcss,
     SiVisualstudiocode,
     SiTypescript,
+    SiNextdotjs,
 } from 'react-icons/si/index.js'
-import H2 from '@components/Typography/H2'
-import Section from '@components/Section'
-import Subtitle from '@components/Typography/Subtitle'
-import SectionHeading from '@components/SectionHeading'
+import H2 from '@/components/Typography/H2'
+import Section from '@/components/Section'
+import Subtitle from '@/components/Typography/Subtitle'
+import SectionHeading from '@/components/SectionHeading'
 
 const title = 'Technologies'
 const logoCls = clsx(
@@ -30,15 +30,15 @@ const ICONS: { label: string; iconName: IconType; classes?: string }[] = [
         iconName: SiTypescript,
         classes: clsx(
             logoCls,
-            'hover:text-blue-700 hover:scale-110 duration-200',
+            'hover:text-blue-600 hover:scale-110 duration-200',
         ),
     },
     {
-        label: 'Redux',
-        iconName: SiRedux,
+        label: 'Next.js',
+        iconName: SiNextdotjs,
         classes: clsx(
             logoCls,
-            'hover:text-purple-700 hover:scale-110 duration-200',
+            'hover:text-dark dark:hover:text-light hover:scale-110 duration-200',
         ),
     },
     {
@@ -48,11 +48,6 @@ const ICONS: { label: string; iconName: IconType; classes?: string }[] = [
             logoCls,
             'hover:rotate-90 hover:text-sky-600 duration-500',
         ),
-    },
-    {
-        label: 'Bootstrap',
-        iconName: FaBootstrap,
-        classes: clsx(logoCls, 'hover:text-fuchsia-700 hover:-rotate-12'),
     },
     {
         label: 'Tailwind',
@@ -84,7 +79,7 @@ export default function Technologies() {
                     'group',
                 )}
             >
-                {ICONS.map(({ label, classes, ...icon }) => (
+                {ICONS.map(({ label, classes, iconName: IconName }) => (
                     <div
                         key={label}
                         role='presentation'
@@ -92,11 +87,7 @@ export default function Technologies() {
                         title={label}
                         className={classes}
                     >
-                        <icon.iconName
-                            role='img'
-                            aria-label={label}
-                            title={label}
-                        />
+                        <IconName role='img' aria-label={label} title={label} />
                     </div>
                 ))}
             </div>

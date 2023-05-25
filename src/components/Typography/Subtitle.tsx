@@ -1,4 +1,4 @@
-import BlinkingCursor from '@components/BlinkingCursor'
+import BlinkingCursor from '@/components/BlinkingCursor'
 import clsx from 'clsx'
 import { ComponentPropsWithoutRef } from 'react'
 import P from './P'

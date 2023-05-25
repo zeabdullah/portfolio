@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import clsx from 'clsx'
 import { RiMenuFill, RiCloseLine } from 'react-icons/ri/index.js'
-import { NavLink } from '@components/NavLink'
+import { NavLink } from '@/components/NavLink'
 import { navAndFooterCls, navBtnCls } from 'common/classnames'
-import ThemeToggler from '@components/ThemeToggler'
+import ThemeToggler from '@/components/ThemeToggler'
 
 const LINKS = [
     { id: 'l-hero', href: '#', text: 'Intro' },
@@ -18,25 +18,12 @@ export default function Navbar(): JSX.Element {
     const toggleNavCollapse = () => setMobileNavActive(!mobileNavActive)
     const hideMobileNav = () => setMobileNavActive(false)
 
-    const NavCollapseToggler = (
-        <button
-            type='button'
-            title='Menu'
-            aria-label='Menu'
-            className={clsx(navBtnCls, 'sm:hidden', 'text-2xl')}
-            onClick={toggleNavCollapse}
-        >
-            {mobileNavActive ? <RiCloseLine /> : <RiMenuFill />}
-        </button>
-    )
-
     return (
         <>
-            <div className={clsx('SPACER', 'h-20')} />
             <nav
                 id='navbar'
                 className={clsx(
-                    'fixed z-10 top-0 min-w-full',
+                    'sticky z-10 top-0 min-w-full',
                     'flex justify-between items-center flex-wrap sm:flex-no-wrap',
                     mobileNavActive
                         ? 'bg-neutral-100 !bg-opacity-90 dark:!bg-opacity-90'
@@ -59,7 +46,15 @@ export default function Navbar(): JSX.Element {
 
                 <span className='space-x-4'>
                     <ThemeToggler />
-                    {NavCollapseToggler}
+                    <button
+                        type='button'
+                        title='Menu'
+                        aria-label='Menu'
+                        className={clsx(navBtnCls, 'sm:hidden', 'text-2xl')}
+                        onClick={toggleNavCollapse}
+                    >
+                        {mobileNavActive ? <RiCloseLine /> : <RiMenuFill />}
+                    </button>
                 </span>
                 <div
                     className={clsx(

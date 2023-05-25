@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { FaGithub } from 'react-icons/fa/index.js'
-import AstroLogo from '@components/AstroLogo'
-import Anchor from '@components/Typography/Anchor'
+import AstroLogo from '@/components/AstroLogo'
+import Anchor from '@/components/Typography/Anchor'
 import { navAndFooterCls } from 'common/classnames'
 import { githubProfileUrl } from 'common/variables'
 

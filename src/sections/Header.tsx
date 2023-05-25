@@ -3,14 +3,15 @@ import clsx from 'clsx'
 import Typewriter from 'typewriter-effect'
 import { FaGithub, FaLinkedin } from 'react-icons/fa/index.js'
 import { MdPersonOutline } from 'react-icons/md/index.js'
-import IconLink from '@components/IconLink'
-import BtnLink from '@components/BtnLink'
-import Section from '@components/Section'
-import P from '@components/Typography/P'
-import Anchor from '@components/Typography/Anchor'
+import IconLink from '@/components/IconLink'
+import BtnLink from '@/components/BtnLink'
+import Section from '@/components/Section'
+import P from '@/components/Typography/P'
+import Anchor from '@/components/Typography/Anchor'
 import { githubProfileUrl } from 'common/variables'
 
 const sectionLabel = 'header-heading'
+
 export default function Header() {
     const [firstTyperDone, setFirstTyperDone] = useState(false)
     const endFirstTypewriter = () => setFirstTyperDone(true)

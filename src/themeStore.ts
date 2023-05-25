@@ -16,8 +16,7 @@ export const useTheme = () => {
     const [isDark, setIsDark] = useState(true)
 
     useEffect(() => {
-        const unsub = themeStore.subscribe(theme => setIsDark(theme === 'dark'))
-        return unsub
+        return themeStore.subscribe(theme => setIsDark(theme === 'dark'))
     }, [])
 
     return { isDarkMode: isDark, toggleTheme }

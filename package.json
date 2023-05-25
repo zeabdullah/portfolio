@@ -8,7 +8,9 @@
         "lint": "eslint --fix && prettier --write .",
         "build": "astro build",
         "preview": "astro preview",
-        "astro": "astro"
+        "astro": "astro",
+        "prepare": "husky install",
+        "precommit": "npm run lint"
     },
     "devDependencies": {
         "@astrojs/react": "^1.0.0",
@@ -25,11 +27,11 @@
         "eslint": "^8.22.0",
         "eslint-plugin-astro": "^0.17.1",
         "eslint-plugin-jsx-a11y": "^6.6.1",
+        "husky": "^8.0.3",
         "nanostores": "^0.6.0",
         "prettier": "^2.7.1",
         "prettier-plugin-astro": "^0.7.0",
         "react-icons": "^4.4.0",
-        "react-motion": "^0.5.2",
         "typewriter-effect": "^2.19.0"
     },
     "dependencies": {
