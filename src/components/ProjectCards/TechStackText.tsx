@@ -1,6 +1,10 @@
 import clsx from 'clsx'
 
-const TechStackText: React.FC<{ children: React.ReactNode }> = props => {
+export default function TechStackText({
+    children,
+}: {
+    children?: React.ReactNode
+}) {
     return (
         <em>
             <p
@@ -10,10 +14,8 @@ const TechStackText: React.FC<{ children: React.ReactNode }> = props => {
                     'flex-shrink',
                 )}
             >
-                ({props.children})
+                ({children})
             </p>
         </em>
     )
 }
-
-export default TechStackText
