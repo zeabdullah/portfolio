@@ -5,7 +5,7 @@ export const btnColors = clsx(
     'dark:text-neutral-400 dark:hover:text-light dark:focus:text-light',
     'hover:bg-neutral-300 focus:bg-neutral-300',
     'dark:hover:bg-opacity-25 dark:focus:bg-opacity-25',
-    'transition-colors',
+    'transition-colors hover:duration-75',
 )
 
 export const navItemCls = clsx(
