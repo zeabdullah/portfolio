@@ -15,19 +15,7 @@ export default function ProjectCard(props: ProjectCardProps): JSX.Element {
             href={props.link}
             target='_blank'
             rel='noreferrer noopener'
-            className={cn(
-                'flex flex-col items-start justify-start gap-4 sm:flex-row',
-                'bg-neutral-50 focus:bg-neutral-200 md:hover:bg-neutral-200',
-                'dark:bg-neutral-800/75 dark:md:hover:bg-neutral-700 dark:md:focus:bg-neutral-700',
-                'rounded-md p-8',
-                'border border-neutral-200 focus:border-neutral-400 md:hover:border-neutral-400',
-                'dark:border-neutral-800 dark:focus:border-neutral-600 dark:md:hover:border-neutral-600',
-                'shadow-sm dark:shadow-none',
-                'md:group-hover:opacity-50 md:dark:group-hover:opacity-40',
-                'hover:!opacity-100 focus:!opacity-100',
-                'lg:hover:scale-[1.075]',
-                'transition',
-            )}
+            className='flex flex-col items-start justify-start gap-4 rounded-md border border-neutral-200 bg-neutral-50 p-8 shadow-sm transition hover:!opacity-100 focus:border-neutral-400 focus:bg-neutral-200 focus:!opacity-100 dark:border-neutral-800 dark:bg-neutral-800/75 dark:shadow-none dark:focus:border-neutral-600 sm:flex-row md:hover:border-neutral-400 md:hover:bg-neutral-200 md:group-hover:opacity-50 dark:md:hover:border-neutral-600 dark:md:hover:bg-neutral-700 dark:md:focus:bg-neutral-700 md:dark:group-hover:opacity-40 lg:hover:scale-[1.075]'
         >
             <div className='mr-4'>
                 <div
@@ -40,29 +28,13 @@ export default function ProjectCard(props: ProjectCardProps): JSX.Element {
                 </div>
             </div>
             <div>
-                <div
-                    className={cn(
-                        'flex gap-x-5',
-                        'flex-col sm:flex-row sm:items-center',
-                        'mb-2',
-                    )}
-                >
-                    <h3
-                        className={cn(
-                            'text-lg font-bold dark:text-light',
-                            'flex-shrink-0',
-                        )}
-                    >
+                <div className='mb-2 flex flex-col gap-x-5 sm:flex-row sm:items-center'>
+                    <h3 className='flex-shrink-0 text-lg font-bold dark:text-light'>
                         {props.title}
                     </h3>
                     <TechStackText>{props.stack}</TechStackText>
                 </div>
-                <p
-                    className={cn(
-                        'text-neutral-800 dark:text-light',
-                        'text-md font-light leading-relaxed',
-                    )}
-                >
+                <p className='text-md font-light leading-relaxed text-neutral-800 dark:text-light'>
                     {props.content}
                 </p>
             </div>

@@ -1,4 +1,3 @@
-import clsx from 'clsx'
 import { useState } from 'react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { MdPersonOutline } from 'react-icons/md'
@@ -20,19 +19,9 @@ export default function HeroSection() {
         <Section id='header' role='banner' aria-labelledby={sectionLabel}>
             <h1
                 id={sectionLabel}
-                className={clsx(
-                    'text-3xl font-medium !leading-snug sm:text-4xl md:text-5xl',
-                    'max-w-xl md:max-w-3xl',
-                    'mb-12 md:mb-16',
-                )}
+                className='mb-12 max-w-xl text-3xl font-medium !leading-snug sm:text-4xl md:mb-16 md:max-w-3xl md:text-5xl'
             >
-                <strong
-                    className={clsx(
-                        'block',
-                        'text-4xl font-extrabold sm:text-5xl md:text-6xl',
-                        'mb-4',
-                    )}
-                >
+                <strong className='mb-4 block text-4xl font-extrabold sm:text-5xl md:text-6xl'>
                     {firstTyperDone ? (
                         <>I&apos;m Abdullah.</>
                     ) : (
@@ -106,7 +95,7 @@ const linkedinLabel = 'LinkedIn'
 const githubLabel = 'GitHub'
 
 const Socials: React.FC = () => (
-    <div className={clsx('flex flex-wrap gap-2', 'mt-16')}>
+    <div className='mt-16 flex flex-wrap gap-2'>
         <div className='mr-8 contents'>
             <IconLink
                 href={githubProfileUrl}

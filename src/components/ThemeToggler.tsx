@@ -24,8 +24,7 @@ export default function ThemeToggler() {
             type='button'
             className={cn(
                 navBtnCls,
-                'text-2xl',
-                'disabled:cursor-not-allowed disabled:opacity-30',
+                'text-2xl disabled:cursor-not-allowed disabled:opacity-30',
             )}
             aria-label='Toggle Theme'
             title={isEnabled ? 'Toggle Theme' : 'Awaiting script to load...'}

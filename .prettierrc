@@ -10,6 +10,7 @@
     "importOrder": ["<THIRD_PARTY_MODULES>", "^@/(.*)$", "^[./]"],
     "plugins": ["@trivago/prettier-plugin-sort-imports"],
     "pluginSearchDirs": ["."],
+    "tailwindFunctions": ["tw", "clsx", "cn"],
     "trailingComma": "all",
     "bracketSameLine": false
 }

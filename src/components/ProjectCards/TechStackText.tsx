@@ -1,5 +1,3 @@
-import clsx from 'clsx'
-
 export default function TechStackText({
     children,
 }: {
@@ -7,13 +5,7 @@ export default function TechStackText({
 }) {
     return (
         <em>
-            <p
-                className={clsx(
-                    'text-neutral-700 dark:text-neutral-300',
-                    'text-xs',
-                    'flex-shrink',
-                )}
-            >
+            <p className='flex-shrink text-xs text-neutral-700 dark:text-neutral-300'>
                 ({children})
             </p>
         </em>

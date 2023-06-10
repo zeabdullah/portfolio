@@ -60,7 +60,7 @@ const PROJECT_LIST: ProjectCardProps[] = [
 
 export default function ProjectCards() {
     return (
-        <div id='project-cards' className={clsx('grid gap-6', 'group')}>
+        <div id='project-cards' className='group grid gap-6'>
             {PROJECT_LIST.map(project => (
                 <ProjectCard key={project.title} {...project} />
             ))}

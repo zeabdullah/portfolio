@@ -1,4 +1,3 @@
-import clsx from 'clsx'
 import { FaReact, FaNodeJs } from 'react-icons/fa'
 import { type IconType } from 'react-icons/lib'
 import {
@@ -11,9 +10,10 @@ import Section from '@/components/Section'
 import SectionHeading from '@/components/SectionHeading'
 import H2 from '@/components/Typography/H2'
 import Subtitle from '@/components/Typography/Subtitle'
+import { cn } from '@/utils/dom'
 
 const title = 'Technologies'
-const logoCls = clsx(
+const logoCls = cn(
     'opacity-60 group-hover:opacity-40 hover:!opacity-100',
     'duration-300',
     'transition',
@@ -23,12 +23,12 @@ const ICONS: { label: string; iconName: IconType; classes?: string }[] = [
     {
         label: 'Visual Studio Code',
         iconName: SiVisualstudiocode,
-        classes: clsx(logoCls, 'hover:text-blue-500 hover:-rotate-6'),
+        classes: cn(logoCls, 'hover:text-blue-500 hover:-rotate-6'),
     },
     {
         label: 'TypeScript',
         iconName: SiTypescript,
-        classes: clsx(
+        classes: cn(
             logoCls,
             'hover:text-blue-600 hover:scale-110 duration-200',
         ),
@@ -36,7 +36,7 @@ const ICONS: { label: string; iconName: IconType; classes?: string }[] = [
     {
         label: 'Next.js',
         iconName: SiNextdotjs,
-        classes: clsx(
+        classes: cn(
             logoCls,
             'hover:text-dark dark:hover:text-light hover:scale-110 duration-200',
         ),
@@ -44,20 +44,17 @@ const ICONS: { label: string; iconName: IconType; classes?: string }[] = [
     {
         label: 'React',
         iconName: FaReact,
-        classes: clsx(
-            logoCls,
-            'hover:rotate-90 hover:text-sky-600 duration-500',
-        ),
+        classes: cn(logoCls, 'hover:rotate-90 hover:text-sky-600 duration-500'),
     },
     {
         label: 'Tailwind',
         iconName: SiTailwindcss,
-        classes: clsx(logoCls, 'hover:text-cyan-600 hover:rotate-12'),
+        classes: cn(logoCls, 'hover:text-cyan-600 hover:rotate-12'),
     },
     {
         label: 'Node.js',
         iconName: FaNodeJs,
-        classes: clsx(logoCls, 'hover:text-green-600 hover:scale-110'),
+        classes: cn(logoCls, 'hover:text-green-600 hover:scale-110'),
     },
 ]
 
@@ -73,7 +70,7 @@ export default function Technologies() {
 
             <div
                 id='tech-logos'
-                className={clsx(
+                className={cn(
                     'flex flex-wrap justify-center gap-6 sm:gap-8',
                     'text-4xl sm:text-5xl',
                     'group',

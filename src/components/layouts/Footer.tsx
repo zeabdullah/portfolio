@@ -1,9 +1,9 @@
-import clsx from 'clsx'
 import { FaGithub } from 'react-icons/fa'
-import { navAndFooterCls } from '@/common/classnames'
+import { navAndFooterClassName } from '@/common/classnames'
 import { githubProfileUrl } from '@/common/variables'
 import AstroLogo from '@/components/AstroLogo'
 import Anchor from '@/components/Typography/Anchor'
+import { cn } from '@/utils/dom'
 
 const githubLabel = 'GitHub'
 
@@ -12,12 +12,9 @@ export default function Footer() {
         <footer
             role='contentinfo'
             id='footer'
-            className={clsx(
-                navAndFooterCls,
-                'space-y-4',
-                'text-center text-sm',
-                'bg-neutral-100 dark:bg-dark dark:text-light',
-                'border-t',
+            className={cn(
+                navAndFooterClassName,
+                'space-y-4 border-t bg-neutral-100 text-center text-sm dark:bg-dark dark:text-light',
             )}
         >
             <p>

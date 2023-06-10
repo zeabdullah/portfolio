@@ -1,4 +1,4 @@
-import clsx from 'clsx'
+import { cn } from '@/utils/dom'
 
 interface AnchorProps extends React.ComponentPropsWithoutRef<'a'> {
     href: string
@@ -18,10 +18,8 @@ export default function Anchor({
             {...props}
             target={external ? '_blank' : undefined}
             rel={external ? 'noreferrer noopener' : undefined}
-            className={clsx(
-                'underline underline-offset-4',
-                'hover:bg-neutral-200 hover:font-bold',
-                'dark:bg-opacity-[0.15]',
+            className={cn(
+                'underline underline-offset-4 hover:bg-neutral-200 hover:font-bold dark:bg-opacity-[0.15]',
                 className,
             )}
         >

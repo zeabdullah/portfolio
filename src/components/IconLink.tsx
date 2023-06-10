@@ -1,4 +1,4 @@
-import { btnColors } from '@/common/classnames'
+import { btnColorsCls } from '@/common/classnames'
 import { cn } from '@/utils/dom'
 
 interface IconLinkProps extends React.ComponentPropsWithoutRef<'a'> {
@@ -12,7 +12,7 @@ export default function IconLink({
 }: IconLinkProps) {
     return (
         <a
-            className={cn('rounded-md p-2 text-2xl', btnColors, className)}
+            className={cn('rounded-md p-2 text-2xl', btnColorsCls, className)}
             target={external ? '_blank' : undefined}
             rel={external ? 'noreferrer noopener' : undefined}
             {...props}

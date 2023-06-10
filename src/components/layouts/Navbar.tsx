@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { RiMenuFill, RiCloseLine } from 'react-icons/ri'
-import { navAndFooterCls, navBtnCls } from '@/common/classnames'
+import { navAndFooterClassName, navBtnCls } from '@/common/classnames'
 import { NavLink } from '@/components/NavLink'
 import ThemeToggler from '@/components/ThemeToggler'
 import { cn } from '@/utils/dom'
@@ -27,7 +27,7 @@ export default function Navbar() {
                     mobileNavActive
                         ? 'bg-neutral-100 !bg-opacity-90 dark:!bg-opacity-90'
                         : 'bg-light',
-                    navAndFooterCls,
+                    navAndFooterClassName,
                 )}
             >
                 <div className='flex-grow'>
@@ -54,11 +54,10 @@ export default function Navbar() {
                 </span>
                 <div
                     className={cn(
+                        'mt-8 sm:mt-auto sm:flex sm:basis-auto sm:flex-row sm:items-center sm:gap-1',
                         mobileNavActive
                             ? 'flex basis-full flex-col items-stretch justify-between gap-4'
                             : 'hidden',
-                        'sm:flex sm:basis-auto sm:flex-row sm:items-center sm:gap-1',
-                        'mt-8 sm:mt-auto',
                     )}
                 >
                     {LINKS.map(({ id, ...props }) => (
