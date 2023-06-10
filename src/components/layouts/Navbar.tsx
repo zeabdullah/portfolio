@@ -6,13 +6,13 @@ import ThemeToggler from '@/components/ThemeToggler'
 import { cn } from '@/utils/dom'
 
 const LINKS = [
-    { id: 'l-hero', href: '#', text: 'Intro' },
-    { id: 'l-projects', href: '#projects', text: 'Projects' },
-    { id: 'l-tech', href: '#tech', text: 'Technologies' },
-    { id: 'l-resume', href: '#resume', text: 'Resume' },
+    { id: 'l-hero', href: '#', children: 'Intro' },
+    { id: 'l-projects', href: '#projects', children: 'Projects' },
+    { id: 'l-tech', href: '#tech', children: 'Technologies' },
+    { id: 'l-resume', href: '#resume', children: 'Resume' },
 ]
 
-export default function Navbar(): JSX.Element {
+export default function Navbar() {
     const [mobileNavActive, setMobileNavActive] = useState(false)
 
     const toggleNavCollapse = () => setMobileNavActive(!mobileNavActive)
@@ -23,14 +23,10 @@ export default function Navbar(): JSX.Element {
             <nav
                 id='navbar'
                 className={cn(
-                    'sticky z-10 top-0 min-w-full',
-                    'flex justify-between items-center flex-wrap sm:flex-no-wrap',
+                    'sticky top-0 z-10 flex min-w-full flex-wrap items-center justify-between border-b bg-opacity-70 backdrop-blur-[10px] dark:bg-dark dark:bg-opacity-70 dark:text-light sm:flex-nowrap',
                     mobileNavActive
                         ? 'bg-neutral-100 !bg-opacity-90 dark:!bg-opacity-90'
                         : 'bg-light',
-                    'bg-opacity-70 dark:bg-opacity-70 backdrop-blur-[10px]',
-                    'dark:bg-dark dark:text-light',
-                    'border-b',
                     navAndFooterCls,
                 )}
             >
@@ -50,7 +46,7 @@ export default function Navbar(): JSX.Element {
                         type='button'
                         title='Menu'
                         aria-label='Menu'
-                        className={cn(navBtnCls, 'sm:hidden', 'text-2xl')}
+                        className={cn(navBtnCls, 'text-2xl sm:hidden')}
                         onClick={toggleNavCollapse}
                     >
                         {mobileNavActive ? <RiCloseLine /> : <RiMenuFill />}
@@ -59,16 +55,14 @@ export default function Navbar(): JSX.Element {
                 <div
                     className={cn(
                         mobileNavActive
-                            ? 'flex flex-col justify-between items-stretch gap-4 basis-full'
+                            ? 'flex basis-full flex-col items-stretch justify-between gap-4'
                             : 'hidden',
-                        'sm:flex sm:flex-row sm:items-center sm:gap-1 sm:basis-auto',
+                        'sm:flex sm:basis-auto sm:flex-row sm:items-center sm:gap-1',
                         'mt-8 sm:mt-auto',
                     )}
                 >
-                    {LINKS.map(({ text, href, id }) => (
-                        <NavLink key={id} href={href} onClick={hideMobileNav}>
-                            {text}
-                        </NavLink>
+                    {LINKS.map(({ id, ...props }) => (
+                        <NavLink {...props} key={id} onClick={hideMobileNav} />
                     ))}
                 </div>
             </nav>

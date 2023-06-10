@@ -9,7 +9,7 @@ export default function Subtitle({
     return (
         <p
             className={clsx(
-                'text-neutral-600 dark:text-neutral-300 tracking-wider',
+                'tracking-wider text-neutral-600 dark:text-neutral-300',
             )}
         >
             {children}

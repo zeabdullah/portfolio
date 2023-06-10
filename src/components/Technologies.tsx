@@ -63,7 +63,7 @@ const ICONS: { label: string; iconName: IconType; classes?: string }[] = [
 
 export default function Technologies() {
     return (
-        <Section id='tech' aria-label={title} className='text-center !pt-8'>
+        <Section id='tech' aria-label={title} className='!pt-8 text-center'>
             <SectionHeading>
                 <H2>{title}</H2>
                 <Subtitle>
@@ -74,7 +74,7 @@ export default function Technologies() {
             <div
                 id='tech-logos'
                 className={clsx(
-                    'flex gap-6 sm:gap-8 justify-center flex-wrap',
+                    'flex flex-wrap justify-center gap-6 sm:gap-8',
                     'text-4xl sm:text-5xl',
                     'group',
                 )}

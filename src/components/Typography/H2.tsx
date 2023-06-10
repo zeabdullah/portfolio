@@ -8,7 +8,7 @@ export default function H2({
 }: ComponentPropsWithoutRef<'h2'>): JSX.Element {
     return (
         <h2
-            className={clsx('text-xl sm:text-2xl font-bold', 'mb-2', className)}
+            className={clsx('text-xl font-bold sm:text-2xl', 'mb-2', className)}
             {...props}
         >
             {children}

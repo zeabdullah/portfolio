@@ -32,7 +32,7 @@ export default function Resume() {
                 </BtnLink>
             </div>
 
-            <div className='resume-container border-2 border-neutral-400 mt-8 rounded-xl overflow-hidden'>
+            <div className='resume-container mt-8 overflow-hidden rounded-xl border-2 border-neutral-400'>
                 <iframe
                     title='resume embed'
                     src='https://drive.google.com/file/d/1F46afVwdRy_cAWP1FPXgCc2enqv-0rQp/preview'

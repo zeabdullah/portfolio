@@ -7,10 +7,10 @@
         "dev": "next dev",
         "lint": "next lint",
         "lint:fix": "next lint --fix",
-        "pretty:check": "prettier -c .",
-        "pretty:write": "prettier -w .",
         "precommit": "run-s pretty:check lint",
         "prepare": "husky install",
+        "pretty:check": "prettier -c .",
+        "pretty:write": "prettier -w .",
         "start": "next start"
     },
     "dependencies": {

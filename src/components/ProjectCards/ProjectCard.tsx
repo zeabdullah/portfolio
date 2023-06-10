@@ -16,12 +16,12 @@ export default function ProjectCard(props: ProjectCardProps): JSX.Element {
             target='_blank'
             rel='noreferrer noopener'
             className={cn(
-                'flex justify-start items-start gap-4 flex-col sm:flex-row',
-                'bg-neutral-50 md:hover:bg-neutral-200 focus:bg-neutral-200',
+                'flex flex-col items-start justify-start gap-4 sm:flex-row',
+                'bg-neutral-50 focus:bg-neutral-200 md:hover:bg-neutral-200',
                 'dark:bg-neutral-800/75 dark:md:hover:bg-neutral-700 dark:md:focus:bg-neutral-700',
-                'p-8 rounded-md',
-                'border border-neutral-200 md:hover:border-neutral-400 focus:border-neutral-400',
-                'dark:border-neutral-800 dark:md:hover:border-neutral-600 dark:focus:border-neutral-600',
+                'rounded-md p-8',
+                'border border-neutral-200 focus:border-neutral-400 md:hover:border-neutral-400',
+                'dark:border-neutral-800 dark:focus:border-neutral-600 dark:md:hover:border-neutral-600',
                 'shadow-sm dark:shadow-none',
                 'md:group-hover:opacity-50 md:dark:group-hover:opacity-40',
                 'hover:!opacity-100 focus:!opacity-100',
@@ -32,7 +32,7 @@ export default function ProjectCard(props: ProjectCardProps): JSX.Element {
             <div className='mr-4'>
                 <div
                     className={cn(
-                        'w-14 h-14 rounded-lg overflow-hidden',
+                        'h-14 w-14 overflow-hidden rounded-lg',
                         props.extraClasses,
                     )}
                 >

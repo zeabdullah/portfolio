@@ -20,7 +20,7 @@ export default function Anchor({
             rel={external ? 'noreferrer noopener' : undefined}
             className={clsx(
                 'underline underline-offset-4',
-                'hover:font-bold hover:bg-neutral-200',
+                'hover:bg-neutral-200 hover:font-bold',
                 'dark:bg-opacity-[0.15]',
                 className,
             )}
