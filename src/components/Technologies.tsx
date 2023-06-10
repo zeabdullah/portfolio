@@ -14,7 +14,7 @@ import { cn } from '@/utils/dom'
 
 const title = 'Technologies'
 const logoCls = cn(
-    'opacity-60 group-hover:opacity-40 hover:!opacity-100',
+    'opacity-60 hover:!opacity-100 group-hover:opacity-40',
     'duration-300',
     'transition',
 )
@@ -23,14 +23,14 @@ const ICONS: { label: string; iconName: IconType; classes?: string }[] = [
     {
         label: 'Visual Studio Code',
         iconName: SiVisualstudiocode,
-        classes: cn(logoCls, 'hover:text-blue-500 hover:-rotate-6'),
+        classes: cn(logoCls, 'hover:-rotate-6 hover:text-blue-500'),
     },
     {
         label: 'TypeScript',
         iconName: SiTypescript,
         classes: cn(
             logoCls,
-            'hover:text-blue-600 hover:scale-110 duration-200',
+            'duration-200 hover:scale-110 hover:text-blue-600',
         ),
     },
     {
@@ -38,23 +38,23 @@ const ICONS: { label: string; iconName: IconType; classes?: string }[] = [
         iconName: SiNextdotjs,
         classes: cn(
             logoCls,
-            'hover:text-dark dark:hover:text-light hover:scale-110 duration-200',
+            'duration-200 hover:scale-110 hover:text-dark dark:hover:text-light',
         ),
     },
     {
         label: 'React',
         iconName: FaReact,
-        classes: cn(logoCls, 'hover:rotate-90 hover:text-sky-600 duration-500'),
+        classes: cn(logoCls, 'duration-500 hover:rotate-90 hover:text-sky-600'),
     },
     {
         label: 'Tailwind',
         iconName: SiTailwindcss,
-        classes: cn(logoCls, 'hover:text-cyan-600 hover:rotate-12'),
+        classes: cn(logoCls, 'hover:rotate-12 hover:text-cyan-600'),
     },
     {
         label: 'Node.js',
         iconName: FaNodeJs,
-        classes: cn(logoCls, 'hover:text-green-600 hover:scale-110'),
+        classes: cn(logoCls, 'hover:scale-110 hover:text-green-600'),
     },
 ]
 

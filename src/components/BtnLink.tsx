@@ -11,7 +11,7 @@ export default function BtnLink({
     ...props
 }: BtnLinkProps) {
     const linkBtnCls = cn(
-        'flex justify-center items-center gap-2 border border-neutral-300 hover:border-neutral-400 dark:border-opacity-50 rounded-lg py-2 px-4 transition-colors font-bold',
+        'flex items-center justify-center gap-2 rounded-lg border border-neutral-300 px-4 py-2 font-bold transition-colors hover:border-neutral-400 dark:border-opacity-50',
         attractive
             ? 'bg-dark text-light dark:bg-neutral-100 dark:text-dark ' +
                   'hover:bg-neutral-100 hover:text-dark focus:bg-neutral-100 focus:text-dark ' +

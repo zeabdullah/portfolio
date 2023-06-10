@@ -1,4 +1,3 @@
-import clsx from 'clsx'
 import { githubProfileUrl } from '@/common/variables'
 import ProjectCard, { type ProjectCardProps } from './ProjectCard'
 
