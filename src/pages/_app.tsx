@@ -11,7 +11,7 @@ const jetBrainsMono = JetBrains_Mono({
     adjustFontFallback: true,
     display: 'swap',
     preload: true,
-    weight: ['300', '400', '500', '600', '700'],
+    weight: 'variable',
     variable: '--font-monospace',
 })
 

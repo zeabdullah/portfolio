@@ -23,10 +23,10 @@ export default function Navbar() {
             <nav
                 id='navbar'
                 className={cn(
-                    'sticky top-0 z-10 flex min-w-full flex-wrap items-center justify-between border-b bg-opacity-70 backdrop-blur-[10px] dark:bg-dark dark:bg-opacity-70 dark:text-light sm:flex-nowrap',
+                    'sticky top-0 z-10 flex min-w-full flex-wrap items-center justify-between border-b backdrop-blur-[10px] dark:bg-dark dark:text-light sm:flex-nowrap',
                     mobileNavActive
                         ? 'bg-neutral-100 !bg-opacity-90 dark:!bg-opacity-90'
-                        : 'bg-light',
+                        : 'bg-light bg-opacity-70 dark:bg-opacity-70',
                     navAndFooterClassName,
                 )}
             >
@@ -36,7 +36,7 @@ export default function Navbar() {
                         aria-label='Home'
                         className='text-2xl font-extrabold'
                     >
-                        {'<Z/>'}
+                        &lt;Z/&gt;
                     </NavLink>
                 </div>
 
