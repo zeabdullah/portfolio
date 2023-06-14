@@ -3,14 +3,18 @@
     "version": "1.0.0",
     "private": true,
     "scripts": {
-        "dev": "astro dev",
-        "start": "astro dev",
-        "lint": "eslint --fix && prettier --write .",
-        "build": "astro build",
-        "preview": "astro preview",
         "astro": "astro",
+        "build": "astro build",
+        "dev": "astro dev",
+        "lint": "eslint --fix && prettier --write .",
+        "precommit": "npm run lint",
         "prepare": "husky install",
-        "precommit": "npm run lint"
+        "preview": "astro preview",
+        "start": "astro dev"
+    },
+    "dependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
     },
     "devDependencies": {
         "@astrojs/react": "^1.2.2",
@@ -33,9 +37,5 @@
         "prettier-plugin-astro": "^0.7.2",
         "react-icons": "^4.8.0",
         "typewriter-effect": "^2.19.0"
-    },
-    "dependencies": {
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0"
     }
 }
