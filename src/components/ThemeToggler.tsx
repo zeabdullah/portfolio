@@ -1,23 +1,10 @@
-import { useState, useEffect } from 'react'
 import { RiMoonClearFill, RiSunFill } from 'react-icons/ri'
 import { navBtnCls } from '@/common/classnames'
 import { cn } from '@/utils/dom'
+import { useTheme } from '@/utils/theme'
 
-export function useTheme() {
-    return {
-        isDarkMode: true,
-        toggleTheme: () => {
-            //
-        },
-    }
-}
 export default function ThemeToggler() {
     const { isDarkMode, toggleTheme } = useTheme()
-    const [isEnabled, setIsEnabled] = useState(false)
-
-    useEffect(() => {
-        setIsEnabled(true)
-    }, [])
 
     return (
         <button
@@ -27,9 +14,8 @@ export default function ThemeToggler() {
                 'text-2xl disabled:cursor-not-allowed disabled:opacity-30',
             )}
             aria-label='Toggle Theme'
-            title={isEnabled ? 'Toggle Theme' : 'Awaiting script to load...'}
-            disabled={!isEnabled}
-            onClick={() => toggleTheme()}
+            title={'Toggle Theme'}
+            onClick={toggleTheme}
         >
             {isDarkMode ? <RiSunFill /> : <RiMoonClearFill />}
         </button>

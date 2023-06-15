@@ -1,3 +1,4 @@
+import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
 import { JetBrains_Mono } from 'next/font/google'
 import CustomHead from '@/components/CustomHead'
@@ -19,16 +20,19 @@ export default function App({ Component, pageProps }: AppProps) {
     return (
         <>
             <CustomHead />
-            <main
-                className={cn(
-                    jetBrainsMono.variable,
-                    'bg-light font-mono text-dark transition-colors duration-300 dark:bg-dark dark:text-light',
-                )}
-            >
-                <Navbar />
-                <Component {...pageProps} />
-                <Footer />
-            </main>
+
+            <ThemeProvider attribute='class'>
+                <main
+                    className={cn(
+                        jetBrainsMono.variable,
+                        'bg-light font-mono text-dark transition-colors duration-300 dark:bg-dark dark:text-light',
+                    )}
+                >
+                    <Navbar />
+                    <Component {...pageProps} />
+                    <Footer />
+                </main>
+            </ThemeProvider>
         </>
     )
 }

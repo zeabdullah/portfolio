@@ -34,7 +34,7 @@ export default function Navbar() {
                     <NavLink
                         href='/'
                         aria-label='Home'
-                        className='text-2xl font-extrabold'
+                        className='text-2xl font-bold'
                     >
                         &lt;Z/&gt;
                     </NavLink>
