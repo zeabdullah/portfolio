@@ -1,3 +1,4 @@
+import Image, { type StaticImageData } from 'next/image'
 import { cn } from '@/utils/dom'
 import TechStackText from './TechStackText'
 
@@ -6,7 +7,10 @@ export type ProjectCardProps = {
     link: string
     content: string
     stack: string
-    image: string
+    image: {
+        data: StaticImageData
+        alt?: string
+    }
     extraClasses?: string
 }
 export default function ProjectCard(props: ProjectCardProps): JSX.Element {
@@ -24,7 +28,11 @@ export default function ProjectCard(props: ProjectCardProps): JSX.Element {
                         props.extraClasses,
                     )}
                 >
-                    <img src={props.image} alt='' className='object-cover' />
+                    <Image
+                        src={props.image.data}
+                        alt={props.image.alt ?? ''}
+                        className='object-cover'
+                    />
                 </div>
             </div>
             <div>

@@ -13,9 +13,9 @@ importOrder:
     - '^[./]'
 plugins:
     - '@trivago/prettier-plugin-sort-imports'
-    - prettier-plugin-tailwindcss
     - prettier-plugin-pkg
     - prettier-plugin-sh
+    - prettier-plugin-tailwindcss
 pluginSearchDirs:
     - '.'
 tailwindFunctions:

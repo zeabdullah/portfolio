@@ -19,7 +19,7 @@ export default function Anchor({
             target={external ? '_blank' : undefined}
             rel={external ? 'noreferrer noopener' : undefined}
             className={cn(
-                'underline underline-offset-4 hover:bg-neutral-200 hover:font-bold dark:bg-opacity-[0.15]',
+                'underline underline-offset-4 hover:bg-neutral-200 hover:font-bold dark:hover:bg-opacity-[0.15]',
                 className,
             )}
         >
