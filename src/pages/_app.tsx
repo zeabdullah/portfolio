@@ -25,7 +25,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 <main
                     className={cn(
                         jetBrainsMono.variable,
-                        'bg-light font-mono text-dark transition-colors duration-300 dark:bg-dark dark:text-light',
+                        'bg-light font-mono text-dark antialiased transition-colors duration-300 dark:bg-dark dark:text-light',
                     )}
                 >
                     <Navbar />
