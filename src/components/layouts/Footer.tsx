@@ -1,4 +1,5 @@
 import { FaGithub } from 'react-icons/fa'
+import { SiNextdotjs } from 'react-icons/si'
 import { navAndFooterClassName } from '@/common/classnames'
 import { githubProfileUrl } from '@/common/variables'
 import AstroLogo from '@/components/AstroLogo'
@@ -17,16 +18,16 @@ export default function Footer() {
                 'space-y-4 border-t bg-neutral-100 text-center text-sm dark:bg-dark dark:text-light',
             )}
         >
-            <p>
+            <p className='flex items-center justify-center'>
                 Powered by{' '}
                 <Anchor
-                    className='rounded p-1'
-                    href='https://astro.build'
-                    aria-label='Astro'
-                    title='Astro'
+                    className='ms-2 rounded p-1'
+                    href='https://nextjs.org'
+                    aria-label='Next.js'
+                    title='Next.js'
                     external
                 >
-                    <AstroLogo className='inline fill-dark text-2xl dark:fill-light' />
+                    <SiNextdotjs className='text-xl' />
                 </Anchor>
             </p>
             <p>

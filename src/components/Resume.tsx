@@ -39,8 +39,7 @@ export default function Resume() {
                     width='100%'
                     className='min-h-[50rem]'
                     loading='lazy'
-                    allow='autoplay'
-                ></iframe>
+                />
             </div>
         </Section>
     )

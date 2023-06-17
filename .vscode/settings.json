@@ -1,1 +1,15 @@
-{}
+{
+    "tailwindCSS.experimental.classRegex": [
+        ["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+    ],
+    "tailwindCSS.classAttributes": [
+        "class",
+        "className",
+        ".*Class",
+        ".*Cls*",
+        ".*Cx*",
+        ".*Classes*",
+        ".*Styles*",
+        ".*Preset*s"
+    ]
+}

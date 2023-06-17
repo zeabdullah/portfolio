@@ -23,7 +23,7 @@ export default function Navbar() {
             <nav
                 id='navbar'
                 className={cn(
-                    'sticky top-0 z-10 flex min-w-full flex-wrap items-center justify-between border-b backdrop-blur-[10px] dark:bg-dark dark:text-light sm:flex-nowrap',
+                    'sticky top-0 z-10 flex min-w-full flex-wrap items-center justify-between gap-x-2 border-b backdrop-blur-[10px] dark:bg-dark dark:text-light sm:flex-nowrap',
                     mobileNavActive
                         ? 'bg-neutral-100 !bg-opacity-90 dark:!bg-opacity-90'
                         : 'bg-light bg-opacity-70 dark:bg-opacity-70',
@@ -34,13 +34,13 @@ export default function Navbar() {
                     <NavLink
                         href='/'
                         aria-label='Home'
-                        className='text-2xl font-bold'
+                        className='text-2xl font-bold max-sm:px-2'
                     >
                         &lt;Z/&gt;
                     </NavLink>
                 </div>
 
-                <span className='space-x-4'>
+                <div className='inline-flex items-center gap-x-2'>
                     <ThemeToggler />
                     <button
                         type='button'
@@ -51,7 +51,8 @@ export default function Navbar() {
                     >
                         {mobileNavActive ? <RiCloseLine /> : <RiMenuFill />}
                     </button>
-                </span>
+                </div>
+
                 <div
                     className={cn(
                         'mt-8 sm:mt-auto sm:flex sm:basis-auto sm:flex-row sm:items-center sm:gap-1',

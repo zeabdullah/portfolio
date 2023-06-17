@@ -1,10 +1,12 @@
-import { RiMoonClearFill, RiSunFill } from 'react-icons/ri'
+import { RiMoonClearFill, RiSunFill, RiContrastFill } from 'react-icons/ri'
 import { navBtnCls } from '@/common/classnames'
 import { cn } from '@/utils/dom'
+import { useMounted } from '@/utils/hooks/use-mounted'
 import { useTheme } from '@/utils/theme'
 
 export default function ThemeToggler() {
-    const { isDarkMode, toggleTheme } = useTheme()
+    const { toggleTheme, isDarkMode } = useTheme()
+    const mounted = useMounted()
 
     return (
         <button
@@ -17,7 +19,13 @@ export default function ThemeToggler() {
             title={'Toggle Theme'}
             onClick={toggleTheme}
         >
-            {isDarkMode ? <RiSunFill /> : <RiMoonClearFill />}
+            {!mounted ? (
+                <RiContrastFill />
+            ) : isDarkMode ? (
+                <RiSunFill />
+            ) : (
+                <RiMoonClearFill />
+            )}
         </button>
     )
 }

@@ -19,14 +19,14 @@ export interface UseThemeProps {
 
 export function useTheme(): UseThemeProps {
     const nextThemeProps = useNextTheme() as UseNextThemeProps
-    const { resolvedTheme, setTheme } = nextThemeProps
+    const { resolvedTheme, setTheme, theme } = nextThemeProps
 
     function toggleTheme() {
         return setTheme(resolvedTheme === 'light' ? 'dark' : 'light')
     }
 
-    const isDarkMode = resolvedTheme === 'dark'
-    const isLightMode = resolvedTheme === 'light'
+    const isDarkMode = theme === 'dark'
+    const isLightMode = theme === 'light'
 
     return {
         theme: resolvedTheme,
