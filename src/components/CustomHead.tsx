@@ -2,7 +2,7 @@ import { DefaultSeo } from 'next-seo'
 import React from 'react'
 import { MY_DOMAIN } from '@/common/variables'
 
-const title = 'Abdullah Zeidan | Software Engineer'
+const title = 'Abdullah Zeidan | Web Engineer'
 const description = 'A dev with the passion to make the web a greater place.'
 
 export default function CustomHead() {
@@ -15,7 +15,7 @@ export default function CustomHead() {
                 twitter={{ site: MY_DOMAIN }}
                 themeColor='#0f0f0f'
                 openGraph={{
-                    title: 'Abdullah Zeidan | Software Engineer',
+                    title,
                     description,
                     url: MY_DOMAIN,
                     type: 'website',
