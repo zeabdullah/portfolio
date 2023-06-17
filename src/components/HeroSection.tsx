@@ -12,63 +12,13 @@ import P from '@/components/Typography/P'
 const sectionLabel = 'header-heading'
 
 export default function HeroSection() {
-    const [firstTyperDone, setFirstTyperDone] = useState(false)
-    const endFirstTypewriter = () => setFirstTyperDone(true)
-
     return (
         <Section id='header' role='banner' aria-labelledby={sectionLabel}>
             <h1 className='sr-only' id={sectionLabel}>
                 <strong>I&apos;m Abdullah.</strong> A dev with a passion to make
                 the web a greater place.
             </h1>
-            <div
-                aria-hidden
-                className='mb-5 max-w-xl text-[1.625rem] font-medium !leading-snug sm:text-4xl md:mb-16 md:max-w-3xl md:text-5xl'
-            >
-                <strong className='mb-4 block text-4xl font-extrabold sm:text-5xl md:text-6xl'>
-                    {firstTyperDone ? (
-                        <>I&apos;m Abdullah.</>
-                    ) : (
-                        <>
-                            I&apos;m{' '}
-                            <Typewriter
-                                options={{ delay: 80 }}
-                                onInit={typewriter => {
-                                    typewriter
-                                        .pauseFor(250)
-                                        .typeString('Abdullah.')
-                                        .pauseFor(250)
-                                        .callFunction(endFirstTypewriter)
-                                        .start()
-                                }}
-                            />
-                        </>
-                    )}
-                </strong>
-                A dev with <wbr />
-                <span className='inline-block'>a passion</span>
-                <br /> to make <wbr />
-                <span className='inline-block'>the web a</span>
-                <br />
-                <div className='min-h-[5rem]'>
-                    {firstTyperDone && (
-                        <Typewriter
-                            options={{ delay: 80, deleteSpeed: 20 }}
-                            onInit={typewriter => {
-                                const stringToDelete = 'cooler...'
-                                typewriter
-                                    .pauseFor(250)
-                                    .typeString(stringToDelete)
-                                    .pauseFor(1000)
-                                    .deleteChars(stringToDelete.length)
-                                    .pauseFor(250)
-                                    .typeString('greater place.')
-                                    .start()
-                            }}
-                        />
-                    )}
-                </div>
-            </div>
+            <HeroTextTypewriter />
             <article className='space-y-4'>
                 <P>
                     I&apos;m a developer with over a year of experience. I like
@@ -93,8 +43,8 @@ export default function HeroSection() {
                         external
                     >
                         Clean Coder
-                    </Anchor>{' '}
-                    <em>(highly recommend btw).</em>
+                    </Anchor>
+                    <em> (highly recommend btw).</em>
                 </P>
             </article>
             <Socials />
@@ -131,3 +81,62 @@ const Socials: React.FC = () => (
         </BtnLink>
     </div>
 )
+
+function HeroTextTypewriter() {
+    const [firstTyperDone, setFirstTyperDone] = useState(false)
+    const endFirstTypewriter = () => setFirstTyperDone(true)
+
+    return (
+        <h1
+            aria-hidden
+            className='mb-5 max-w-xl text-[1.625rem] font-medium !leading-snug sm:text-4xl md:mb-16 md:max-w-3xl md:text-5xl'
+        >
+            <strong className='mb-4 block text-4xl font-extrabold sm:text-5xl md:text-6xl'>
+                {firstTyperDone ? (
+                    <>I&apos;m Abdullah.</>
+                ) : (
+                    <>
+                        I&apos;m{' '}
+                        <Typewriter
+                            options={{ delay: 80 }}
+                            onInit={typewriter => {
+                                typewriter
+                                    .pauseFor(250)
+                                    .typeString('Abdullah.')
+                                    .pauseFor(250)
+                                    .callFunction(endFirstTypewriter)
+                                    .start()
+                            }}
+                        />
+                    </>
+                )}
+            </strong>
+            A dev with <wbr />
+            <span className='inline-block'>a passion</span>
+            <br /> to make <wbr />
+            <span className='inline-block'>the web a</span>
+            <br />
+            <div className='min-h-[5rem]'>
+                {firstTyperDone && (
+                    <Typewriter
+                        options={{
+                            delay: 80,
+                            deleteSpeed: 20,
+                        }}
+                        onInit={typewriter => {
+                            const stringToDelete = 'cooler...'
+                            typewriter
+                                .pauseFor(250)
+                                .typeString(stringToDelete)
+                                .pauseFor(1000)
+                                .deleteChars(stringToDelete.length)
+                                .pauseFor(250)
+                                .typeString('greater place.')
+                                .start()
+                        }}
+                    />
+                )}
+            </div>
+        </h1>
+    )
+}
