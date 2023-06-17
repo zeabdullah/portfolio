@@ -1,9 +1,25 @@
 import { useTheme as useNextTheme } from 'next-themes'
-import type { UseNextThemeProps, UseThemeProps } from './theme-types'
+
+export type Theme = 'light' | 'dark'
+export interface UseNextThemeProps {
+    themes: Theme[]
+    forcedTheme?: Theme
+    setTheme: (theme: Theme) => void
+    theme?: Theme
+    resolvedTheme?: Theme
+    systemTheme?: 'dark' | 'light'
+}
+export interface UseThemeProps {
+    theme?: Theme
+    isDarkMode: boolean
+    isLightMode: boolean
+    toggleTheme: () => void
+    setTheme: (theme: Theme) => void
+}
 
 export function useTheme(): UseThemeProps {
-    const themeProps = useNextTheme() as UseNextThemeProps
-    const { resolvedTheme, setTheme } = themeProps
+    const nextThemeProps = useNextTheme() as UseNextThemeProps
+    const { resolvedTheme, setTheme } = nextThemeProps
 
     function toggleTheme() {
         return setTheme(resolvedTheme === 'light' ? 'dark' : 'light')
