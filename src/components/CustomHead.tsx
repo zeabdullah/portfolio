@@ -1,5 +1,4 @@
 import { DefaultSeo } from 'next-seo'
-import NextHead from 'next/head'
 import React from 'react'
 
 const title = 'Abdullah Zeidan | Software Engineer'

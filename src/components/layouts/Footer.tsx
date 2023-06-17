@@ -2,7 +2,6 @@ import { FaGithub } from 'react-icons/fa'
 import { SiNextdotjs } from 'react-icons/si'
 import { navAndFooterClassName } from '@/common/classnames'
 import { githubProfileUrl } from '@/common/variables'
-import AstroLogo from '@/components/AstroLogo'
 import Anchor from '@/components/Typography/Anchor'
 import { cn } from '@/utils/dom'
 
