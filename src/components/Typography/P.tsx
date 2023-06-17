@@ -9,7 +9,7 @@ export default function P({
     return (
         <p
             className={cn(
-                'mb-4 leading-relaxed text-black dark:font-light dark:text-light sm:text-lg/relaxed',
+                'text-sm/relaxed text-black dark:font-light dark:text-light sm:text-base/relaxed md:text-lg/relaxed',
                 className,
             )}
             {...props}

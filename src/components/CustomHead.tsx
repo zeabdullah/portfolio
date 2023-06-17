@@ -1,9 +1,9 @@
 import { DefaultSeo } from 'next-seo'
 import React from 'react'
+import { MY_DOMAIN } from '@/common/variables'
 
 const title = 'Abdullah Zeidan | Software Engineer'
 const description = 'A dev with the passion to make the web a greater place.'
-const canonical = 'https://zabd.dev'
 
 export default function CustomHead() {
     return (
@@ -11,19 +11,19 @@ export default function CustomHead() {
             <DefaultSeo
                 title={title}
                 description={description}
-                canonical={canonical}
-                twitter={{ site: canonical }}
+                canonical={MY_DOMAIN}
+                twitter={{ site: MY_DOMAIN }}
                 themeColor='#0f0f0f'
                 openGraph={{
                     title: 'Abdullah Zeidan | Software Engineer',
                     description,
-                    url: canonical,
+                    url: MY_DOMAIN,
                     type: 'website',
                     siteName: "Abdullah Zeidan's Personal Website/Portfolio",
                     images: [
                         {
-                            url: `${canonical}/images/open-graph-image.png`,
-                            secureUrl: `${canonical}/images/open-graph-image.png`,
+                            url: `${MY_DOMAIN}/images/open-graph-image.png`,
+                            secureUrl: `${MY_DOMAIN}/images/open-graph-image.png`,
                             type: 'image/png',
                             width: 256,
                             height: 256,

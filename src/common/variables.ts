@@ -1,2 +1,2 @@
 export const githubProfileUrl = 'https://github.com/zeabdullah'
-export const MY_DOMAIN = 'https://www.zabd.dev'
+export const MY_DOMAIN = process.env.NEXT_PUBLIC_URL

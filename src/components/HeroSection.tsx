@@ -17,9 +17,13 @@ export default function HeroSection() {
 
     return (
         <Section id='header' role='banner' aria-labelledby={sectionLabel}>
-            <h1
-                id={sectionLabel}
-                className='mb-12 max-w-xl text-3xl font-medium !leading-snug sm:text-4xl md:mb-16 md:max-w-3xl md:text-5xl'
+            <h1 className='sr-only' id={sectionLabel}>
+                <strong>I&apos;m Abdullah.</strong> A dev with a passion to make
+                the web a greater place.
+            </h1>
+            <div
+                aria-hidden
+                className='mb-5 max-w-xl text-[1.625rem] font-medium !leading-snug sm:text-4xl md:mb-16 md:max-w-3xl md:text-5xl'
             >
                 <strong className='mb-4 block text-4xl font-extrabold sm:text-5xl md:text-6xl'>
                     {firstTyperDone ? (
@@ -41,24 +45,31 @@ export default function HeroSection() {
                         </>
                     )}
                 </strong>
-                A dev with a passion to{' '}
-                {firstTyperDone && (
-                    <Typewriter
-                        options={{ delay: 80, deleteSpeed: 20 }}
-                        onInit={typewriter => {
-                            typewriter
-                                .pauseFor(250)
-                                .typeString('make the web a cooler...')
-                                .pauseFor(1000)
-                                .deleteChars(9)
-                                .pauseFor(250)
-                                .typeString('greater place.')
-                                .start()
-                        }}
-                    />
-                )}
-            </h1>
-            <article>
+                A dev with <wbr />
+                <span className='inline-block'>a passion</span>
+                <br /> to make <wbr />
+                <span className='inline-block'>the web a</span>
+                <br />
+                <div className='min-h-[5rem]'>
+                    {firstTyperDone && (
+                        <Typewriter
+                            options={{ delay: 80, deleteSpeed: 20 }}
+                            onInit={typewriter => {
+                                const stringToDelete = 'cooler...'
+                                typewriter
+                                    .pauseFor(250)
+                                    .typeString(stringToDelete)
+                                    .pauseFor(1000)
+                                    .deleteChars(stringToDelete.length)
+                                    .pauseFor(250)
+                                    .typeString('greater place.')
+                                    .start()
+                            }}
+                        />
+                    )}
+                </div>
+            </div>
+            <article className='space-y-4'>
                 <P>
                     I&apos;m a developer with over a year of experience. I like
                     to make awesome things on the web and see people enjoy and
