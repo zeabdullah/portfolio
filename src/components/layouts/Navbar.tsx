@@ -13,7 +13,7 @@ const LINKS: Array<{
     { href: '/#projects', children: 'Projects' },
     { href: '/#tech', children: 'Technologies' },
     { href: '/#resume', children: 'Resume' },
-    { href: '/blog', children: 'Blog', pulseEffect: true },
+    // { href: '/blog', children: 'Blog', pulseEffect: true }, // ? under construction 🚧
 ]
 
 export default function Navbar() {
@@ -36,7 +36,6 @@ export default function Navbar() {
             >
                 <div className='flex-grow'>
                     <NavLink
-                        pulseEffect
                         href='/'
                         aria-label='Home'
                         className='text-2xl font-bold max-sm:px-2'
