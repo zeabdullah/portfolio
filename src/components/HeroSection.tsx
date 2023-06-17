@@ -19,6 +19,7 @@ export default function HeroSection() {
                 the web a greater place.
             </h1>
             <HeroTextTypewriter />
+
             <article className='space-y-4'>
                 <P>
                     I&apos;m a developer with over a year of experience. I like
@@ -47,6 +48,7 @@ export default function HeroSection() {
                     <em> (highly recommend btw).</em>
                 </P>
             </article>
+
             <Socials />
         </Section>
     )
@@ -55,32 +57,34 @@ export default function HeroSection() {
 const linkedinLabel = 'LinkedIn'
 const githubLabel = 'GitHub'
 
-const Socials: React.FC = () => (
-    <div className='mt-16 flex flex-wrap gap-2'>
-        <div className='mr-8 contents'>
-            <IconLink
-                href={githubProfileUrl}
-                aria-label={githubLabel}
-                title={githubLabel}
-                external
-            >
-                <FaGithub role='img' aria-label={githubLabel} />
-            </IconLink>
-            <IconLink
-                href='https://www.linkedin.com/in/abdullah-zd'
-                aria-label={linkedinLabel}
-                title={linkedinLabel}
-                external
-            >
-                <FaLinkedin role='img' aria-label={linkedinLabel} />
-            </IconLink>
-        </div>
+function Socials() {
+    return (
+        <div className='mt-16 flex flex-wrap gap-2'>
+            <div className='mr-8 contents'>
+                <IconLink
+                    href={githubProfileUrl}
+                    aria-label={githubLabel}
+                    title={githubLabel}
+                    external
+                >
+                    <FaGithub role='img' aria-label={githubLabel} />
+                </IconLink>
+                <IconLink
+                    href='https://www.linkedin.com/in/abdullah-zd'
+                    aria-label={linkedinLabel}
+                    title={linkedinLabel}
+                    external
+                >
+                    <FaLinkedin role='img' aria-label={linkedinLabel} />
+                </IconLink>
+            </div>
 
-        <BtnLink href='mailto:abdullahzeidan@gmail.com' attractive>
-            <MdPersonOutline className='text-xl' /> Hire me
-        </BtnLink>
-    </div>
-)
+            <BtnLink href='mailto:abdullahzeidan@gmail.com' attractive>
+                <MdPersonOutline className='text-xl' /> Hire me
+            </BtnLink>
+        </div>
+    )
+}
 
 function HeroTextTypewriter() {
     const [firstTyperDone, setFirstTyperDone] = useState(false)
@@ -119,10 +123,7 @@ function HeroTextTypewriter() {
             <div className='min-h-[5rem]'>
                 {firstTyperDone && (
                     <Typewriter
-                        options={{
-                            delay: 80,
-                            deleteSpeed: 20,
-                        }}
+                        options={{ delay: 80, deleteSpeed: 20 }}
                         onInit={typewriter => {
                             const stringToDelete = 'cooler...'
                             typewriter

@@ -22,16 +22,18 @@ export default function App({ Component, pageProps }: AppProps) {
             <CustomHead />
 
             <ThemeProvider attribute='class'>
-                <main
+                <div
                     className={cn(
                         jetBrainsMono.variable,
-                        'bg-light font-mono text-dark antialiased transition-colors duration-300 dark:bg-dark dark:text-light',
+                        'flex min-h-screen flex-col scroll-smooth bg-light font-mono text-dark antialiased transition-colors duration-300 dark:bg-dark dark:text-light',
                     )}
                 >
                     <Navbar />
-                    <Component {...pageProps} />
+                    <main className='flex-1'>
+                        <Component {...pageProps} />
+                    </main>
                     <Footer />
-                </main>
+                </div>
             </ThemeProvider>
         </>
     )

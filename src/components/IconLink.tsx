@@ -12,7 +12,7 @@ export default function IconLink({
 }: IconLinkProps) {
     return (
         <a
-            className={cn('rounded-md p-2 text-2xl', btnColorsCls, className)}
+            className={cn(btnColorsCls, 'rounded-md p-2 text-2xl', className)}
             target={external ? '_blank' : undefined}
             rel={external ? 'noreferrer noopener' : undefined}
             {...props}

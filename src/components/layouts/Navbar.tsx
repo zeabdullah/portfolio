@@ -1,15 +1,19 @@
-import { useState } from 'react'
+import { type ReactNode, useState } from 'react'
 import { RiMenuFill, RiCloseLine } from 'react-icons/ri'
 import { navAndFooterClassName, navBtnCls } from '@/common/classnames'
 import { NavLink } from '@/components/NavLink'
 import ThemeToggler from '@/components/ThemeToggler'
 import { cn } from '@/utils/dom'
 
-const LINKS = [
-    { id: 'l-hero', href: '#', children: 'Intro' },
-    { id: 'l-projects', href: '#projects', children: 'Projects' },
-    { id: 'l-tech', href: '#tech', children: 'Technologies' },
-    { id: 'l-resume', href: '#resume', children: 'Resume' },
+const LINKS: Array<{
+    href: string
+    children: ReactNode
+    pulseEffect?: boolean
+}> = [
+    { href: '/#projects', children: 'Projects' },
+    { href: '/#tech', children: 'Technologies' },
+    { href: '/#resume', children: 'Resume' },
+    { href: '/blog', children: 'Blog', pulseEffect: true },
 ]
 
 export default function Navbar() {
@@ -32,6 +36,7 @@ export default function Navbar() {
             >
                 <div className='flex-grow'>
                     <NavLink
+                        pulseEffect
                         href='/'
                         aria-label='Home'
                         className='text-2xl font-bold max-sm:px-2'
@@ -61,8 +66,12 @@ export default function Navbar() {
                             : 'hidden',
                     )}
                 >
-                    {LINKS.map(({ id, ...props }) => (
-                        <NavLink {...props} key={id} onClick={hideMobileNav} />
+                    {LINKS.map(props => (
+                        <NavLink
+                            {...props}
+                            key={props.href}
+                            onClick={hideMobileNav}
+                        />
                     ))}
                 </div>
             </nav>

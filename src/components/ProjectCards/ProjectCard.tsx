@@ -1,5 +1,6 @@
 import Image, { type StaticImageData } from 'next/image'
 import { cn } from '@/utils/dom'
+import BtnLink from '../BtnLink'
 import TechStackText from './TechStackText'
 
 export type ProjectCardProps = {
@@ -15,12 +16,7 @@ export type ProjectCardProps = {
 }
 export default function ProjectCard(props: ProjectCardProps): JSX.Element {
     return (
-        <a
-            href={props.link}
-            target='_blank'
-            rel='noreferrer noopener'
-            className='flex flex-col items-start justify-start gap-4 rounded-md border border-neutral-200 bg-neutral-50 p-8 shadow-sm transition hover:!opacity-100 focus:border-neutral-400 focus:bg-neutral-200 focus:!opacity-100 dark:border-neutral-800 dark:bg-neutral-800/75 dark:shadow-none dark:focus:border-neutral-600 sm:flex-row md:hover:border-neutral-400 md:hover:bg-neutral-200 md:group-hover:opacity-50 dark:md:hover:border-neutral-600 dark:md:hover:bg-neutral-700 dark:md:focus:bg-neutral-700 md:dark:group-hover:opacity-40 lg:hover:scale-[1.075]'
-        >
+        <div className='flex flex-col items-start justify-start gap-4 rounded-md border border-neutral-200 bg-neutral-50 p-8 shadow-sm transition hover:!opacity-100 focus:border-neutral-400 focus:bg-neutral-200 focus:!opacity-100 dark:border-neutral-800 dark:bg-neutral-800/75 dark:shadow-none dark:focus:border-neutral-600 sm:flex-row md:hover:border-neutral-400 md:hover:bg-neutral-200 md:group-hover:opacity-50 dark:md:hover:border-neutral-600 dark:md:hover:bg-neutral-700 dark:md:focus:bg-neutral-700 md:dark:group-hover:opacity-40 lg:hover:scale-[1.075]'>
             <div className='mr-4'>
                 <div
                     className={cn(
@@ -46,6 +42,10 @@ export default function ProjectCard(props: ProjectCardProps): JSX.Element {
                     {props.content}
                 </p>
             </div>
-        </a>
+            <div className='mt-6 inline-flex gap-x-2 gap-y-1'>
+                <BtnLink>Source</BtnLink>
+                <BtnLink>Live</BtnLink>
+            </div>
+        </div>
     )
 }
