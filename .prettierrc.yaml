@@ -1,0 +1,27 @@
+---
+tabWidth: 4
+semi: false
+singleQuote: true
+jsxSingleQuote: true
+endOfLine: lf
+bracketSpacing: true
+arrowParens: avoid
+printWidth: 80
+importOrder:
+    - '<THIRD_PARTY_MODULES>'
+    - '^$public/(.*)$'
+    - '^@/(.*)$'
+    - '^[./]'
+plugins:
+    - '@trivago/prettier-plugin-sort-imports'
+    - prettier-plugin-pkg
+    - prettier-plugin-sh
+    - prettier-plugin-tailwindcss
+pluginSearchDirs: false
+tailwindFunctions:
+    - tw
+    - clsx
+    - cn
+    - cx
+trailingComma: all
+bracketSameLine: false

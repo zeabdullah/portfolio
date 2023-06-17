@@ -1,5 +1,5 @@
-import clsx from 'clsx'
-import { btnColors } from 'common/classnames'
+import { btnColorsCls } from '@/common/classnames'
+import { cn } from '@/utils/dom'
 
 interface IconLinkProps extends React.ComponentPropsWithoutRef<'a'> {
     children: React.ReactNode
@@ -12,12 +12,7 @@ export default function IconLink({
 }: IconLinkProps) {
     return (
         <a
-            className={clsx(
-                'p-2 rounded-md',
-                btnColors,
-                'text-2xl ',
-                className,
-            )}
+            className={cn('rounded-md p-2 text-2xl', btnColorsCls, className)}
             target={external ? '_blank' : undefined}
             rel={external ? 'noreferrer noopener' : undefined}
             {...props}

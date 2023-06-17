@@ -1,5 +1,5 @@
-import { ComponentPropsWithoutRef } from 'react'
-import clsx from 'clsx'
+import type { ComponentPropsWithoutRef } from 'react'
+import { cn } from '@/utils/dom'
 
 export default function H2({
     className,
@@ -8,7 +8,7 @@ export default function H2({
 }: ComponentPropsWithoutRef<'h2'>): JSX.Element {
     return (
         <h2
-            className={clsx('text-xl sm:text-2xl font-bold', 'mb-2', className)}
+            className={cn('mb-2 text-xl font-bold sm:text-2xl', className)}
             {...props}
         >
             {children}

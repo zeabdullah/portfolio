@@ -1,36 +1,31 @@
-import { useState, useEffect } from 'react'
-import clsx from 'clsx'
-import { RiMoonClearFill, RiSunFill } from 'react-icons/ri/index.js'
-import { navBtnCls } from 'common/classnames'
-import { useTheme } from 'themeStore'
+import { RiMoonClearFill, RiSunFill, RiContrastFill } from 'react-icons/ri'
+import { navBtnCls } from '@/common/classnames'
+import { cn } from '@/utils/dom'
+import { useMounted } from '@/utils/hooks/use-mounted'
+import { useTheme } from '@/utils/theme'
 
-/**
- * I was supposed to use nanostore's `useStore` hook to automatically
- * sub to theme changes, but it didn't work out for some reason; hence I
- * used `useState` and `useEffect` to do it myself.
- */
 export default function ThemeToggler() {
-    const { isDarkMode, toggleTheme } = useTheme()
-    const [isEnabled, setIsEnabled] = useState(false)
-
-    useEffect(() => {
-        setIsEnabled(true)
-    }, [])
+    const { toggleTheme, isDarkMode } = useTheme()
+    const mounted = useMounted()
 
     return (
         <button
             type='button'
-            className={clsx(
+            className={cn(
                 navBtnCls,
-                'text-2xl',
-                'disabled:cursor-not-allowed disabled:opacity-30',
+                'text-2xl disabled:cursor-not-allowed disabled:opacity-30',
             )}
             aria-label='Toggle Theme'
-            title={isEnabled ? 'Toggle Theme' : 'Awaiting script to load...'}
-            disabled={!isEnabled}
-            onClick={() => toggleTheme()}
+            title={'Toggle Theme'}
+            onClick={toggleTheme}
         >
-            {isDarkMode ? <RiSunFill /> : <RiMoonClearFill />}
+            {!mounted ? (
+                <RiContrastFill />
+            ) : isDarkMode ? (
+                <RiSunFill />
+            ) : (
+                <RiMoonClearFill />
+            )}
         </button>
     )
 }

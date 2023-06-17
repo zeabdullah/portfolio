@@ -1,6 +1,6 @@
-import clsx from 'clsx'
-import { navItemCls } from 'common/classnames'
-import { ComponentPropsWithoutRef } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
+import { navItemCls } from '@/common/classnames'
+import { cn } from '@/utils/dom'
 
 export function NavLink({
     className,
@@ -8,7 +8,7 @@ export function NavLink({
     ...props
 }: ComponentPropsWithoutRef<'a'>): JSX.Element {
     return (
-        <a className={clsx(navItemCls, className)} {...props}>
+        <a className={cn(navItemCls, className)} {...props}>
             {children}
         </a>
     )

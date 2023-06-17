@@ -1,4 +1,5 @@
-import clsx from 'clsx'
+import Image, { type StaticImageData } from 'next/image'
+import { cn } from '@/utils/dom'
 import TechStackText from './TechStackText'
 
 export type ProjectCardProps = {
@@ -6,7 +7,10 @@ export type ProjectCardProps = {
     link: string
     content: string
     stack: string
-    image: string
+    image: {
+        data: StaticImageData
+        alt?: string
+    }
     extraClasses?: string
 }
 export default function ProjectCard(props: ProjectCardProps): JSX.Element {
@@ -15,54 +19,30 @@ export default function ProjectCard(props: ProjectCardProps): JSX.Element {
             href={props.link}
             target='_blank'
             rel='noreferrer noopener'
-            className={clsx(
-                'flex justify-start items-start gap-4 flex-col sm:flex-row',
-                'bg-neutral-50 md:hover:bg-neutral-200 focus:bg-neutral-200',
-                'dark:bg-neutral-800/75 dark:md:hover:bg-neutral-700 dark:md:focus:bg-neutral-700',
-                'p-8 rounded-md',
-                'border border-neutral-200 md:hover:border-neutral-400 focus:border-neutral-400',
-                'dark:border-neutral-800 dark:md:hover:border-neutral-600 dark:focus:border-neutral-600',
-                'shadow-sm dark:shadow-none',
-                'md:group-hover:opacity-50 md:dark:group-hover:opacity-40',
-                'hover:!opacity-100 focus:!opacity-100',
-                'lg:hover:scale-[1.075]',
-                'transition',
-            )}
+            className='flex flex-col items-start justify-start gap-4 rounded-md border border-neutral-200 bg-neutral-50 p-8 shadow-sm transition hover:!opacity-100 focus:border-neutral-400 focus:bg-neutral-200 focus:!opacity-100 dark:border-neutral-800 dark:bg-neutral-800/75 dark:shadow-none dark:focus:border-neutral-600 sm:flex-row md:hover:border-neutral-400 md:hover:bg-neutral-200 md:group-hover:opacity-50 dark:md:hover:border-neutral-600 dark:md:hover:bg-neutral-700 dark:md:focus:bg-neutral-700 md:dark:group-hover:opacity-40 lg:hover:scale-[1.075]'
         >
             <div className='mr-4'>
                 <div
-                    className={clsx(
-                        'w-14 h-14 rounded-lg overflow-hidden',
+                    className={cn(
+                        'h-14 w-14 overflow-hidden rounded-lg',
                         props.extraClasses,
                     )}
                 >
-                    <img src={props.image} alt='' className='object-cover' />
+                    <Image
+                        src={props.image.data}
+                        alt={props.image.alt ?? ''}
+                        className='object-cover'
+                    />
                 </div>
             </div>
             <div>
-                <div
-                    className={clsx(
-                        'flex gap-x-5',
-                        'flex-col sm:flex-row sm:items-center',
-                        'mb-2',
-                    )}
-                >
-                    <h3
-                        className={clsx(
-                            'text-lg font-bold dark:text-light',
-                            'flex-shrink-0',
-                        )}
-                    >
+                <div className='mb-2 flex flex-col gap-x-5 sm:flex-row sm:items-center'>
+                    <h3 className='flex-shrink-0 text-lg font-bold dark:text-light'>
                         {props.title}
                     </h3>
                     <TechStackText>{props.stack}</TechStackText>
                 </div>
-                <p
-                    className={clsx(
-                        'text-neutral-800 dark:text-light',
-                        'text-md font-light leading-relaxed',
-                    )}
-                >
+                <p className='text-md font-light leading-relaxed text-neutral-800 dark:text-light'>
                     {props.content}
                 </p>
             </div>
