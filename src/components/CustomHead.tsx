@@ -22,8 +22,8 @@ export default function CustomHead() {
                     siteName: "Abdullah Zeidan's Personal Website/Portfolio",
                     images: [
                         {
-                            url: `${MY_DOMAIN}/images/open-graph-image.png`,
-                            secureUrl: `${MY_DOMAIN}/images/open-graph-image.png`,
+                            url: `${MY_DOMAIN}/images/og-image.png`,
+                            secureUrl: `${MY_DOMAIN}/images/og-image.png`,
                             type: 'image/png',
                             width: 256,
                             height: 256,
