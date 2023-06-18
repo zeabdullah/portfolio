@@ -20,9 +20,9 @@ export default function Resume() {
 
             <div className='flex flex-col gap-4 sm:grid sm:grid-cols-2'>
                 <BtnLink
+                    href='https://drive.google.com/file/d/1F46afVwdRy_cAWP1FPXgCc2enqv-0rQp/view?usp=sharing'
                     target='_blank'
                     rel='noreferrer noopener'
-                    href='https://drive.google.com/file/d/1F46afVwdRy_cAWP1FPXgCc2enqv-0rQp/view?usp=sharing'
                     className='grow'
                 >
                     <RiDriveLine className='text-lg' /> View on GDrive{' '}

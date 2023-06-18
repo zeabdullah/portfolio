@@ -50,6 +50,9 @@ dependencies:
   typewriter-effect:
     specifier: ^2.20.1
     version: 2.20.1(react-dom@18.2.0)(react@18.2.0)
+  use-media:
+    specifier: ^1.4.0
+    version: 1.4.0(react@18.2.0)
 
 devDependencies:
   '@trivago/prettier-plugin-sort-imports':
@@ -3571,6 +3574,14 @@ packages:
     dependencies:
       punycode: 2.3.0
     dev: true
+
+  /use-media@1.4.0(react@18.2.0):
+    resolution: {integrity: sha512-XsgyUAf3nhzZmEfhc5MqLHwyaPjs78bgytpVJ/xDl0TF4Bptf3vEpBNBBT/EIKOmsOc8UbuECq3mrP3mt1QANA==}
+    peerDependencies:
+      react: ^16.8.1
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}

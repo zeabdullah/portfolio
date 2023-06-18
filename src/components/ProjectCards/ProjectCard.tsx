@@ -1,10 +1,18 @@
+import clsx from 'clsx'
+import { m } from 'framer-motion'
 import Image, { type StaticImageData } from 'next/image'
+import { FaBroadcastTower, FaCode } from 'react-icons/fa'
+import { useMedia } from 'use-media'
 import { cn } from '@/utils/dom'
+import { cardVariants } from '@/utils/motion'
+import { screens } from '@/utils/tailwind'
+import BtnLink from '../BtnLink'
 import TechStackText from './TechStackText'
 
 export type ProjectCardProps = {
     title: string
-    link: string
+    sourceLink?: string
+    liveLink?: string
     content: string
     stack: string
     image: {
@@ -13,14 +21,56 @@ export type ProjectCardProps = {
     }
     extraClasses?: string
 }
-export default function ProjectCard(props: ProjectCardProps): JSX.Element {
+export default function ProjectCard({
+    sourceLink,
+    liveLink,
+    ...props
+}: ProjectCardProps): JSX.Element {
+    const isBeyondLg = useMedia({ minWidth: screens.lg })
+
+    const cardLinks = (
+        <>
+            {liveLink && (
+                <BtnLink href={liveLink} className='flex-1 text-sm' external>
+                    <FaBroadcastTower /> Live Demo
+                </BtnLink>
+            )}
+            {sourceLink && (
+                <BtnLink href={sourceLink} className='flex-1 text-sm' external>
+                    <FaCode /> Source Code
+                </BtnLink>
+            )}
+        </>
+    )
+
     return (
-        <a
-            href={props.link}
-            target='_blank'
-            rel='noreferrer noopener'
-            className='flex flex-col items-start justify-start gap-4 rounded-md border border-neutral-200 bg-neutral-50 p-8 shadow-sm transition-[opacity,color,border-color,background-color] hover:!opacity-100 focus-visible:border-neutral-400 focus-visible:bg-neutral-200 focus-visible:!opacity-100 dark:border-neutral-800 dark:bg-neutral-800/75 dark:shadow-none dark:focus-visible:border-neutral-600 sm:flex-row md:hover:border-neutral-400 md:hover:bg-neutral-200 md:group-hover:opacity-60 dark:md:hover:border-neutral-600 dark:md:hover:bg-neutral-700 dark:md:focus-visible:bg-neutral-700 md:dark:md:group-hover:opacity-70'
+        <m.div
+            className={clsx(
+                'flex flex-col items-start justify-start gap-4 rounded-xl bg-neutral-50 p-8 shadow transition-[opacity,color,border-color,background-color] focus-visible:border-neutral-400 focus-visible:bg-neutral-200 hocus-visible:!opacity-100 dark:border dark:border-neutral-800 dark:bg-neutral-800/75 dark:shadow-none dark:focus-visible:border-neutral-600 sm:flex-row md:hover:border-neutral-400 md:hover:bg-neutral-200 md:group-hover/container:opacity-75 dark:md:group-hover/container:opacity-60 dark:md:hocus-within:border-neutral-600 dark:md:hocus-within:bg-neutral-700',
+                'group/card relative overflow-hidden',
+            )}
+            whileHover={{ scale: isBeyondLg ? 1.05 : 1 }}
+            variants={cardVariants}
+            transition={{
+                opacity: { type: 'tween', duration: 0.4 },
+                scale: {
+                    type: 'spring',
+                    stiffness: 400,
+                    damping: 14,
+                    mass: 0.5,
+                },
+                type: 'spring',
+                stiffness: 200,
+                damping: 18,
+                mass: 1,
+            }}
         >
+            <div className='absolute inset-0 z-10 hidden items-center justify-center bg-neutral-700 bg-opacity-10 opacity-0 backdrop-blur transition dark:bg-neutral-700 dark:bg-opacity-30 sm:flex sm:group-focus-within/card:opacity-100 sm:group-hover/card:opacity-100'>
+                <div className='flex w-1/2 flex-col gap-2 md:flex-row'>
+                    {cardLinks}
+                </div>
+            </div>
+
             <div className='me-4'>
                 <div
                     className={cn(
@@ -31,12 +81,12 @@ export default function ProjectCard(props: ProjectCardProps): JSX.Element {
                     <Image
                         src={props.image.data}
                         alt={props.image.alt ?? ''}
-                        className='object-cover'
+                        className='h-full w-full object-contain'
                     />
                 </div>
             </div>
-            <div>
-                <div className='mb-2 flex flex-col gap-x-5 sm:flex-row sm:items-center'>
+            <div className='flex flex-col items-start gap-y-2'>
+                <div className='flex flex-col gap-x-5 sm:flex-row sm:items-center'>
                     <h3 className='shrink-0 text-lg font-bold dark:text-light'>
                         {props.title}
                     </h3>
@@ -45,11 +95,11 @@ export default function ProjectCard(props: ProjectCardProps): JSX.Element {
                 <p className='text-md font-light leading-relaxed text-neutral-800 dark:text-light'>
                     {props.content}
                 </p>
+
+                <div className='mt-6 flex flex-col gap-2 self-stretch sm:hidden sm:flex-row'>
+                    {cardLinks}
+                </div>
             </div>
-            {/* <div className='mt-6 inline-flex gap-x-2 gap-y-1'>
-                <BtnLink>Source</BtnLink>
-                <BtnLink>Live</BtnLink>
-            </div> */}
-        </a>
+        </m.div>
     )
 }
