@@ -4,12 +4,13 @@ import { navItemCls } from '@/common/classnames'
 import { cn } from '@/utils/dom'
 import { tapMotionProps } from '@/utils/motion'
 import MotionLink from './MotionLink'
-import PulsatingCircle from './PulsatingCircle'
+import PulseEffect from './PulseEffect'
 
 interface BaseProps {
     pulseEffect?: boolean
     children?: ReactNode
     className?: string
+    element: unknown
 }
 type ComponentWithBaseProps<T extends ElementType> = Omit<
     ComponentPropsWithoutRef<T>,
@@ -29,6 +30,13 @@ export default function NavItem({
     children,
     ...props
 }: NavItemProps): JSX.Element {
+    const content = (
+        <>
+            {pulseEffect && <PulseEffect />}
+            {children}
+        </>
+    )
+
     if (props.element === 'next-link') {
         return (
             <MotionLink
@@ -37,8 +45,7 @@ export default function NavItem({
                 {...props}
                 {...tapMotionProps}
             >
-                {pulseEffect && <PulsatingCircle />}
-                {children}
+                {content}
             </MotionLink>
         )
     }
@@ -49,8 +56,7 @@ export default function NavItem({
                 {...props}
                 {...tapMotionProps}
             >
-                {pulseEffect && <PulsatingCircle />}
-                {children}
+                {content}
             </m.a>
         )
     }
@@ -61,8 +67,7 @@ export default function NavItem({
             {...props}
             {...tapMotionProps}
         >
-            {pulseEffect && <PulsatingCircle />}
-            {children}
+            {content}
         </m.button>
     )
 }
