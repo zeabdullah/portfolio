@@ -1,7 +1,8 @@
+import { motion } from 'framer-motion'
 import type { ComponentPropsWithoutRef } from 'react'
 import { cn } from '@/utils/dom'
 
-interface BtnLinkProps extends ComponentPropsWithoutRef<'a'> {
+interface BtnLinkProps extends ComponentPropsWithoutRef<(typeof motion)['a']> {
     attractive?: boolean
 }
 export default function BtnLink({
@@ -11,15 +12,26 @@ export default function BtnLink({
     ...props
 }: BtnLinkProps) {
     const linkBtnCls = cn(
-        'flex items-center justify-center gap-2 rounded-lg border border-neutral-300 px-4 py-2 font-bold transition duration-150 hover:border-neutral-400 active:scale-[0.975] active:duration-[50ms] dark:border-opacity-50',
+        'border-neutral-300? hover:border-neutral-400? flex items-center justify-center gap-2 rounded-lg border-[1.5px] px-4 py-2 font-bold transition-colors duration-150 dark:border-opacity-50',
         attractive
-            ? 'bg-dark text-light hover:bg-neutral-100 hover:text-dark focus:bg-neutral-100 focus:text-dark dark:bg-neutral-100 dark:text-dark dark:hover:bg-dark dark:hover:text-light dark:focus:bg-dark dark:focus:text-light'
-            : 'bg-neutral-100 hover:bg-neutral-200 focus:bg-neutral-200 dark:bg-dark dark:text-light dark:hover:bg-neutral-800 dark:focus:bg-neutral-800',
+            ? 'bg-dark text-light focus-visible:bg-neutral-100 focus-visible:text-dark active:bg-neutral-100 active:text-dark dark:bg-neutral-100 dark:text-dark dark:focus-visible:bg-dark dark:focus-visible:text-light dark:active:bg-dark dark:active:text-light'
+            : 'bg-neutral-100 hover:bg-neutral-200 focus-visible:bg-neutral-200 dark:bg-dark dark:text-light dark:hover:bg-neutral-800 dark:focus-visible:bg-neutral-800',
     )
 
     return (
-        <a className={cn(linkBtnCls, className)} {...props}>
+        <motion.a
+            className={cn(linkBtnCls, className)}
+            whileHover={{ scale: 1.025 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{
+                type: 'spring',
+                stiffness: 400,
+                damping: 12,
+                mass: 0.3,
+            }}
+            {...props}
+        >
             {children}
-        </a>
+        </motion.a>
     )
 }

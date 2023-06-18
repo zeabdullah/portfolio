@@ -6,8 +6,8 @@ import { githubProfileUrl } from '@/common/variables'
 import BtnLink from '@/components/BtnLink'
 import IconLink from '@/components/IconLink'
 import Section from '@/components/Section'
-import Anchor from '@/components/Typography/Anchor'
-import P from '@/components/Typography/P'
+import Anchor from '@/components/typography/Anchor'
+import P from '@/components/typography/P'
 
 const sectionLabel = 'header-heading'
 

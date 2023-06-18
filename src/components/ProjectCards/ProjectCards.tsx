@@ -3,7 +3,9 @@ import bootstrapLogo from '$public/images/bootstrap-logo.png'
 import jsLogo from '$public/images/js-logo.png'
 import reactLogo from '$public/images/react-logo.png'
 import vueLogo from '$public/images/vue-logo.png'
+import { motion } from 'framer-motion'
 import { githubProfileUrl } from '@/common/variables'
+import { fadeVariants, cardVariants } from '@/utils/motion'
 import ProjectCard, { type ProjectCardProps } from './ProjectCard'
 
 const PROJECT_LIST: ProjectCardProps[] = [
@@ -64,10 +66,39 @@ const PROJECT_LIST: ProjectCardProps[] = [
 
 export default function ProjectCards() {
     return (
-        <div id='project-cards' className='group grid gap-6'>
+        <motion.div
+            id='project-cards'
+            className='group grid gap-6'
+            initial='hide'
+            whileInView='show'
+            variants={fadeVariants}
+            viewport={{ once: false, margin: '-80px 0px -200px 0px' }}
+            transition={{ staggerChildren: 0.08, delayChildren: 0.05 }}
+        >
             {PROJECT_LIST.map(project => (
-                <ProjectCard key={project.title} {...project} />
+                <motion.div
+                    key={project.title}
+                    tabIndex={-1}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.975 }}
+                    variants={cardVariants}
+                    transition={{
+                        opacity: { type: 'tween', duration: 0.4 },
+                        scale: {
+                            type: 'spring',
+                            stiffness: 400,
+                            damping: 14,
+                            mass: 0.5,
+                        },
+                        type: 'spring',
+                        stiffness: 200,
+                        damping: 18,
+                        mass: 1,
+                    }}
+                >
+                    <ProjectCard {...project} />
+                </motion.div>
             ))}
-        </div>
+        </motion.div>
     )
 }

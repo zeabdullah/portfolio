@@ -12,7 +12,7 @@ export default function CustomHead() {
                 title={title}
                 description={description}
                 canonical={MY_DOMAIN}
-                twitter={{ site: MY_DOMAIN }}
+                twitter={{ site: MY_DOMAIN, cardType: 'summary_large_image' }}
                 themeColor='#0f0f0f'
                 openGraph={{
                     title,

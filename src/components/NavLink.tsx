@@ -15,7 +15,11 @@ export function NavLink({
     ...props
 }: NavLinkProps): JSX.Element {
     return (
-        <Link className={cn(navItemCls, 'relative', className)} {...props}>
+        <Link
+            className={cn(navItemCls, 'relative', className)}
+            {...props}
+            scroll={false}
+        >
             {pulseEffect && <PulsatingCircle />}
             {children}
         </Link>

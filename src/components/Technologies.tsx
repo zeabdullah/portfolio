@@ -8,8 +8,8 @@ import {
 } from 'react-icons/si'
 import Section from '@/components/Section'
 import SectionHeading from '@/components/SectionHeading'
-import H2 from '@/components/Typography/H2'
-import Subtitle from '@/components/Typography/Subtitle'
+import H2 from '@/components/typography/H2'
+import Subtitle from '@/components/typography/Subtitle'
 import { cn } from '@/utils/dom'
 
 const title = 'Technologies'
