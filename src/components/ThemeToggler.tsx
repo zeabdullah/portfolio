@@ -3,13 +3,15 @@ import { navBtnCls } from '@/common/classnames'
 import { cn } from '@/utils/dom'
 import { useMounted } from '@/utils/hooks/use-mounted'
 import { useTheme } from '@/utils/theme'
+import NavItem from './NavItem'
 
 export default function ThemeToggler() {
     const { toggleTheme, isDarkMode } = useTheme()
     const mounted = useMounted()
 
     return (
-        <button
+        <NavItem
+            element='button'
             type='button'
             className={cn(
                 navBtnCls,
@@ -26,6 +28,6 @@ export default function ThemeToggler() {
             ) : (
                 <RiMoonClearFill />
             )}
-        </button>
+        </NavItem>
     )
 }

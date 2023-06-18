@@ -3,7 +3,7 @@ import bootstrapLogo from '$public/images/bootstrap-logo.png'
 import jsLogo from '$public/images/js-logo.png'
 import reactLogo from '$public/images/react-logo.png'
 import vueLogo from '$public/images/vue-logo.png'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { githubProfileUrl } from '@/common/variables'
 import { fadeVariants, cardVariants } from '@/utils/motion'
 import ProjectCard, { type ProjectCardProps } from './ProjectCard'
@@ -66,7 +66,7 @@ const PROJECT_LIST: ProjectCardProps[] = [
 
 export default function ProjectCards() {
     return (
-        <motion.div
+        <m.div
             id='project-cards'
             className='group grid gap-6'
             initial='hide'
@@ -76,7 +76,7 @@ export default function ProjectCards() {
             transition={{ staggerChildren: 0.08, delayChildren: 0.05 }}
         >
             {PROJECT_LIST.map(project => (
-                <motion.div
+                <m.div
                     key={project.title}
                     tabIndex={-1}
                     whileHover={{ scale: 1.05 }}
@@ -97,8 +97,8 @@ export default function ProjectCards() {
                     }}
                 >
                     <ProjectCard {...project} />
-                </motion.div>
+                </m.div>
             ))}
-        </motion.div>
+        </m.div>
     )
 }

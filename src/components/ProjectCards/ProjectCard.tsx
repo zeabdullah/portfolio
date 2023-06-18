@@ -19,9 +19,9 @@ export default function ProjectCard(props: ProjectCardProps): JSX.Element {
             href={props.link}
             target='_blank'
             rel='noreferrer noopener'
-            className='flex flex-col items-start justify-start gap-4 rounded-md border border-neutral-200 bg-neutral-50 p-8 shadow-sm transition-[opacity,color,border-color,background-color] hover:!opacity-100 focus-visible:border-neutral-400 focus-visible:bg-neutral-200 focus-visible:!opacity-100 active:duration-100 dark:border-neutral-800 dark:bg-neutral-800/75 dark:shadow-none dark:focus-visible:border-neutral-600 sm:flex-row md:hover:border-neutral-400 md:hover:bg-neutral-200 md:group-hover:opacity-60 dark:md:hover:border-neutral-600 dark:md:hover:bg-neutral-700 dark:md:focus-visible:bg-neutral-700 md:dark:md:group-hover:opacity-70'
+            className='flex flex-col items-start justify-start gap-4 rounded-md border border-neutral-200 bg-neutral-50 p-8 shadow-sm transition-[opacity,color,border-color,background-color] hover:!opacity-100 focus-visible:border-neutral-400 focus-visible:bg-neutral-200 focus-visible:!opacity-100 dark:border-neutral-800 dark:bg-neutral-800/75 dark:shadow-none dark:focus-visible:border-neutral-600 sm:flex-row md:hover:border-neutral-400 md:hover:bg-neutral-200 md:group-hover:opacity-60 dark:md:hover:border-neutral-600 dark:md:hover:bg-neutral-700 dark:md:focus-visible:bg-neutral-700 md:dark:md:group-hover:opacity-70'
         >
-            <div className='mr-4'>
+            <div className='me-4'>
                 <div
                     className={cn(
                         'h-14 w-14 overflow-hidden rounded-lg',
@@ -37,7 +37,7 @@ export default function ProjectCard(props: ProjectCardProps): JSX.Element {
             </div>
             <div>
                 <div className='mb-2 flex flex-col gap-x-5 sm:flex-row sm:items-center'>
-                    <h3 className='flex-shrink-0 text-lg font-bold dark:text-light'>
+                    <h3 className='shrink-0 text-lg font-bold dark:text-light'>
                         {props.title}
                     </h3>
                     <TechStackText>{props.stack}</TechStackText>

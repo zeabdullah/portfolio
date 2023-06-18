@@ -23,11 +23,11 @@ export default function Resume() {
                     target='_blank'
                     rel='noreferrer noopener'
                     href='https://drive.google.com/file/d/1F46afVwdRy_cAWP1FPXgCc2enqv-0rQp/view?usp=sharing'
-                    className='flex-grow'
+                    className='grow'
                 >
                     <RiDriveLine className='text-lg' /> View on GDrive{' '}
                 </BtnLink>
-                <BtnLink href={resumePath} className='flex-grow'>
+                <BtnLink href={resumePath} className='grow'>
                     <RiDownloadCloud2Line className='text-lg' /> Download
                 </BtnLink>
             </div>
