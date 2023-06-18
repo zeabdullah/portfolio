@@ -60,7 +60,7 @@ const githubLabel = 'GitHub'
 function Socials() {
     return (
         <div className='mt-16 flex flex-wrap gap-2'>
-            <div className='mr-8 contents'>
+            <div className='me-8 contents'>
                 <IconLink
                     href={githubProfileUrl}
                     aria-label={githubLabel}
@@ -115,12 +115,16 @@ function HeroTextTypewriter() {
                     </>
                 )}
             </strong>
-            A dev with <wbr />
-            <span className='inline-block'>a passion</span>
-            <br /> to make <wbr />
-            <span className='inline-block'>the web a</span>
-            <br />
-            <div className='min-h-[5rem]'>
+            <p>
+                A dev with <wbr />
+                <span className='inline-block'>a passion</span>
+            </p>
+            <p>
+                {' '}
+                to make <wbr />
+                <span className='inline-block'>the web a</span>
+            </p>
+            <p className='min-h-[5rem]'>
                 {firstTyperDone && (
                     <Typewriter
                         options={{ delay: 80, deleteSpeed: 20 }}
@@ -137,7 +141,7 @@ function HeroTextTypewriter() {
                         }}
                     />
                 )}
-            </div>
+            </p>
         </h1>
     )
 }
