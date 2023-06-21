@@ -46,12 +46,7 @@ export default function HeroSection() {
                     staggerChildren: 0.1,
                 }}
             >
-                <P
-                    initial='hide'
-                    animate='show'
-                    variants={pVariants}
-                    transition={pTransition}
-                >
+                <P variants={pVariants} transition={pTransition}>
                     I&apos;m a developer with over a year of experience. I like
                     to make awesome things on the web and see people enjoy and
                     benefit from them.
@@ -166,7 +161,7 @@ function HeroTextTypewriter({
                         onInit={typewriter => {
                             const stringToDelete = 'cooler...'
                             typewriter
-                                .pauseFor(250)
+                                .pauseFor(500)
                                 .typeString(stringToDelete)
                                 .pauseFor(1000)
                                 .deleteChars(stringToDelete.length)
