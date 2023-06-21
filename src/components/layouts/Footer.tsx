@@ -2,7 +2,7 @@ import { FaGithub } from 'react-icons/fa'
 import { SiNextdotjs } from 'react-icons/si'
 import { navAndFooterClassName } from '@/common/classnames'
 import { githubProfileUrl } from '@/common/variables'
-import Anchor from '@/components/Typography_/Anchor'
+import Anchor from '@/components/typography/Anchor'
 import { cn } from '@/utils/css'
 
 const githubLabel = 'GitHub'
