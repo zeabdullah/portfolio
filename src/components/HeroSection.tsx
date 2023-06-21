@@ -1,3 +1,4 @@
+import { type Transition, type Variants, m } from 'framer-motion'
 import { useState } from 'react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { MdPersonOutline } from 'react-icons/md'
@@ -11,22 +12,51 @@ import P from '@/components/typography/P'
 
 const sectionLabel = 'header-heading'
 
+const pVariants: Variants = {
+    hide: { opacity: 0, y: 10 },
+    show: { opacity: 1, y: 0 },
+}
+const pTransition: Transition = {
+    type: 'spring',
+    stiffness: 150,
+    damping: 22,
+    mass: 0.5,
+}
+
 export default function HeroSection() {
+    const [firstTyperDone, setFirstTyperDone] = useState(false)
+
     return (
         <Section id='header' role='banner' aria-labelledby={sectionLabel}>
             <h1 className='sr-only' id={sectionLabel}>
                 <strong>I&apos;m Abdullah.</strong> A dev with a passion to make
                 the web a greater place.
             </h1>
-            <HeroTextTypewriter />
+            <HeroTextTypewriter
+                firstTyperDone={firstTyperDone}
+                onFirstTyperDone={done => setFirstTyperDone(done)}
+            />
 
-            <article className='space-y-4'>
-                <P>
+            <m.article
+                className='space-y-4'
+                initial='hide'
+                animate={firstTyperDone ? 'show' : 'hide'}
+                transition={{
+                    opacity: { type: 'tween', duration: 0.3 },
+                    staggerChildren: 0.1,
+                }}
+            >
+                <P
+                    initial='hide'
+                    animate='show'
+                    variants={pVariants}
+                    transition={pTransition}
+                >
                     I&apos;m a developer with over a year of experience. I like
                     to make awesome things on the web and see people enjoy and
                     benefit from them.
                 </P>
-                <P>
+                <P variants={pVariants} transition={pTransition}>
                     As a current software engineer at{' '}
                     <Anchor href='https://distin-gui.com' external>
                         Distin-Gui
@@ -34,7 +64,7 @@ export default function HeroSection() {
                     , I work on creating web experiences for clients small and
                     large.
                 </P>
-                <P>
+                <P variants={pVariants} transition={pTransition}>
                     Frontend development is my focus, and I love to develop some
                     CLI projects on the side for fun. I&apos;ve also been
                     recently interested in reading books about software
@@ -47,7 +77,7 @@ export default function HeroSection() {
                     </Anchor>
                     <em> (highly recommend btw).</em>
                 </P>
-            </article>
+            </m.article>
 
             <Socials />
         </Section>
@@ -86,9 +116,14 @@ function Socials() {
     )
 }
 
-function HeroTextTypewriter() {
-    const [firstTyperDone, setFirstTyperDone] = useState(false)
-    const endFirstTypewriter = () => setFirstTyperDone(true)
+function HeroTextTypewriter({
+    firstTyperDone,
+    onFirstTyperDone,
+}: {
+    firstTyperDone: boolean
+    onFirstTyperDone: (done: boolean) => void
+}) {
+    const endFirstTypewriter = () => onFirstTyperDone(true)
 
     return (
         <h1

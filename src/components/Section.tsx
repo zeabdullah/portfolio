@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import { cn } from '@/utils/dom'
+import { cn } from '@/utils/css'
 
 export default function Section({
     className,

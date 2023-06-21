@@ -1,4 +1,4 @@
-import { cn } from '@/utils/dom'
+import { cn } from '@/utils/css'
 
 export const btnColorsCls = cn(
     'text-neutral-600 transition-colors hover:bg-neutral-300 hover:text-dark hover:duration-75 focus-visible:bg-neutral-300 dark:text-neutral-400 dark:hover:bg-opacity-25 dark:hover:text-light dark:focus-visible:bg-opacity-25 dark:focus-visible:text-light',

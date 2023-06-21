@@ -3,7 +3,7 @@ import { SiNextdotjs } from 'react-icons/si'
 import { navAndFooterClassName } from '@/common/classnames'
 import { githubProfileUrl } from '@/common/variables'
 import Anchor from '@/components/typography/Anchor'
-import { cn } from '@/utils/dom'
+import { cn } from '@/utils/css'
 
 const githubLabel = 'GitHub'
 

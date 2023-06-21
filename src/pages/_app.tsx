@@ -6,7 +6,7 @@ import CustomHead from '@/components/CustomHead'
 import Footer from '@/components/layouts/Footer'
 import Navbar from '@/components/layouts/Navbar'
 import '@/styles/globals.css'
-import { cn } from '@/utils/dom'
+import { cn } from '@/utils/css'
 
 const jetBrainsMono = JetBrains_Mono({
     subsets: ['latin'],

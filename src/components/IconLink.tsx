@@ -1,7 +1,7 @@
 import { m } from 'framer-motion'
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import { btnColorsCls } from '@/common/classnames'
-import { cn } from '@/utils/dom'
+import { cn } from '@/utils/css'
 import { tapMotionProps } from '@/utils/motion'
 
 interface IconLinkProps extends ComponentPropsWithoutRef<(typeof m)['a']> {

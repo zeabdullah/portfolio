@@ -1,13 +1,14 @@
+import { m } from 'framer-motion'
 import type { ComponentPropsWithoutRef } from 'react'
-import { cn } from '@/utils/dom'
+import { cn } from '@/utils/css'
 
 export default function P({
     className,
     children,
     ...props
-}: ComponentPropsWithoutRef<'p'>): JSX.Element {
+}: ComponentPropsWithoutRef<(typeof m)['p']>): JSX.Element {
     return (
-        <p
+        <m.p
             className={cn(
                 'text-black dark:font-light dark:text-light sm:text-base/relaxed md:text-lg/relaxed',
                 className,
@@ -15,6 +16,6 @@ export default function P({
             {...props}
         >
             {children}
-        </p>
+        </m.p>
     )
 }

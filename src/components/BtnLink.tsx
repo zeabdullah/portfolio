@@ -1,6 +1,6 @@
 import { m } from 'framer-motion'
 import type { ComponentPropsWithoutRef } from 'react'
-import { cn } from '@/utils/dom'
+import { cn } from '@/utils/css'
 
 interface BtnLinkProps extends ComponentPropsWithoutRef<(typeof m)['a']> {
     attractive?: boolean
