@@ -1,4 +1,4 @@
-import { fontFamily } from 'tailwindcss/defaultTheme'
+import defaultTheme from 'tailwindcss/defaultTheme'
 
 export const screens = {
     sm: '640px',
@@ -11,14 +11,13 @@ export const screens = {
 export const colors = {
     dark: 'hsl(0, 0%, 6%)',
     light: 'hsl(0, 0%, 100%)',
-    // brand: '#??????', // ? looking for inspiration
 } as const
 
 export const fontFamilies = {
     mono: ['var(--font-monospace)', 'Lucida Console', 'Monaco', 'monospace'],
-    sans: ['var(--font-grotesk)', ...fontFamily.sans],
+    sans: ['var(--font-grotesk)', ...defaultTheme.fontFamily.sans],
 } as const
 
-export type Color = keyof typeof colors
+export type Color = keyof typeof defaultTheme.colors
 export type Screen = keyof typeof screens
 export type FontFamily = keyof typeof fontFamilies

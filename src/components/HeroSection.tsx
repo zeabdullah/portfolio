@@ -8,6 +8,7 @@ import IconLink from '@/components/IconLink'
 import Section from '@/components/Section'
 import Anchor from '@/components/typography/Anchor'
 import P from '@/components/typography/P'
+import H1 from './typography/H1'
 
 const sectionLabel = 'header-heading'
 
@@ -25,7 +26,7 @@ export default function HeroSection() {
                 onFirstTyperDone={done => setFirstTyperDone(done)}
             />
 
-            <article className='space-y-5'>
+            <article className='max-w-[75ch] space-y-5'>
                 <P>
                     I&apos;m a developer with over a year of experience. I like
                     to make awesome things on the web and see people enjoy and
@@ -101,10 +102,7 @@ function HeroTextTypewriter({
     const endFirstTypewriter = () => onFirstTyperDone(true)
 
     return (
-        <h1
-            aria-hidden
-            className='mb-5 max-w-xl font-mono text-[1.625rem] font-medium !leading-snug sm:text-4xl md:mb-16 md:max-w-3xl md:text-5xl'
-        >
+        <H1 aria-hidden className='mb-5 max-w-xl !leading-snug md:mb-16'>
             <strong className='mb-4 block text-4xl font-extrabold sm:text-5xl md:text-6xl'>
                 {firstTyperDone ? (
                     <>I&apos;m Abdullah.</>
@@ -152,6 +150,6 @@ function HeroTextTypewriter({
                     />
                 )}
             </div>
-        </h1>
+        </H1>
     )
 }

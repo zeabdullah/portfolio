@@ -15,7 +15,7 @@ const LINKS: Array<{
     { href: '/#projects', children: 'Projects' },
     { href: '/#tech', children: 'Technologies' },
     { href: '/#resume', children: 'Resume' },
-    // { href: '/blog', children: 'Blog', pulseEffect: true }, // TODO: under construction 🚧
+    { href: '/blog', children: 'Blog', pulseEffect: true }, // TODO: under construction 🚧
 ]
 
 export default function Navbar() {
