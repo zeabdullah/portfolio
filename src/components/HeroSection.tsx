@@ -25,7 +25,7 @@ export default function HeroSection() {
                 onFirstTyperDone={done => setFirstTyperDone(done)}
             />
 
-            <article className='space-y-4'>
+            <article className='space-y-5'>
                 <P>
                     I&apos;m a developer with over a year of experience. I like
                     to make awesome things on the web and see people enjoy and
@@ -103,7 +103,7 @@ function HeroTextTypewriter({
     return (
         <h1
             aria-hidden
-            className='mb-5 max-w-xl text-[1.625rem] font-medium !leading-snug sm:text-4xl md:mb-16 md:max-w-3xl md:text-5xl'
+            className='mb-5 max-w-xl font-mono text-[1.625rem] font-medium !leading-snug sm:text-4xl md:mb-16 md:max-w-3xl md:text-5xl'
         >
             <strong className='mb-4 block text-4xl font-extrabold sm:text-5xl md:text-6xl'>
                 {firstTyperDone ? (
@@ -125,16 +125,16 @@ function HeroTextTypewriter({
                     </>
                 )}
             </strong>
-            <p>
+            <div>
                 A dev with <wbr />
                 <span className='inline-block'>a passion</span>
-            </p>
-            <p>
+            </div>
+            <div>
                 {' '}
                 to make <wbr />
                 <span className='inline-block'>the web a</span>
-            </p>
-            <p className='min-h-[5rem]'>
+            </div>
+            <div className='min-h-[5rem]'>
                 {firstTyperDone && (
                     <Typewriter
                         options={{ delay: 80, deleteSpeed: 20 }}
@@ -151,7 +151,7 @@ function HeroTextTypewriter({
                         }}
                     />
                 )}
-            </p>
+            </div>
         </h1>
     )
 }

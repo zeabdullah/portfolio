@@ -40,7 +40,7 @@ export default function Navbar() {
                     element='next-link'
                     href='/'
                     aria-label='Home'
-                    className='me-auto text-2xl font-bold max-sm:px-2'
+                    className='me-auto font-mono text-2xl font-bold max-sm:px-2'
                 >
                     {'<Z/>'}
                 </NavItem>

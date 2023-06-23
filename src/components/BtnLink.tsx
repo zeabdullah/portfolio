@@ -14,10 +14,10 @@ export default function BtnLink({
     ...props
 }: BtnLinkProps) {
     const linkBtnCls = cn(
-        'border-neutral-300? hover:border-neutral-400? flex items-center justify-center gap-2 rounded-lg border-[1.5px] px-4 py-2 font-bold transition-colors duration-150 dark:border-opacity-50',
+        'flex items-center justify-center gap-2 rounded-lg px-4 py-2 font-semibold transition-colors duration-150',
         attractive
-            ? 'bg-dark text-light focus-visible:bg-neutral-100 focus-visible:text-dark dark:bg-neutral-100 dark:text-dark dark:focus-visible:bg-dark dark:focus-visible:text-light'
-            : 'bg-neutral-100 hover:bg-neutral-200 focus-visible:bg-neutral-200 dark:bg-transparent dark:text-light dark:hover:bg-neutral-800 dark:focus-visible:bg-neutral-800',
+            ? 'border-none bg-dark text-light focus-visible:bg-neutral-100 focus-visible:text-dark dark:bg-neutral-100 dark:text-dark dark:focus-visible:bg-dark dark:focus-visible:text-light'
+            : 'border-[1.5px] border-neutral-300 bg-neutral-100 hover:bg-neutral-200 focus-visible:bg-neutral-200 dark:bg-transparent dark:text-light dark:hover:bg-neutral-800 dark:focus-visible:bg-neutral-800',
     )
 
     return (

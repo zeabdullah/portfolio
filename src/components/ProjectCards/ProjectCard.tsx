@@ -92,7 +92,7 @@ export default function ProjectCard({
                     </h3>
                     <TechStackText>{props.stack}</TechStackText>
                 </div>
-                <p className='text-md font-light leading-relaxed text-neutral-800 dark:text-light'>
+                <p className='text-md font-normal leading-relaxed text-neutral-800 dark:text-light'>
                     {props.content}
                 </p>
 

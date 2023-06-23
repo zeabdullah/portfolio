@@ -1,7 +1,7 @@
 import { LazyMotion, domAnimation } from 'framer-motion'
 import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
-import { JetBrains_Mono } from 'next/font/google'
+import { JetBrains_Mono, Space_Grotesk } from 'next/font/google'
 import CustomHead from '@/components/CustomHead'
 import Footer from '@/components/layouts/Footer'
 import Navbar from '@/components/layouts/Navbar'
@@ -16,6 +16,14 @@ const jetBrainsMono = JetBrains_Mono({
     weight: 'variable',
     variable: '--font-monospace',
 })
+const spaceGrotesk = Space_Grotesk({
+    subsets: ['latin'],
+    adjustFontFallback: true,
+    display: 'swap',
+    preload: true,
+    weight: 'variable',
+    variable: '--font-grotesk',
+})
 
 export default function App({ Component, pageProps }: AppProps) {
     return (
@@ -27,7 +35,8 @@ export default function App({ Component, pageProps }: AppProps) {
                     <div
                         className={cn(
                             jetBrainsMono.variable,
-                            'flex min-h-screen flex-col scroll-smooth bg-light font-mono text-dark antialiased transition-colors duration-300 dark:bg-dark dark:text-light',
+                            spaceGrotesk.variable,
+                            'flex min-h-screen flex-col scroll-smooth bg-light font-sans text-dark antialiased transition-colors duration-300 dark:bg-dark dark:text-light',
                         )}
                     >
                         <Navbar />

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const plugin = require('tailwindcss/plugin')
-const { screens } = require('./src/utils/tailwind')
+const { screens, colors, fontFamilies } = require('./src/utils/tailwind')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -9,19 +9,8 @@ module.exports = {
     theme: {
         screens,
         extend: {
-            colors: {
-                dark: 'hsl(0, 0%, 6%)',
-                light: 'hsl(0, 0%, 100%)',
-                // brand: '#??????', // ? looking for inspiration
-            },
-            fontFamily: {
-                mono: [
-                    'var(--font-monospace)',
-                    'Lucida Console',
-                    'Monaco',
-                    'monospace',
-                ],
-            },
+            colors,
+            fontFamily: fontFamilies,
         },
     },
     plugins: [
