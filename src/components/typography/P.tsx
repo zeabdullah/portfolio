@@ -1,14 +1,17 @@
 import { m } from 'framer-motion'
-import type { ComponentPropsWithoutRef } from 'react'
+import { forwardRef, type ComponentPropsWithoutRef } from 'react'
 import { cn } from '@/utils/css'
 
-export default function P({
-    className,
-    children,
-    ...props
-}: ComponentPropsWithoutRef<(typeof m)['p']>): JSX.Element {
+type Ref = HTMLParagraphElement
+type Props = ComponentPropsWithoutRef<'p'>
+
+const P = forwardRef<Ref, Props>(function P(
+    { className, children, ...props },
+    ref,
+) {
     return (
-        <m.p
+        <p
+            ref={ref}
             className={cn(
                 'text-black dark:font-light dark:text-light sm:text-base/relaxed md:text-lg/relaxed',
                 className,
@@ -16,6 +19,9 @@ export default function P({
             {...props}
         >
             {children}
-        </m.p>
+        </p>
     )
-}
+})
+export default P
+
+export const MotionP = m(P)

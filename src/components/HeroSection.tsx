@@ -1,4 +1,3 @@
-import { type Transition, type Variants, m } from 'framer-motion'
 import { useState } from 'react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { MdPersonOutline } from 'react-icons/md'
@@ -11,17 +10,6 @@ import Anchor from '@/components/typography/Anchor'
 import P from '@/components/typography/P'
 
 const sectionLabel = 'header-heading'
-
-const pVariants: Variants = {
-    hide: { opacity: 0, y: 10 },
-    show: { opacity: 1, y: 0 },
-}
-const pTransition: Transition = {
-    type: 'spring',
-    stiffness: 150,
-    damping: 22,
-    mass: 0.5,
-}
 
 export default function HeroSection() {
     const [firstTyperDone, setFirstTyperDone] = useState(false)
@@ -37,21 +25,13 @@ export default function HeroSection() {
                 onFirstTyperDone={done => setFirstTyperDone(done)}
             />
 
-            <m.article
-                className='space-y-4'
-                initial='hide'
-                animate={firstTyperDone ? 'show' : 'hide'}
-                transition={{
-                    opacity: { type: 'tween', duration: 0.3 },
-                    staggerChildren: 0.1,
-                }}
-            >
-                <P variants={pVariants} transition={pTransition}>
+            <article className='space-y-4'>
+                <P>
                     I&apos;m a developer with over a year of experience. I like
                     to make awesome things on the web and see people enjoy and
                     benefit from them.
                 </P>
-                <P variants={pVariants} transition={pTransition}>
+                <P>
                     As a current software engineer at{' '}
                     <Anchor href='https://distin-gui.com' external>
                         Distin-Gui
@@ -59,7 +39,7 @@ export default function HeroSection() {
                     , I work on creating web experiences for clients small and
                     large.
                 </P>
-                <P variants={pVariants} transition={pTransition}>
+                <P>
                     Frontend development is my focus, and I love to develop some
                     CLI projects on the side for fun. I&apos;ve also been
                     recently interested in reading books about software
@@ -72,7 +52,7 @@ export default function HeroSection() {
                     </Anchor>
                     <em> (highly recommend btw).</em>
                 </P>
-            </m.article>
+            </article>
 
             <Socials />
         </Section>
