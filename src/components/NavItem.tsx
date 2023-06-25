@@ -10,7 +10,6 @@ interface BaseProps {
     pulseEffect?: boolean
     children?: ReactNode
     className?: string
-    element: unknown
 }
 type ComponentWithBaseProps<T extends ElementType> = Omit<
     ComponentPropsWithoutRef<T>,
@@ -29,7 +28,7 @@ export default function NavItem({
     className,
     children,
     ...props
-}: NavItemProps): JSX.Element {
+}: NavItemProps) {
     const content = (
         <>
             {pulseEffect && <PulseEffect />}
@@ -38,11 +37,12 @@ export default function NavItem({
     )
 
     if (props.element === 'next-link') {
+        const { element: _e, ...restProps } = props
         return (
             <MotionLink
                 className={cn(navItemCls, 'relative', className)}
                 scroll={false}
-                {...props}
+                {...restProps}
                 {...tapMotionProps}
             >
                 {content}
@@ -50,10 +50,11 @@ export default function NavItem({
         )
     }
     if (props.element === 'a') {
+        const { element: _e, ...restProps } = props
         return (
             <m.a
                 className={cn(navItemCls, 'relative', className)}
-                {...props}
+                {...restProps}
                 {...tapMotionProps}
             >
                 {content}
@@ -61,10 +62,11 @@ export default function NavItem({
         )
     }
 
+    const { element: _e, ...restProps } = props
     return (
         <m.button
             className={cn(navItemCls, 'relative', className)}
-            {...props}
+            {...restProps}
             {...tapMotionProps}
         >
             {content}

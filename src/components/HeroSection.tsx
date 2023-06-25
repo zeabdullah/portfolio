@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { FaGithub, FaLinkedin } from 'react-icons/fa'
-import { MdPersonOutline } from 'react-icons/md'
+import { FaGithub, FaLinkedin, FaPaperPlane } from 'react-icons/fa'
 import Typewriter from 'typewriter-effect'
 import { githubProfileUrl } from '@/common/variables'
 import BtnLink from '@/components/BtnLink'
@@ -86,7 +85,7 @@ function Socials() {
             </div>
 
             <BtnLink href='mailto:abdullahzeidan@gmail.com' attractive>
-                <MdPersonOutline className='text-xl' /> Hire me
+                <FaPaperPlane /> Work with me
             </BtnLink>
         </div>
     )
@@ -104,7 +103,7 @@ function HeroTextTypewriter({
     return (
         <H1
             aria-hidden
-            className='mb-5 max-w-xl font-medium !leading-snug md:mb-16'
+            className='mb-10 max-w-max font-medium !leading-snug sm:mb-12 md:mb-16'
         >
             <strong className='mb-4 block text-4xl font-extrabold sm:text-5xl md:text-6xl'>
                 {firstTyperDone ? (
@@ -135,7 +134,7 @@ function HeroTextTypewriter({
                 to make <wbr />
                 <span className='inline-block'>the web a</span>
             </div>
-            <div className='min-h-[5rem]'>
+            <div>
                 {firstTyperDone && (
                     <Typewriter
                         options={{ delay: 80, deleteSpeed: 20 }}
@@ -152,6 +151,7 @@ function HeroTextTypewriter({
                         }}
                     />
                 )}
+                &nbsp; {/* whitespace character to avoid layout shift */}
             </div>
         </H1>
     )

@@ -12,19 +12,20 @@ const LINKS: Array<{
     children: ReactNode
     pulseEffect?: boolean
 }> = [
-    { href: '/blog', children: 'Blog', pulseEffect: true }, // TODO: under construction 🚧
-    { href: '/#projects', children: 'Projects' },
-    { href: '/#tech', children: 'Technologies' },
+    { href: '/', children: 'Home' },
+    { href: '/blog', children: 'Blog', pulseEffect: true },
     { href: '/#resume', children: 'Resume' },
 ]
+
+interface NavbarActionsProps {
+    mobileNavActive: boolean
+    onMobileNavStateChange: (newState: boolean) => void
+}
 
 export default function NavbarActions({
     mobileNavActive,
     onMobileNavStateChange,
-}: {
-    mobileNavActive: boolean
-    onMobileNavStateChange: (newState: boolean) => void
-}) {
+}: NavbarActionsProps) {
     const toggleNavCollapse = () => onMobileNavStateChange(!mobileNavActive)
     const hideMobileNav = () => onMobileNavStateChange(false)
 

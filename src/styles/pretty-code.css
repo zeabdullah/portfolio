@@ -1,0 +1,11 @@
+[data-rehype-pretty-code-fragment] > pre {
+    margin-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+[data-rehype-pretty-code-title] {
+    background-color: hsl(218, 11%, 14%);
+    color: hsl(210, 2%, 50%);
+    @apply rounded-b-none rounded-t-md px-4 py-1.5 text-sm;
+}

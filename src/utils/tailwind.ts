@@ -20,6 +20,6 @@ export const fontFamilies = {
     sans: ['var(--font-grotesk)', ...defaultTheme.fontFamily.sans],
 } as const
 
-export type Color = keyof typeof defaultTheme.colors
+export type Color = keyof typeof colors
 export type Screen = keyof typeof screens
 export type FontFamily = keyof typeof fontFamilies
