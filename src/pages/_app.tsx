@@ -36,7 +36,7 @@ export default function App({ Component, pageProps }: AppProps) {
                         className={cn(
                             jetBrainsMono.variable,
                             spaceGrotesk.variable,
-                            'flex min-h-screen flex-col scroll-smooth bg-light font-sans text-dark antialiased transition-colors duration-300 selection:bg-teal-300 dark:bg-dark dark:text-light dark:selection:bg-teal-600',
+                            'flex min-h-screen flex-col bg-light font-sans text-dark antialiased transition-colors duration-300 selection:bg-brand-400 selection:text-dark dark:bg-dark dark:text-light',
                         )}
                     >
                         <Navbar />

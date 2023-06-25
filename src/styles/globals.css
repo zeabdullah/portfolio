@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
-}
-
 .Typewriter {
     display: inline;
 }

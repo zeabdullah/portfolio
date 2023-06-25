@@ -1,3 +1,4 @@
+import twColors from 'tailwindcss/colors'
 import defaultTheme from 'tailwindcss/defaultTheme'
 
 export const screens = {
@@ -11,6 +12,7 @@ export const screens = {
 export const colors = {
     dark: 'hsl(0, 0%, 6%)',
     light: 'hsl(0, 0%, 100%)',
+    brand: twColors.teal,
 } as const
 
 export const fontFamilies = {

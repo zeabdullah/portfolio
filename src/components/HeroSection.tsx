@@ -102,7 +102,10 @@ function HeroTextTypewriter({
     const endFirstTypewriter = () => onFirstTyperDone(true)
 
     return (
-        <H1 aria-hidden className='mb-5 max-w-xl !leading-snug md:mb-16'>
+        <H1
+            aria-hidden
+            className='mb-5 max-w-xl font-medium !leading-snug md:mb-16'
+        >
             <strong className='mb-4 block text-4xl font-extrabold sm:text-5xl md:text-6xl'>
                 {firstTyperDone ? (
                     <>I&apos;m Abdullah.</>

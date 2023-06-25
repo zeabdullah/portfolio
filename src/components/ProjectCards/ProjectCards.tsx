@@ -84,7 +84,7 @@ export default function ProjectCards() {
             initial='hide'
             whileInView='show'
             variants={fadeVariants}
-            viewport={{ once: true, margin: '-80px 0px -240px 0px' }}
+            viewport={{ once: false, margin: '-80px 0px -240px 0px' }}
             transition={{ staggerChildren: 0.1, delayChildren: 0.05 }}
         >
             {PROJECT_LIST.map(project => (

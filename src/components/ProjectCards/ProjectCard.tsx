@@ -65,7 +65,7 @@ export default function ProjectCard({
                 mass: 1,
             }}
         >
-            <div className='absolute inset-0 z-10 hidden items-center justify-center bg-neutral-700 bg-opacity-10 opacity-0 backdrop-blur transition dark:bg-neutral-700 dark:bg-opacity-30 sm:flex sm:group-focus-within/card:opacity-100 sm:group-hover/card:opacity-100'>
+            <div className='absolute inset-0 z-10 hidden items-center justify-center bg-transparent opacity-0 backdrop-blur transition sm:flex sm:group-focus-within/card:opacity-100 sm:group-hover/card:opacity-100'>
                 <div className='flex w-1/2 flex-col gap-3 md:flex-row'>
                     {cardLinks}
                 </div>
