@@ -1,5 +1,6 @@
 import { m } from 'framer-motion'
 import type { ComponentPropsWithoutRef } from 'react'
+import { focusRingCls } from '@/common/classnames'
 import { cn } from '@/utils/css'
 
 interface BtnLinkProps extends ComponentPropsWithoutRef<(typeof m)['a']> {
@@ -14,9 +15,11 @@ export default function BtnLink({
     ...props
 }: BtnLinkProps) {
     const linkBtnCls = cn(
-        'flex items-center justify-center gap-2 rounded-lg px-4 py-2 font-semibold transition-colors duration-150',
+        'flex items-center justify-center gap-2 rounded-lg px-4 py-2 font-semibold transition-[color,background-color,box-shadow] duration-150 focus-visible:outline-none',
+        focusRingCls,
+
         attractive
-            ? 'border-none bg-brand-600 text-light'
+            ? 'border-none bg-brand-500 text-light'
             : 'border-[1.5px] border-neutral-300 bg-neutral-100 hocus-visible:bg-neutral-200 dark:bg-dark dark:text-light dark:hocus-visible:bg-neutral-800',
     )
 
@@ -31,7 +34,10 @@ export default function BtnLink({
                 scale: 1.035,
                 filter: attractive ? 'brightness(1.15)' : '',
             }}
-            whileTap={{ scale: 0.95 }}
+            whileTap={{
+                scale: 0.95,
+                filter: attractive ? 'brightness(0.95)' : '',
+            }}
             transition={{
                 type: 'spring',
                 stiffness: 400,

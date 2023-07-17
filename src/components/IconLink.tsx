@@ -1,6 +1,6 @@
 import { m } from 'framer-motion'
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
-import { btnColorsCls } from '@/common/classnames'
+import { btnColorsCls, focusRingCls } from '@/common/classnames'
 import { cn } from '@/utils/css'
 import { tapMotionProps } from '@/utils/motion'
 
@@ -17,6 +17,7 @@ export default function IconLink({
         <m.a
             className={cn(
                 btnColorsCls,
+                focusRingCls,
                 'inline-flex items-center rounded-md p-2 text-2xl',
                 className,
             )}
