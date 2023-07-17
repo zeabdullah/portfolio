@@ -24,7 +24,7 @@ export default function BlogIndexPage({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
         <Container>
-            <Section id='header' role='banner' aria-labelledby={headerLabel}>
+            <Section id='header' aria-labelledby={headerLabel}>
                 <H1 id={headerLabel} className='mb-12 font-extrabold'>
                     Blog
                 </H1>

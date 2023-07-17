@@ -14,7 +14,7 @@ const LINKS: Array<{
 }> = [
     { href: '/', children: 'Home' },
     { href: '/blog', children: 'Blog', pulseEffect: true },
-    { href: '/#resume', children: 'Resume' },
+    { href: '/recipes', children: 'Recipes' },
 ]
 
 interface NavbarActionsProps {

@@ -41,7 +41,11 @@ export default function BlogPostPage({
 
     return (
         <Container className='max-w-3xl'>
-            <Section id='header' aria-labelledby={headerLabel}>
+            <Section
+                id='header'
+                className='pt-6 md:pt-6'
+                aria-labelledby={headerLabel}
+            >
                 <Link
                     href='/blog'
                     className='group mb-6 flex items-center gap-2 text-sm text-neutral-700 hover:text-brand-700 dark:text-neutral-400 dark:hover:text-brand-500'
