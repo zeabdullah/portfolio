@@ -1,5 +1,6 @@
 import { type Post, allPosts } from 'contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
+import { NextSeo } from 'next-seo'
 import Link from 'next/link'
 import type {
     GetStaticPaths,
@@ -32,8 +33,6 @@ export const getStaticProps: GetStaticProps<
     }
 }
 
-const headerLabel = 'header-heading'
-
 export default function BlogPostPage({
     post,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -41,10 +40,11 @@ export default function BlogPostPage({
 
     return (
         <Container className='max-w-3xl'>
+            <NextSeo title={`${post.title} | Abdullah Zeidan`} />
             <Section
                 id='header'
                 className='pt-6 md:pt-6'
-                aria-labelledby={headerLabel}
+                aria-labelledby='header-heading'
             >
                 <Link
                     href='/blog'
@@ -55,7 +55,9 @@ export default function BlogPostPage({
                 </Link>
 
                 <hgroup className='mb-12'>
-                    <H1 className='mb-3 font-extrabold'>{post.title}</H1>
+                    <H1 id='header-heading' className='mb-3 font-extrabold'>
+                        {post.title}
+                    </H1>
                     <PostDate>{post.date}</PostDate>
                 </hgroup>
 

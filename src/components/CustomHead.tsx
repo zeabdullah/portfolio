@@ -1,6 +1,7 @@
 import { DefaultSeo } from 'next-seo'
 import React from 'react'
 import { MY_DOMAIN } from '@/common/variables'
+import { colors } from '@/utils/tailwind'
 
 const title = 'Abdullah Zeidan | Web Engineer'
 const description = 'A dev with the passion to make the web a greater place.'
@@ -12,7 +13,7 @@ export default function CustomHead() {
             description={description}
             canonical={MY_DOMAIN}
             twitter={{ site: MY_DOMAIN, cardType: 'summary_large_image' }}
-            themeColor='#0f0f0f'
+            themeColor={colors.dark}
             openGraph={{
                 title,
                 description,
@@ -45,7 +46,7 @@ export default function CustomHead() {
                 },
                 {
                     name: 'msapplication-TileColor',
-                    content: '#0f0f0f',
+                    content: colors.dark,
                 },
             ]}
             additionalLinkTags={[

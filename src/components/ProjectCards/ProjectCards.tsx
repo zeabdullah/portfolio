@@ -82,7 +82,7 @@ export default function ProjectCards() {
             className='group/container space-y-6'
             initial='hide'
             whileInView='show'
-            viewport={{ once: false, margin: '-80px 0px -240px 0px' }}
+            viewport={{ once: true, margin: '-80px 0px -240px 0px' }}
             transition={{ staggerChildren: 0.1, delayChildren: 0.05 }}
         >
             {PROJECT_LIST.map(project => (

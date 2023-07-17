@@ -1,5 +1,6 @@
 import { type Post, allPosts } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
+import { NextSeo } from 'next-seo'
 import type { GetStaticProps, InferGetStaticPropsType } from 'next/types'
 import React from 'react'
 import PostCard from '@/components/PostCard'
@@ -24,6 +25,11 @@ export default function BlogIndexPage({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
         <Container>
+            <NextSeo
+                title='Blog | Abdullah Zeidan'
+                description='A place to share my knowledge with the world. Come and read interesting web dev topics like animations, accessibility, and more.'
+            />
+
             <Section id='header' aria-labelledby={headerLabel}>
                 <H1 id={headerLabel} className='mb-12 font-extrabold'>
                     Blog
