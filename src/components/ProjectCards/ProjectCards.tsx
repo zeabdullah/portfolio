@@ -4,8 +4,7 @@ import bootstrapLogo from '$/images/bootstrap-logo.png'
 import jsLogo from '$/images/js-logo.png'
 import reactLogo from '$/images/react-logo.png'
 import vueLogo from '$/images/vue-logo.png'
-import { githubProfileUrl } from '@/common/variables'
-import { fadeVariants } from '@/utils/motion'
+import { githubProfileUrl } from '@/utils/config'
 import ProjectCard, { type ProjectCardProps } from './ProjectCard'
 
 const PROJECT_LIST: ProjectCardProps[] = [
@@ -80,10 +79,9 @@ export default function ProjectCards() {
     return (
         <m.div
             id='project-cards'
-            className='group/container grid gap-6'
+            className='group/container space-y-6'
             initial='hide'
             whileInView='show'
-            variants={fadeVariants}
             viewport={{ once: true, margin: '-80px 0px -240px 0px' }}
             transition={{ staggerChildren: 0.1, delayChildren: 0.05 }}
         >

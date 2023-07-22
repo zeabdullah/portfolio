@@ -2,10 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
-}
+@import './pretty-code.css';
 
 .Typewriter {
     display: inline;

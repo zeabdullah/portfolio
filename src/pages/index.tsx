@@ -1,9 +1,11 @@
+import dynamic from 'next/dynamic'
 import HR from '@/components/HR'
 import HeroSection from '@/components/HeroSection'
 import Projects from '@/components/Projects'
-import Resume from '@/components/Resume'
 import Technologies from '@/components/Technologies'
 import Container from '@/components/layouts/Container'
+
+const Resume = dynamic(() => import('@/components/Resume'))
 
 export default function IndexPage() {
     return (

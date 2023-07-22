@@ -1,13 +1,13 @@
 import { useState } from 'react'
-import { FaGithub, FaLinkedin } from 'react-icons/fa'
-import { MdPersonOutline } from 'react-icons/md'
+import { FaGithub, FaLinkedin, FaPaperPlane } from 'react-icons/fa'
 import Typewriter from 'typewriter-effect'
-import { githubProfileUrl } from '@/common/variables'
 import BtnLink from '@/components/BtnLink'
 import IconLink from '@/components/IconLink'
 import Section from '@/components/Section'
 import Anchor from '@/components/typography/Anchor'
 import P from '@/components/typography/P'
+import { githubProfileUrl } from '@/utils/config'
+import H1 from './typography/H1'
 
 const sectionLabel = 'header-heading'
 
@@ -25,7 +25,7 @@ export default function HeroSection() {
                 onFirstTyperDone={done => setFirstTyperDone(done)}
             />
 
-            <article className='space-y-4'>
+            <article className='max-w-[75ch] space-y-5'>
                 <P>
                     I&apos;m a developer with over a year of experience. I like
                     to make awesome things on the web and see people enjoy and
@@ -85,7 +85,7 @@ function Socials() {
             </div>
 
             <BtnLink href='mailto:abdullahzeidan@gmail.com' attractive>
-                <MdPersonOutline className='text-xl' /> Hire me
+                <FaPaperPlane /> Work with me
             </BtnLink>
         </div>
     )
@@ -101,9 +101,9 @@ function HeroTextTypewriter({
     const endFirstTypewriter = () => onFirstTyperDone(true)
 
     return (
-        <h1
+        <H1
             aria-hidden
-            className='mb-5 max-w-xl text-[1.625rem] font-medium !leading-snug sm:text-4xl md:mb-16 md:max-w-3xl md:text-5xl'
+            className='mb-10 max-w-max font-medium !leading-snug sm:mb-12 md:mb-16'
         >
             <strong className='mb-4 block text-4xl font-extrabold sm:text-5xl md:text-6xl'>
                 {firstTyperDone ? (
@@ -125,16 +125,16 @@ function HeroTextTypewriter({
                     </>
                 )}
             </strong>
-            <p>
+            <div>
                 A dev with <wbr />
                 <span className='inline-block'>a passion</span>
-            </p>
-            <p>
+            </div>
+            <div>
                 {' '}
                 to make <wbr />
                 <span className='inline-block'>the web a</span>
-            </p>
-            <p className='min-h-[5rem]'>
+            </div>
+            <div>
                 {firstTyperDone && (
                     <Typewriter
                         options={{ delay: 80, deleteSpeed: 20 }}
@@ -151,7 +151,8 @@ function HeroTextTypewriter({
                         }}
                     />
                 )}
-            </p>
-        </h1>
+                &nbsp; {/* whitespace character to avoid layout shift */}
+            </div>
+        </H1>
     )
 }

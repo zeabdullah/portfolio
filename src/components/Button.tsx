@@ -3,37 +3,37 @@ import type { ComponentPropsWithoutRef } from 'react'
 import { cn } from '@/utils/css'
 import { useButtonStyles } from '@/utils/hooks/use-button-styles'
 
-interface BtnLinkProps extends ComponentPropsWithoutRef<(typeof m)['a']> {
+interface ButtonProps extends ComponentPropsWithoutRef<(typeof m)['button']> {
     attractive?: boolean
-    external?: boolean
 }
 
-export default function BtnLink({
-    attractive,
+export default function Button({
     children,
     className,
-    external,
+    attractive,
     ...props
-}: BtnLinkProps) {
+}: ButtonProps) {
     const {
         className: btnCls,
         tapVariant,
         focusVariant,
-        transition,
     } = useButtonStyles({ attractive })
 
     return (
-        <m.a
+        <m.button
+            {...props}
             className={cn(btnCls, className)}
             whileFocus={focusVariant}
             whileHover={focusVariant}
             whileTap={tapVariant}
-            transition={transition}
-            {...props}
-            target={external ? '_blank' : undefined}
-            rel={external ? 'noreferrer noopener' : undefined}
+            transition={{
+                type: 'spring',
+                stiffness: 400,
+                damping: 12,
+                mass: 0.3,
+            }}
         >
             {children}
-        </m.a>
+        </m.button>
     )
 }

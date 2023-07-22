@@ -1,5 +1,5 @@
 import { RiMoonClearFill, RiSunFill, RiContrastFill } from 'react-icons/ri'
-import { navBtnCls } from '@/common/classnames'
+import { navBtnCls } from '@/utils/classnames'
 import { cn } from '@/utils/css'
 import { useMounted } from '@/utils/hooks/use-mounted'
 import { useTheme } from '@/utils/theme'

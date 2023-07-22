@@ -1,4 +1,3 @@
-import clsx from 'clsx'
 import { m } from 'framer-motion'
 import Image, { type StaticImageData } from 'next/image'
 import { FaBroadcastTower, FaCode } from 'react-icons/fa'
@@ -25,7 +24,7 @@ export default function ProjectCard({
     sourceLink,
     liveLink,
     ...props
-}: ProjectCardProps): JSX.Element {
+}: ProjectCardProps) {
     const isBeyondLg = useMedia({ minWidth: screens.lg })
 
     const cardLinks = (
@@ -45,8 +44,8 @@ export default function ProjectCard({
 
     return (
         <m.div
-            className={clsx(
-                'flex flex-col justify-start gap-4 rounded-xl bg-neutral-50 p-8 shadow transition-[opacity,color,border-color,background-color] focus-visible:border-neutral-400 focus-visible:bg-neutral-200 hocus-visible:!opacity-100 dark:border dark:border-neutral-800 dark:bg-neutral-800/75 dark:shadow-none dark:focus-visible:border-neutral-600 sm:flex-row md:hover:border-neutral-400 md:hover:bg-neutral-200 md:group-hover/container:opacity-75 dark:md:group-hover/container:opacity-60 dark:md:hocus-within:border-neutral-600 dark:md:hocus-within:bg-neutral-700',
+            className={cn(
+                'flex flex-col justify-start gap-4 rounded-xl bg-neutral-50 p-8 shadow transition-[color,border-color,background-color] focus-visible:border-neutral-400 focus-visible:bg-neutral-200 hocus-visible:!opacity-100 dark:border dark:border-neutral-700 dark:bg-neutral-800 dark:shadow-none dark:focus-visible:border-neutral-600 sm:flex-row md:hover:border-neutral-400 md:hover:bg-neutral-200 md:group-hover/container:opacity-75 dark:md:group-hover/container:opacity-60 dark:md:hocus-within:border-neutral-600 dark:md:hocus-within:bg-neutral-700',
                 'group/card relative overflow-hidden',
             )}
             whileHover={{ scale: isBeyondLg ? 1.05 : 1 }}
@@ -65,7 +64,7 @@ export default function ProjectCard({
                 mass: 1,
             }}
         >
-            <div className='absolute inset-0 z-10 hidden items-center justify-center bg-neutral-700 bg-opacity-10 opacity-0 backdrop-blur transition dark:bg-neutral-700 dark:bg-opacity-30 sm:flex sm:group-focus-within/card:opacity-100 sm:group-hover/card:opacity-100'>
+            <div className='absolute inset-0 z-10 hidden items-center justify-center bg-transparent opacity-0 backdrop-blur transition sm:flex sm:group-focus-within/card:opacity-100 sm:group-hover/card:opacity-100'>
                 <div className='flex w-1/2 flex-col gap-3 md:flex-row'>
                     {cardLinks}
                 </div>
@@ -92,7 +91,7 @@ export default function ProjectCard({
                     </h3>
                     <TechStackText>{props.stack}</TechStackText>
                 </div>
-                <p className='text-md font-light leading-relaxed text-neutral-800 dark:text-light'>
+                <p className='text-md font-normal leading-relaxed text-neutral-800 dark:text-light'>
                     {props.content}
                 </p>
 

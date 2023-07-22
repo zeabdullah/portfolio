@@ -1,8 +1,8 @@
 import { FaGithub } from 'react-icons/fa'
 import { SiNextdotjs } from 'react-icons/si'
-import { navAndFooterClassName } from '@/common/classnames'
-import { githubProfileUrl } from '@/common/variables'
 import Anchor from '@/components/typography/Anchor'
+import { navAndFooterClassName } from '@/utils/classnames'
+import { githubProfileUrl } from '@/utils/config'
 import { cn } from '@/utils/css'
 
 const githubLabel = 'GitHub'
@@ -18,26 +18,30 @@ export default function Footer() {
             )}
         >
             <p className='flex items-center justify-center'>
-                Powered by{' '}
                 <Anchor
-                    className='ms-2 rounded p-1'
                     href='https://nextjs.org'
                     aria-label='Next.js'
                     title='Next.js'
                     external
                 >
-                    <SiNextdotjs className='text-xl' />
+                    Powered by{' '}
+                    <SiNextdotjs
+                        aria-label='Next.js'
+                        className='inline-block text-lg'
+                    />
                 </Anchor>
             </p>
             <p>
                 <Anchor
                     href={`${githubProfileUrl}/zeabdullah.github.io`}
+                    aria-label={githubLabel}
                     title={githubLabel}
+                    external
                 >
                     Source code on{' '}
                     <FaGithub
                         aria-label={githubLabel}
-                        className='inline text-lg'
+                        className='inline-block text-lg'
                     />
                 </Anchor>
             </p>
