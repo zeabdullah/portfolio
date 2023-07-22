@@ -35,7 +35,7 @@ const autolinkHeadingsOpts: AutolinkHeadingsOptions = {
     behavior: 'wrap',
     properties: {
         className:
-            "relative text-current no-underline before:absolute before:ms-[-1em] before:text-brand-500 before:opacity-0 before:transition-opacity before:content-['#'] hover:before:opacity-100",
+            "relative text-current no-underline before:absolute before:ms-[-1em] before:text-brand-500 before:opacity-0 before:transition-opacity before:content-['#'] hocus:before:opacity-100",
     },
 }
 

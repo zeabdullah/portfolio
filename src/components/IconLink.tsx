@@ -18,7 +18,7 @@ export default function IconLink({
             className={cn(
                 btnColorsCls,
                 focusRingCls,
-                'inline-flex items-center rounded-md p-2 text-2xl',
+                'inline-flex items-center rounded-md p-2 text-2xl transition-[color,background-color,box-shadow]',
                 className,
             )}
             target={external ? '_blank' : undefined}

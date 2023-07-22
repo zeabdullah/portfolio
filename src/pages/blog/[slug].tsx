@@ -62,9 +62,13 @@ export default function BlogPostPage({
                 </hgroup>
 
                 <article className='prose prose-brand max-w-none dark:prose-invert'>
-                    <MDXContent />
+                    <MDXContent components={mdxComponents.components} />
                 </article>
             </Section>
         </Container>
     )
 }
+
+const mdxComponents = {
+    components: {},
+} satisfies ReturnType<typeof useMDXComponent>['defaultProps']

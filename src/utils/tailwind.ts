@@ -10,7 +10,7 @@ export const screens = {
 } as const
 
 export const colors = {
-    dark: 'hsl(0, 0%, 6%)',
+    dark: 'hsl(0, 0%, 7%)',
     light: 'hsl(0, 0%, 100%)',
     brand: twColors.teal,
 } as const
@@ -18,7 +18,7 @@ export const colors = {
 export const fontFamilies = {
     mono: ['var(--font-monospace)', 'Lucida Console', 'Monaco', 'monospace'],
     sans: ['var(--font-grotesk)', ...defaultTheme.fontFamily.sans],
-} as const
+} // not using `as const` because tailwind.config.js errors because of a type conflict
 
 export type Color = keyof typeof colors
 export type Screen = keyof typeof screens
