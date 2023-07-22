@@ -1,7 +1,7 @@
 import { cn } from '@/utils/css'
 
 export const btnColorsCls = cn(
-    'text-neutral-600 hover:bg-neutral-300 hover:text-dark hover:duration-75 focus-visible:bg-neutral-300 dark:text-neutral-400 dark:hover:bg-opacity-25 dark:hover:text-light dark:focus-visible:bg-opacity-25 dark:focus-visible:text-light',
+    'text-neutral-600 hover:duration-75 hocus-visible:bg-neutral-300 hocus-visible:text-dark dark:text-neutral-400 dark:hocus-visible:bg-opacity-25 dark:hocus-visible:text-light',
 )
 
 export const navAndFooterClassName = cn(

@@ -6,9 +6,15 @@ export default function ConfettiButton({
     children,
     ...props
 }: ComponentPropsWithoutRef<typeof Button>) {
+    const confettiOptions: (angle: number) => confetti.Options = angle => ({
+        angle,
+        spread: randomInRange(45, 80),
+        particleCount: randomInRange(200, 400),
+    })
+
     const celebrate = () => {
-        confetti({ origin: { x: 0 } })
-        confetti({ origin: { x: 1 } })
+        confetti({ origin: { x: 0 }, ...confettiOptions(80) })
+        confetti({ origin: { x: 1 }, ...confettiOptions(100) })
     }
 
     return (
@@ -19,3 +25,6 @@ export default function ConfettiButton({
         </div>
     )
 }
+
+const randomInRange = (min: number, max: number) =>
+    Math.random() * (max - min) + min

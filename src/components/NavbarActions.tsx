@@ -4,7 +4,7 @@ import { RiMenuFill, RiCloseLine } from 'react-icons/ri'
 import ThemeToggler from '@/components/ThemeToggler'
 import { navBtnCls } from '@/utils/classnames'
 import { cn } from '@/utils/css'
-import { tapMotionProps } from '@/utils/motion'
+import { tapMotionProps } from '@/utils/css'
 import NavItem from './NavItem'
 
 const LINKS: Array<{
