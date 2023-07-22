@@ -12,6 +12,7 @@ import PostDate from '@/components/PostDate'
 import Section from '@/components/Section'
 import Container from '@/components/layouts/Container'
 import H1 from '@/components/typography/H1'
+import { cn } from '@/utils/css'
 
 export const getStaticPaths: GetStaticPaths = () => {
     return {
@@ -48,7 +49,7 @@ export default function BlogPostPage({
             >
                 <Link
                     href='/blog'
-                    className='group mb-6 flex items-center gap-2 text-sm text-neutral-700 hover:text-brand-700 dark:text-neutral-400 dark:hover:text-brand-500'
+                    className='group mb-8 flex items-center gap-2 text-sm text-neutral-700 hover:text-brand-700 dark:text-neutral-400 dark:hover:text-brand-500'
                 >
                     <FaArrowLeft className='transition-transform duration-200 group-hover:-translate-x-0.5' />
                     Back to main blog page
@@ -70,5 +71,14 @@ export default function BlogPostPage({
 }
 
 const mdxComponents = {
-    components: {},
+    components: {
+        code: ({ className, ...props }) => (
+            <code
+                className={cn(
+                    'rounded-md bg-neutral-200 px-1.5 py-0.5 before:hidden after:hidden dark:bg-neutral-700',
+                )}
+                {...props}
+            />
+        ),
+    },
 } satisfies ReturnType<typeof useMDXComponent>['defaultProps']

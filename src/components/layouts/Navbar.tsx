@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { navAndFooterClassName } from '@/common/classnames'
 import NavItem from '@/components/NavItem'
+import { navAndFooterClassName } from '@/utils/classnames'
 import { cn } from '@/utils/css'
 import NavbarActions from '../NavbarActions'
 

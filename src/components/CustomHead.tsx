@@ -1,6 +1,6 @@
 import { DefaultSeo } from 'next-seo'
 import React from 'react'
-import { MY_DOMAIN } from '@/common/variables'
+import { MY_DOMAIN } from '@/utils/config'
 import { colors } from '@/utils/tailwind'
 
 const title = 'Abdullah Zeidan | Web Engineer'

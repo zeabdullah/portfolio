@@ -1,6 +1,6 @@
 import { m } from 'framer-motion'
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
-import { navItemCls } from '@/common/classnames'
+import { navItemCls } from '@/utils/classnames'
 import { cn } from '@/utils/css'
 import { tapMotionProps } from '@/utils/motion'
 import MotionLink from './MotionLink'

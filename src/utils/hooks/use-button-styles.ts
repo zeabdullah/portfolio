@@ -1,6 +1,6 @@
 import type { Variant, Transition } from 'framer-motion'
 import { useMemo } from 'react'
-import { focusRingCls } from '@/common/classnames'
+import { focusRingCls } from '@/utils/classnames'
 import { cn } from '../css'
 
 interface ButtonStyleOptions {

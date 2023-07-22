@@ -4,7 +4,7 @@ import bootstrapLogo from '$/images/bootstrap-logo.png'
 import jsLogo from '$/images/js-logo.png'
 import reactLogo from '$/images/react-logo.png'
 import vueLogo from '$/images/vue-logo.png'
-import { githubProfileUrl } from '@/common/variables'
+import { githubProfileUrl } from '@/utils/config'
 import ProjectCard, { type ProjectCardProps } from './ProjectCard'
 
 const PROJECT_LIST: ProjectCardProps[] = [

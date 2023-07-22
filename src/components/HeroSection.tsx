@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { FaGithub, FaLinkedin, FaPaperPlane } from 'react-icons/fa'
 import Typewriter from 'typewriter-effect'
-import { githubProfileUrl } from '@/common/variables'
 import BtnLink from '@/components/BtnLink'
 import IconLink from '@/components/IconLink'
 import Section from '@/components/Section'
 import Anchor from '@/components/typography/Anchor'
 import P from '@/components/typography/P'
+import { githubProfileUrl } from '@/utils/config'
 import H1 from './typography/H1'
 
 const sectionLabel = 'header-heading'
