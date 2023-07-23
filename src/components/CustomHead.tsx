@@ -1,4 +1,5 @@
 import { DefaultSeo } from 'next-seo'
+import { useRouter } from 'next/router'
 import React from 'react'
 import { MY_DOMAIN } from '@/utils/config'
 import { colors } from '@/utils/tailwind'
@@ -7,17 +8,23 @@ const title = 'Abdullah Zeidan | Web Engineer'
 const description = 'A dev with the passion to make the web a greater place.'
 
 export default function CustomHead() {
+    const router = useRouter()
+    const canonicalURL = `${MY_DOMAIN}${router.asPath}` // trailing slash included
+
     return (
         <DefaultSeo
             title={title}
             description={description}
-            canonical={MY_DOMAIN}
-            twitter={{ site: MY_DOMAIN, cardType: 'summary_large_image' }}
+            canonical={canonicalURL}
+            twitter={{
+                site: canonicalURL,
+                cardType: 'summary_large_image',
+            }}
             themeColor={colors.dark}
             openGraph={{
                 title,
                 description,
-                url: MY_DOMAIN,
+                url: canonicalURL,
                 type: 'website',
                 siteName: "Abdullah Zeidan's Personal Website/Portfolio",
                 images: [
@@ -58,7 +65,7 @@ export default function CustomHead() {
                 {
                     rel: 'icon',
                     type: 'image/svg',
-                    sizes: '32x32',
+                    sizes: '256x256',
                     href: '/favicon.svg',
                 },
                 {

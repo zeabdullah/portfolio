@@ -76,6 +76,7 @@ const mdxComponents = {
             <code
                 className={cn(
                     'rounded-md bg-neutral-200 px-1.5 py-0.5 before:hidden after:hidden dark:bg-neutral-700',
+                    className,
                 )}
                 {...props}
             />
