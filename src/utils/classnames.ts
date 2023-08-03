@@ -9,7 +9,7 @@ export const navAndFooterClassName = cn(
 )
 
 export const focusRingCls = cn(
-    'outline-none ring-0 ring-purple-400 focus-visible:ring',
+    'outline-none ring-0 ring-accent-400 focus-visible:ring',
 )
 
 export const navItemCls = cn(

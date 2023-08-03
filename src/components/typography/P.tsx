@@ -12,10 +12,7 @@ const P = forwardRef<Ref, Props>(function P(
     return (
         <p
             ref={ref}
-            className={cn(
-                'text-sm leading-normal text-black dark:text-light sm:text-base md:text-lg',
-                className,
-            )}
+            className={cn('leading-normal md:text-lg', className)}
             {...props}
         >
             {children}

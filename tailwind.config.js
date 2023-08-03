@@ -1,9 +1,10 @@
-import twColors from 'tailwindcss/colors'
-import plugin from 'tailwindcss/plugin'
-import type { Config } from 'tailwindcss/types'
-import { screens, colors, fontFamilies } from './src/utils/tailwind'
+/* eslint-disable @typescript-eslint/no-var-requires */
+const twColors = require('tailwindcss/colors')
+const plugin = require('tailwindcss/plugin')
+const { screens, colors, fontFamilies } = require('./src/utils/tailwind')
 
-export default {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
     content: ['./src/**/*.{js,ts,jsx,tsx,mdx}', 'contentlayer.config.ts'],
     darkMode: 'class',
 
@@ -31,4 +32,4 @@ export default {
             addVariant('hocus-visible', ['&:hover', '&:focus-visible'])
         }),
     ],
-} satisfies Config
+}

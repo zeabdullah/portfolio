@@ -14,9 +14,11 @@ export function useButtonStyles({ attractive }: ButtonStyleOptions) {
                 'flex items-center justify-center gap-2 rounded-lg px-4 py-2 font-semibold transition-[color,background-color,box-shadow] focus-visible:outline-none',
                 focusRingCls,
                 attractive
-                    ? 'border-none bg-brand-500 text-light'
+                    ? 'border-none bg-brand-600 text-light'
                     : 'border-[1.5px] border-neutral-300 bg-neutral-100 hocus-visible:bg-neutral-200 dark:bg-dark dark:text-light dark:hocus-visible:bg-neutral-800',
             ),
+
+            defaultVariant: {} satisfies Variant,
 
             focusVariant: {
                 scale: 1.035,
@@ -25,7 +27,7 @@ export function useButtonStyles({ attractive }: ButtonStyleOptions) {
 
             tapVariant: {
                 scale: 0.95,
-                filter: attractive ? 'brightness(0.95)' : '',
+                filter: attractive ? 'brightness(0.9)' : '',
             } satisfies Variant,
 
             transition: {

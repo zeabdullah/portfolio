@@ -34,7 +34,7 @@ const PROJECT_LIST: ProjectCardProps[] = [
         content: "A simple Bootstrap car rental website's frontend",
         stack: 'HTML/CSS, Bootstrap, jQuery',
         image: { data: bootstrapLogo, alt: 'Bootstrap logo' },
-        extraClasses: 'bg-purple-200 dark:bg-purple-300',
+        extraClasses: 'bg-accent-200 dark:bg-accent-300',
     },
     {
         title: 'Simple Weather App',

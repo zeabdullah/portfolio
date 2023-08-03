@@ -86,7 +86,7 @@ export default function ProjectCard({
             </div>
             <div className='flex flex-col items-start gap-y-2'>
                 <div className='flex flex-col gap-x-5 sm:flex-row sm:items-center'>
-                    <h3 className='shrink-0 text-lg font-bold dark:text-light'>
+                    <h3 className='shrink-0 text-lg font-bold text-dark dark:text-light'>
                         {props.title}
                     </h3>
                     <TechStackText>{props.stack}</TechStackText>

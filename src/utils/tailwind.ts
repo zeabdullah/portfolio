@@ -13,11 +13,12 @@ export const colors = {
     dark: 'hsl(0, 0%, 7%)',
     light: 'hsl(0, 0%, 100%)',
     brand: twColors.teal,
+    accent: twColors.purple,
 } as const
 
 export const fontFamilies = {
-    mono: ['var(--font-monospace)', 'Lucida Console', 'Monaco', 'monospace'],
-    sans: ['var(--font-grotesk)', ...defaultTheme.fontFamily.sans],
+    mono: ['var(--font-monospace)', ...defaultTheme.fontFamily.mono],
+    sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
 } // not using `as const` because tailwind.config.js errors because of a type conflict
 
 export type Color = keyof typeof colors

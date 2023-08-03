@@ -18,32 +18,36 @@ export default function Footer() {
             )}
         >
             <p className='flex items-center justify-center'>
-                <Anchor
+                <a
                     href='https://nextjs.org'
+                    className='font-semibold hover:text-brand-600 hover:underline dark:hover:text-brand-500'
                     aria-label='Next.js'
                     title='Next.js'
-                    external
+                    target='_blank'
+                    rel='noreferrer noopener'
                 >
                     Powered by{' '}
                     <SiNextdotjs
                         aria-label='Next.js'
                         className='inline-block text-lg'
                     />
-                </Anchor>
+                </a>
             </p>
             <p>
-                <Anchor
+                <a
                     href={`${githubProfileUrl}/zeabdullah.github.io`}
+                    className='font-semibold hover:text-brand-600 hover:underline dark:hover:text-brand-500'
                     aria-label={githubLabel}
                     title={githubLabel}
-                    external
+                    target='_blank'
+                    rel='noreferrer noopener'
                 >
                     Source code on{' '}
                     <FaGithub
                         aria-label={githubLabel}
                         className='inline-block text-lg'
                     />
-                </Anchor>
+                </a>
             </p>
         </footer>
     )
