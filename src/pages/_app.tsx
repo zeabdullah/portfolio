@@ -30,7 +30,7 @@ export default function App({ Component, pageProps }: AppProps) {
                         className={cn(
                             jetBrainsMono.variable,
                             spaceGrotesk.variable,
-                            'flex min-h-screen flex-col bg-light font-sans text-dark antialiased transition-colors duration-300 selection:bg-accent-400 selection:text-dark dark:bg-dark dark:text-light',
+                            'flex min-h-screen flex-col bg-light font-sans text-dark antialiased transition-colors duration-300 selection:bg-brand-400 selection:text-dark dark:bg-dark dark:text-light',
                         )}
                     >
                         <Navbar />
