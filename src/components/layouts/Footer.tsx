@@ -20,7 +20,7 @@ export default function Footer() {
             <p className='flex items-center justify-center'>
                 <a
                     href='https://nextjs.org'
-                    className='font-semibold hover:text-brand-600 hover:underline dark:hover:text-brand-500'
+                    className='text-neutral-700 hover:text-brand-600 hover:underline dark:text-neutral-300 dark:hover:text-brand-500'
                     aria-label='Next.js'
                     title='Next.js'
                     target='_blank'
@@ -36,7 +36,7 @@ export default function Footer() {
             <p>
                 <a
                     href={`${githubProfileUrl}/zeabdullah.github.io`}
-                    className='font-semibold hover:text-brand-600 hover:underline dark:hover:text-brand-500'
+                    className='text-neutral-700 hover:text-brand-600 hover:underline dark:text-neutral-300 dark:hover:text-brand-500'
                     aria-label={githubLabel}
                     title={githubLabel}
                     target='_blank'

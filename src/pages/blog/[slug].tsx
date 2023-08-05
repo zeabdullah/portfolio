@@ -13,10 +13,13 @@ import Section from '@/components/Section'
 import Container from '@/components/layouts/Container'
 import H1 from '@/components/typography/H1'
 import { cn } from '@/utils/css'
+import { filterPublishedPosts } from '.'
 
 export const getStaticPaths: GetStaticPaths = () => {
     return {
-        paths: allPosts.map(p => ({ params: { slug: p._raw.flattenedPath } })),
+        paths: allPosts
+            .filter(filterPublishedPosts)
+            .map(post => ({ params: { slug: post._raw.flattenedPath } })),
         fallback: false,
     }
 }
@@ -25,12 +28,15 @@ export const getStaticProps: GetStaticProps<
     { post: Post },
     { slug: string }
 > = ({ params }) => {
+    const matchingPost = allPosts.find(
+        post => post._raw.flattenedPath === params?.slug,
+    )
+    if (!matchingPost) {
+        throw new Error(`Could not find post of slug '${params?.slug}'`)
+    }
+
     return {
-        props: {
-            post: allPosts.find(
-                post => post._raw.flattenedPath === params?.slug,
-            ) as Post,
-        },
+        props: { post: matchingPost },
     }
 }
 
@@ -54,6 +60,11 @@ export default function BlogPostPage({
                     <FaArrowLeft className='transition-transform duration-200 group-hover:-translate-x-0.5' />
                     Back to main blog page
                 </Link>
+
+                <div className='mb-4'>
+                    {process.env.NODE_ENV === 'development' &&
+                        !post.isPublished && <PostNotPublishedAlert />}
+                </div>
 
                 <hgroup className='mb-12'>
                     <H1 id='header-heading' className='mb-3 font-extrabold'>
@@ -83,3 +94,12 @@ const mdxComponents = {
         ),
     },
 } satisfies ReturnType<typeof useMDXComponent>['defaultProps']
+
+function PostNotPublishedAlert() {
+    return (
+        <p className='rounded-md border border-brand-200 bg-brand-100 p-3 text-sm text-brand-950 transition-colors dark:border-brand-800 dark:bg-brand-950 dark:text-brand-100'>
+            Note: This post is <strong>not published</strong>, you can currently
+            see it in dev mode only.{' '}
+        </p>
+    )
+}
