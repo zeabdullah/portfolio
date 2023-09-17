@@ -1,6 +1,5 @@
 import { FaGithub } from 'react-icons/fa'
 import { SiNextdotjs } from 'react-icons/si'
-import Anchor from '@/components/typography/Anchor'
 import { navAndFooterClassName } from '@/utils/classnames'
 import { githubProfileUrl } from '@/utils/config'
 import { cn } from '@/utils/css'

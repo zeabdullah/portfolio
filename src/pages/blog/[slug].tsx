@@ -1,5 +1,5 @@
 import { type Post, allPosts } from 'contentlayer/generated'
-import { useLiveReload, useMDXComponent } from 'next-contentlayer/hooks'
+import { useMDXComponent } from 'next-contentlayer/hooks'
 import { NextSeo } from 'next-seo'
 import Link from 'next/link'
 import type {
@@ -12,8 +12,8 @@ import PostDate from '@/components/PostDate'
 import PostNotPublishedAlert from '@/components/PostNotPublishedAlert'
 import Section from '@/components/Section'
 import Container from '@/components/layouts/Container'
+import mdxComponents from '@/components/mdx-components'
 import H1 from '@/components/typography/H1'
-import { cn } from '@/utils/css'
 import { filterPublishedPosts } from '.'
 
 export const getStaticPaths: GetStaticPaths = () => {
@@ -62,10 +62,12 @@ export default function BlogPostPage({
                     Back to main blog page
                 </Link>
 
-                <div className='mb-4'>
-                    {process.env.NODE_ENV === 'development' &&
-                        !post.isPublished && <PostNotPublishedAlert />}
-                </div>
+                {process.env.NODE_ENV === 'development' &&
+                    !post.isPublished && (
+                        <div className='mb-4'>
+                            <PostNotPublishedAlert />
+                        </div>
+                    )}
 
                 <hgroup className='mb-12'>
                     <H1 id='header-heading' className='mb-3 font-extrabold'>
@@ -81,17 +83,3 @@ export default function BlogPostPage({
         </Container>
     )
 }
-
-const mdxComponents = {
-    components: {
-        code: ({ className, ...props }) => (
-            <code
-                className={cn(
-                    'rounded-md bg-neutral-200 px-1.5 py-0.5 before:hidden after:hidden dark:bg-neutral-700',
-                    className,
-                )}
-                {...props}
-            />
-        ),
-    },
-} satisfies ReturnType<typeof useMDXComponent>['defaultProps']

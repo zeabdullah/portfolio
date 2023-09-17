@@ -32,10 +32,10 @@ const prettyCodeOpts: Partial<PrettyCodeOptions> = {
 }
 
 const autolinkHeadingsOpts: AutolinkHeadingsOptions = {
-    behavior: 'wrap',
+    behavior: 'prepend',
     properties: {
         className:
-            "relative text-current no-underline before:absolute before:ms-[-1em] before:text-brand-500 before:opacity-0 before:transition-opacity before:content-['#'] hocus:before:opacity-100",
+            "relative text-current no-underline before:absolute before:ms-[-1em] before:text-brand-500 before:opacity-0 before:transition-opacity before:content-['#'] group-hover:before:opacity-100 hocus:before:opacity-100",
     },
 }
 

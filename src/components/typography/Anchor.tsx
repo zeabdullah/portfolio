@@ -1,7 +1,6 @@
 import { cn } from '@/utils/css'
 
 interface AnchorProps extends React.ComponentPropsWithoutRef<'a'> {
-    href: string
     /** Sets `target='blank'` and `rel='noreferrer noopener'` if true */
     external?: boolean
 }
