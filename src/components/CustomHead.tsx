@@ -75,7 +75,7 @@ export default function CustomHead() {
                 {
                     rel: 'mask-icon',
                     href: '/images/safari-pinned-tab.svg',
-                    color: '#5bbad5',
+                    color: colors.brand[600],
                 },
             ]}
         />

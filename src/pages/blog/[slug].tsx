@@ -1,5 +1,5 @@
 import { type Post, allPosts } from 'contentlayer/generated'
-import { useMDXComponent } from 'next-contentlayer/hooks'
+import { useLiveReload, useMDXComponent } from 'next-contentlayer/hooks'
 import { NextSeo } from 'next-seo'
 import Link from 'next/link'
 import type {
@@ -9,6 +9,7 @@ import type {
 } from 'next/types'
 import { FaArrowLeft } from 'react-icons/fa'
 import PostDate from '@/components/PostDate'
+import PostNotPublishedAlert from '@/components/PostNotPublishedAlert'
 import Section from '@/components/Section'
 import Container from '@/components/layouts/Container'
 import H1 from '@/components/typography/H1'
@@ -94,12 +95,3 @@ const mdxComponents = {
         ),
     },
 } satisfies ReturnType<typeof useMDXComponent>['defaultProps']
-
-function PostNotPublishedAlert() {
-    return (
-        <p className='rounded-md border border-brand-200 bg-brand-100 p-3 text-sm text-brand-950 transition-colors dark:border-brand-800 dark:bg-brand-950 dark:text-brand-100'>
-            Note: This post is <strong>not published</strong>, you can currently
-            see it in dev mode only.{' '}
-        </p>
-    )
-}
