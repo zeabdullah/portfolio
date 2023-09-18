@@ -6,6 +6,17 @@ import { useMounted } from '@/utils/hooks/use-mounted'
 import { useTheme } from '@/utils/theme'
 import NavItem from './NavItem'
 
+const animationProps: AnimationProps = {
+    animate: { scale: 1, opacity: 1 },
+    initial: { scale: 0.1, opacity: 0 },
+    transition: {
+        type: 'spring',
+        damping: 12,
+        stiffness: 140,
+        mass: 0.5,
+    },
+}
+
 /** The theme button used in the navbar. */
 export default function ThemeToggler() {
     const { toggleTheme, isDarkMode } = useTheme()
@@ -14,17 +25,6 @@ export default function ThemeToggler() {
     const ariaLabel = mounted
         ? `Change to ${isDarkMode ? 'light' : 'dark'} theme`
         : 'Change theme'
-
-    const animationProps: AnimationProps = {
-        animate: { scale: 1, opacity: 1 },
-        initial: { scale: 0.1, opacity: 0 },
-        transition: {
-            type: 'spring',
-            damping: 12,
-            stiffness: 140,
-            mass: 0.5,
-        },
-    }
 
     return (
         <NavItem

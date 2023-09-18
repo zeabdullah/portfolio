@@ -2,6 +2,7 @@ import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import rehypeAutolinkHeadings, {
     type Options as AutolinkHeadingsOptions,
 } from 'rehype-autolink-headings'
+import rehypeImgSize, { type Options as ImgSizeOptions } from 'rehype-img-size'
 import rehypePrettyCode, {
     type Options as PrettyCodeOptions,
 } from 'rehype-pretty-code'
@@ -11,8 +12,8 @@ import remarkGfm from 'remark-gfm'
 const Post = defineDocumentType(() => ({
     name: 'Post',
     contentType: 'mdx',
-
     filePathPattern: `**/*.mdx`,
+    // Define the fields that will be inserted in the MDX frontmatter, giving type-safety
     fields: {
         title: { type: 'string', required: true },
         date: { type: 'date', required: true },
@@ -31,6 +32,10 @@ const prettyCodeOpts: Partial<PrettyCodeOptions> = {
     theme: 'one-dark-pro',
 }
 
+const imgSizeOptions: ImgSizeOptions = {
+    dir: 'public',
+}
+
 const autolinkHeadingsOpts: AutolinkHeadingsOptions = {
     behavior: 'prepend',
     properties: {
@@ -46,6 +51,7 @@ export default makeSource({
         remarkPlugins: [remarkGfm],
         rehypePlugins: [
             [rehypeSlug],
+            [rehypeImgSize as never, imgSizeOptions],
             [rehypePrettyCode, prettyCodeOpts],
             [rehypeAutolinkHeadings, autolinkHeadingsOpts],
         ],

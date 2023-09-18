@@ -10,7 +10,7 @@ export default function H1({
     return (
         <h1
             className={cn(
-                'font-mono text-3xl tracking-tight sm:text-4xl md:text-5xl',
+                'font-mono text-4xl tracking-tighter md:text-5xl',
                 className,
             )}
             {...props}

@@ -12,7 +12,7 @@ import PostDate from '@/components/PostDate'
 import PostNotPublishedAlert from '@/components/PostNotPublishedAlert'
 import Section from '@/components/Section'
 import Container from '@/components/layouts/Container'
-import mdxComponents from '@/components/mdx-components'
+import mdxComponents from '@/components/mdx'
 import H1 from '@/components/typography/H1'
 import { filterPublishedPosts } from '.'
 
@@ -64,7 +64,7 @@ export default function BlogPostPage({
 
                 {process.env.NODE_ENV === 'development' &&
                     !post.isPublished && (
-                        <div className='mb-4'>
+                        <div className='mb-8'>
                             <PostNotPublishedAlert />
                         </div>
                     )}
@@ -76,8 +76,8 @@ export default function BlogPostPage({
                     <PostDate>{post.date}</PostDate>
                 </hgroup>
 
-                <article className='prose prose-brand max-w-none dark:prose-invert'>
-                    <MDXContent components={mdxComponents.components} />
+                <article className='prose prose-brand max-w-none dark:prose-invert lg:prose-lg prose-h4:font-bold'>
+                    <MDXContent components={mdxComponents} />
                 </article>
             </Section>
         </Container>

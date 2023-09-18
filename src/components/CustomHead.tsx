@@ -9,7 +9,7 @@ const description = 'A dev with the passion to make the web a greater place.'
 
 export default function CustomHead() {
     const router = useRouter()
-    const canonicalURL = `${MY_DOMAIN}${router.asPath}` // trailing slash included
+    const canonicalURL = `${MY_DOMAIN}${router.asPath}`
 
     return (
         <DefaultSeo

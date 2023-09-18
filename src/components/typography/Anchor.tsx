@@ -16,7 +16,7 @@ export default function Anchor({
             target={external ? '_blank' : undefined}
             rel={external ? 'noreferrer noopener' : undefined}
             className={cn(
-                'font-semibold text-brand-700 underline dark:text-brand-400',
+                'font-semibold text-brand-700 underline transition-colors hover:text-dark dark:text-brand-400 dark:hover:text-light',
                 className,
             )}
         >

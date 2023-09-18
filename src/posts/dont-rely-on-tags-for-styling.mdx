@@ -5,6 +5,42 @@ isPublished: false
 pulseEffect: true
 ---
 
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi quibusdam nisi dicta nemo ex nesciunt dolorem provident perferendis voluptatum qui laborum et eligendi assumenda consequatur, at, odit, aliquam dignissimos rem!
+When stepping into the world of frontend web development, It's easy to get into the habit of using `<h1>`, `<h2>`, `<h3>`, etc..., to give your text a font size. There are other examples for that too.
 
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi quibusdam nisi dicta nemo ex nesciunt dolorem provident perferendis voluptatum qui laborum et eligendi assumenda consequatur, at, odit, aliquam dignissimos rem!
+> TODO: Finish the above intro after writing your first draft.
+
+## Cases where it's okay to rely on the tags for styling
+
+There are several HTML elements that serve a good semantic meaning for their corresponding style. The easiest example (that you'll most likely never screw up) are the superscript (`<sub>`) and subscript (`<sup>`) tags.
+
+Their semantic element gives them the visual meaning immediately. They are **supposed** to be used for presenting text as subscripts and superscripts (looking at you, using plain `<span>` elements for doing subscript styles!), which act as subtext descriptive to the text connected to it.
+
+Another good and common example is the the (`<strike>`) for striking through text. Here, we'll also notice visuals match semantic meaning; you'll usually reach out and grab this element for decorating text with a ~strikethrough~ to indicate its ~outdated-ness~ irrelevance.
+
+## Cases where you shouldn't rely on tags for styling
+
+There are multiple different sets of HTML elements that are used wrong. We're going to introduce the most common mistake first, and that's headings.
+
+### Headings (`<h1>` → `<h6>`)
+
+The most common mistake I see is relying on heading tags ‒ `<h1>` through `<h6>` ‒ for styling. It's easy to get into the habit of doing that, since most web browsers' default stylesheet do give the `h` tags font sizes from the largest to smallest. This causes us to naturally reach for the tag based on its font size to match a specific design.
+
+Visually, this would seem fine, but it comes at the cost of accessibility and HTML semantics.
+
+One of the crucial rules of web accessibility is that each page must have **one and only one `<h1>` element** on any given page; meaning, never _more than one_ and never _zero_ `<h1>` elements.
+
+Typically, the `<h1>` would be for the main heading of your page, usually within the page's hero section.
+
+### NEVER skip a heading level
+
+> Do not skip heading levels: always start from `<h1>`, followed by `<h2>` and so on.
+
+The above is quoted from [MDN's page on heading tags](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements#nesting). This is another very important rule. The rule indicates that that you should **always** start with an `<h1>`. Then, when you start to have more headings, use `<h2>` elements after that. Then, if there are other headings that are lower level than `<h2>` elements, start using `<h3>` elements for those, and so on...
+
+So, you let the document's semantic hierarchy decide your use of `h` tags and follow that with your own styling for each, not the other way around ‒ where you choose the `h` tag for the styles, then choose its role in the document based on its size.
+
+In fact, there might be some rare cases where you might want to use smaller font sizes for higher level headings. Let's take [Tailwind's](https://tailwindcss.com) landing page as an example.
+
+![screenshot from Tailwind's landing page, showing a small heading as an h2 tag with larger text below it as a p tag](/images/blog/tailwind-tags-example.png)
+
+Here, the smaller text at the top ‒ if we ignore the font sizes ‒ sounds like the title of the section, _more so_ than the larger text in the middle. Many people naturally will use `<h2>` for the larger text and an `<h3>` or `<p>` for the smaller text at the top.
