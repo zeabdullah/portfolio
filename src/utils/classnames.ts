@@ -15,7 +15,7 @@ export const focusRingCls = cn(
 export const navItemCls = cn(
     btnColorsCls,
     focusRingCls,
-    'shrink rounded-md px-5 py-2 transition-[color,background-color,box-shadow]',
+    'shrink rounded-md px-5 py-2 font-medium transition-[color,background-color,box-shadow]',
 )
 
 export const navBtnCls = cn(

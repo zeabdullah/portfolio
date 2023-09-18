@@ -3,7 +3,8 @@ import type { ComponentPropsWithoutRef } from 'react'
 import { cn } from '@/utils/css'
 import { useButtonStyles } from '@/utils/hooks/use-button-styles'
 
-interface ButtonProps extends ComponentPropsWithoutRef<(typeof m)['button']> {
+export interface ButtonProps
+    extends ComponentPropsWithoutRef<(typeof m)['button']> {
     attractive?: boolean
 }
 
