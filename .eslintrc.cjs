@@ -6,6 +6,7 @@ const config = {
         'next/core-web-vitals',
         'plugin:@typescript-eslint/recommended',
         'plugin:jsx-a11y/recommended',
+        'prettier',
     ],
     rules: {
         '@typescript-eslint/consistent-type-imports': [

@@ -9,7 +9,7 @@ const description = 'A dev with the passion to make the web a greater place.'
 
 export default function CustomHead() {
     const router = useRouter()
-    const canonicalURL = `${MY_DOMAIN}${router.asPath}` // trailing slash included
+    const canonicalURL = `${MY_DOMAIN}${router.asPath}`
 
     return (
         <DefaultSeo
@@ -75,7 +75,7 @@ export default function CustomHead() {
                 {
                     rel: 'mask-icon',
                     href: '/images/safari-pinned-tab.svg',
-                    color: '#5bbad5',
+                    color: colors.brand[600],
                 },
             ]}
         />

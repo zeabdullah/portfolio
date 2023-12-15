@@ -1,6 +1,5 @@
 import { FaGithub } from 'react-icons/fa'
 import { SiNextdotjs } from 'react-icons/si'
-import Anchor from '@/components/typography/Anchor'
 import { navAndFooterClassName } from '@/utils/classnames'
 import { githubProfileUrl } from '@/utils/config'
 import { cn } from '@/utils/css'
@@ -20,7 +19,7 @@ export default function Footer() {
             <p className='flex items-center justify-center'>
                 <a
                     href='https://nextjs.org'
-                    className='font-semibold hover:text-brand-600 hover:underline dark:hover:text-brand-500'
+                    className='text-neutral-700 hover:text-brand-600 hover:underline dark:text-neutral-300 dark:hover:text-brand-500'
                     aria-label='Next.js'
                     title='Next.js'
                     target='_blank'
@@ -36,7 +35,7 @@ export default function Footer() {
             <p>
                 <a
                     href={`${githubProfileUrl}/zeabdullah.github.io`}
-                    className='font-semibold hover:text-brand-600 hover:underline dark:hover:text-brand-500'
+                    className='text-neutral-700 hover:text-brand-600 hover:underline dark:text-neutral-300 dark:hover:text-brand-500'
                     aria-label={githubLabel}
                     title={githubLabel}
                     target='_blank'

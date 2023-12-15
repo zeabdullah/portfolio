@@ -65,24 +65,22 @@ const githubLabel = 'GitHub'
 function Socials() {
     return (
         <div className='mt-16 flex flex-wrap gap-2'>
-            <div className='me-8 contents'>
-                <IconLink
-                    href={githubProfileUrl}
-                    aria-label={githubLabel}
-                    title={githubLabel}
-                    external
-                >
-                    <FaGithub role='img' aria-label={githubLabel} />
-                </IconLink>
-                <IconLink
-                    href='https://www.linkedin.com/in/abdullah-zd'
-                    aria-label={linkedinLabel}
-                    title={linkedinLabel}
-                    external
-                >
-                    <FaLinkedin role='img' aria-label={linkedinLabel} />
-                </IconLink>
-            </div>
+            <IconLink
+                href={githubProfileUrl}
+                aria-label={githubLabel}
+                title={githubLabel}
+                external
+            >
+                <FaGithub role='img' aria-label={githubLabel} />
+            </IconLink>
+            <IconLink
+                href='https://www.linkedin.com/in/abdullah-zd'
+                aria-label={linkedinLabel}
+                title={linkedinLabel}
+                external
+            >
+                <FaLinkedin role='img' aria-label={linkedinLabel} />
+            </IconLink>
 
             <BtnLink href='mailto:abdullahzeidan@gmail.com' attractive>
                 <FaPaperPlane /> Work with me

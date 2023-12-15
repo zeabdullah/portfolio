@@ -1,4 +1,4 @@
-import { m } from 'framer-motion'
+import { m, motion } from 'framer-motion'
 import type { ComponentPropsWithoutRef } from 'react'
 import { cn } from '@/utils/css'
 import { useButtonStyles } from '@/utils/hooks/use-button-styles'
@@ -6,12 +6,14 @@ import { useButtonStyles } from '@/utils/hooks/use-button-styles'
 export interface ButtonProps
     extends ComponentPropsWithoutRef<(typeof m)['button']> {
     attractive?: boolean
+    lazyMotion?: boolean
 }
 
 export default function Button({
     children,
     className,
     attractive,
+    lazyMotion,
     ...props
 }: ButtonProps) {
     const {
@@ -20,8 +22,10 @@ export default function Button({
         focusVariant,
     } = useButtonStyles({ attractive })
 
+    const ButtonComponent = lazyMotion ? m.button : motion.button
+
     return (
-        <m.button
+        <ButtonComponent
             {...props}
             className={cn(btnCls, className)}
             whileFocus={focusVariant}
@@ -35,6 +39,6 @@ export default function Button({
             }}
         >
             {children}
-        </m.button>
+        </ButtonComponent>
     )
 }

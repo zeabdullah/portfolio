@@ -8,25 +8,25 @@ interface ButtonStyleOptions {
 }
 
 export function useButtonStyles({ attractive }: ButtonStyleOptions) {
-    const styles = useMemo(
+    return useMemo(
         () => ({
             className: cn(
                 'flex items-center justify-center gap-2 rounded-lg px-4 py-2 font-semibold transition-[color,background-color,box-shadow] focus-visible:outline-none',
                 focusRingCls,
                 attractive
-                    ? 'border-none bg-brand-600 text-light'
-                    : 'border-[1.5px] border-neutral-300 bg-neutral-100 hocus-visible:bg-neutral-200 dark:bg-dark dark:text-light dark:hocus-visible:bg-neutral-800',
+                    ? 'bg-brand-600 text-light'
+                    : 'border-[1.5px] border-neutral-300 bg-neutral-100 hocus-visible:bg-neutral-200 dark:border-neutral-400 dark:bg-neutral-800 dark:text-light dark:hocus-visible:bg-neutral-700',
             ),
 
             defaultVariant: {} satisfies Variant,
 
             focusVariant: {
-                scale: 1.035,
-                filter: attractive ? 'brightness(1.15)' : '',
+                scale: 1.025,
+                filter: attractive ? 'brightness(1.1)' : '',
             } satisfies Variant,
 
             tapVariant: {
-                scale: 0.95,
+                scale: 0.975,
                 filter: attractive ? 'brightness(0.9)' : '',
             } satisfies Variant,
 
@@ -39,5 +39,4 @@ export function useButtonStyles({ attractive }: ButtonStyleOptions) {
         }),
         [attractive],
     )
-    return styles
 }

@@ -14,7 +14,7 @@ export const cardVariants: Variants = {
     show: { y: 0, opacity: 1 },
 }
 export const tapMotionProps = {
-    whileTap: { scale: 0.95 },
+    whileTap: { scale: 0.975 },
     transition: {
         type: 'spring',
         stiffness: 400,

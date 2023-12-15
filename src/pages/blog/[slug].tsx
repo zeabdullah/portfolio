@@ -9,14 +9,18 @@ import type {
 } from 'next/types'
 import { FaArrowLeft } from 'react-icons/fa'
 import PostDate from '@/components/PostDate'
+import PostNotPublishedAlert from '@/components/PostNotPublishedAlert'
 import Section from '@/components/Section'
 import Container from '@/components/layouts/Container'
+import mdxComponents from '@/components/mdx'
 import H1 from '@/components/typography/H1'
-import { cn } from '@/utils/css'
+import { filterPublishedPosts } from '.'
 
 export const getStaticPaths: GetStaticPaths = () => {
     return {
-        paths: allPosts.map(p => ({ params: { slug: p._raw.flattenedPath } })),
+        paths: allPosts
+            .filter(filterPublishedPosts)
+            .map(post => ({ params: { slug: post._raw.flattenedPath } })),
         fallback: false,
     }
 }
@@ -25,12 +29,15 @@ export const getStaticProps: GetStaticProps<
     { post: Post },
     { slug: string }
 > = ({ params }) => {
+    const matchingPost = allPosts.find(
+        post => post._raw.flattenedPath === params?.slug,
+    )
+    if (!matchingPost) {
+        throw new Error(`Could not find post of slug '${params?.slug}'`)
+    }
+
     return {
-        props: {
-            post: allPosts.find(
-                post => post._raw.flattenedPath === params?.slug,
-            ) as Post,
-        },
+        props: { post: matchingPost },
     }
 }
 
@@ -55,31 +62,24 @@ export default function BlogPostPage({
                     Back to main blog page
                 </Link>
 
+                {process.env.NODE_ENV === 'development' &&
+                    !post.isPublished && (
+                        <div className='mb-8'>
+                            <PostNotPublishedAlert />
+                        </div>
+                    )}
+
                 <hgroup className='mb-12'>
                     <H1 id='header-heading' className='mb-3 font-extrabold'>
                         {post.title}
                     </H1>
-                    <PostDate>{post.date}</PostDate>
+                    <PostDate date={post.date}>Posted on</PostDate>
                 </hgroup>
 
-                <article className='prose prose-brand max-w-none dark:prose-invert'>
-                    <MDXContent components={mdxComponents.components} />
+                <article className='prose prose-brand max-w-none dark:prose-invert lg:prose-lg prose-headings:font-semibold prose-p:text-base/[1.7]'>
+                    <MDXContent components={mdxComponents} />
                 </article>
             </Section>
         </Container>
     )
 }
-
-const mdxComponents = {
-    components: {
-        code: ({ className, ...props }) => (
-            <code
-                className={cn(
-                    'rounded-md bg-neutral-200 px-1.5 py-0.5 before:hidden after:hidden dark:bg-neutral-700',
-                    className,
-                )}
-                {...props}
-            />
-        ),
-    },
-} satisfies ReturnType<typeof useMDXComponent>['defaultProps']

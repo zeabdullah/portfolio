@@ -16,8 +16,8 @@ module.exports = {
             typography: {
                 brand: {
                     css: {
-                        '--tw-prose-links': twColors.teal[600],
-                        '--tw-prose-invert-links': twColors.teal[500],
+                        '--tw-prose-links': twColors.teal[700],
+                        '--tw-prose-invert-links': twColors.teal[400],
                     },
                 },
             },

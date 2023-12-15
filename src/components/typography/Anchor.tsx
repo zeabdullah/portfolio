@@ -1,7 +1,6 @@
 import { cn } from '@/utils/css'
 
 interface AnchorProps extends React.ComponentPropsWithoutRef<'a'> {
-    href: string
     /** Sets `target='blank'` and `rel='noreferrer noopener'` if true */
     external?: boolean
 }
@@ -17,7 +16,7 @@ export default function Anchor({
             target={external ? '_blank' : undefined}
             rel={external ? 'noreferrer noopener' : undefined}
             className={cn(
-                'font-semibold text-brand-600 hover:underline dark:text-brand-500',
+                'font-semibold text-brand-700 underline transition-colors hover:text-dark dark:text-brand-400 dark:hover:text-light',
                 className,
             )}
         >

@@ -1,5 +1,4 @@
 import { type Post, allPosts } from 'contentlayer/generated'
-import { compareDesc } from 'date-fns'
 import { NextSeo } from 'next-seo'
 import type { GetStaticProps, InferGetStaticPropsType } from 'next/types'
 import React from 'react'
@@ -8,14 +7,24 @@ import Section from '@/components/Section'
 import Container from '@/components/layouts/Container'
 import H1 from '@/components/typography/H1'
 
-export const getStaticProps: GetStaticProps<{ posts: Post[] }> = () => {
+export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
+    const { compareDesc } = await import('date-fns')
     return {
         props: {
-            posts: allPosts.sort((a, b) =>
-                compareDesc(new Date(a.date), new Date(b.date)),
-            ),
+            posts: allPosts
+                .filter(filterPublishedPosts)
+                .sort((a, b) =>
+                    compareDesc(new Date(a.date), new Date(b.date)),
+                ),
         },
     }
+}
+
+export const filterPublishedPosts = ({ isPublished }: Post) => {
+    const isDevModeAndNotPublished =
+        !isPublished && process.env.NODE_ENV === 'development'
+
+    return isDevModeAndNotPublished || isPublished
 }
 
 const headerLabel = 'header-heading'
@@ -36,11 +45,9 @@ export default function BlogIndexPage({
                 </H1>
 
                 <ul className='space-y-6'>
-                    {posts
-                        .filter(post => post.isPublished)
-                        .map(post => (
-                            <PostCard key={post._id} {...post} />
-                        ))}
+                    {posts.map(post => (
+                        <PostCard key={post._id} {...post} />
+                    ))}
                 </ul>
             </Section>
         </Container>
