@@ -1,46 +1,62 @@
 ---
 title: Don't Rely on HTML Tags for Styling
-date: 2023-08-05
-isPublished: false
+date: 2023-12-15
+isPublished: true
 pulseEffect: true
 ---
 
-When stepping into the world of frontend web development, It's easy to get into the habit of using `<h1>`, `<h2>`, `<h3>`, etc..., to give your text a font size. There are other examples for that too.
+When stepping into the world of frontend web development, It's easy to get into the habit of using headings (`<h1>`, `<h2>`, `<h3>`, etc...) to give text a font size.
 
-> TODO: Finish the above intro after writing your first draft.
+It's a very quick pitfall web devs and designers fall into. While this may seem okay at first, you're digging yourself a hole by doing that. Your HTML tags are _not_ your **stylistic saviors**.
+
+While some tags gracefully balance semantic meaning with visual representation, others might lead you down a path of accessibility pitfalls.
 
 ## Cases where it's okay to rely on the tags for styling
 
 There are several HTML elements that serve a good semantic meaning for their corresponding style. The easiest example (that you'll most likely never screw up) are the superscript (`<sub>`) and subscript (`<sup>`) tags.
 
+### Superscript and Subscript tags (`<sub>` & `<sup>`)
+
 Their semantic element gives them the visual meaning immediately. They are **supposed** to be used for presenting text as subscripts and superscripts (looking at you, using plain `<span>` elements for doing subscript styles!), which act as subtext descriptive to the text connected to it.
+
+### Strikethrough tag (`<strike>`)
 
 Another good and common example is the the (`<strike>`) for striking through text. Here, we'll also notice visuals match semantic meaning; you'll usually reach out and grab this element for decorating text with a ~strikethrough~ to indicate its ~outdated-ness~ irrelevance.
 
-## Cases where you shouldn't rely on tags for styling
+## Don't base your heading levels on styling
 
-There are multiple different sets of HTML elements that are used wrong. We're going to introduce the most common mistake first, and that's headings.
+The most common mistake I see is relying on heading tags - `<h1>` through `<h6>` - for styling.
 
-### Headings (`<h1>` → `<h6>`)
-
-The most common mistake I see is relying on heading tags ‒ `<h1>` through `<h6>` ‒ for styling. It's easy to get into the habit of doing that, since most web browsers' default stylesheet do give the `h` tags font sizes from the largest to smallest. This causes us to naturally reach for the tag based on its font size to match a specific design.
+It's easy to get into the habit of doing that, since most web browsers, by default, style `h` tags font sizes from the largest to smallest. This causes us to naturally reach for the tag based on its font size to match a specific design.
 
 Visually, this would seem fine, but it comes at the cost of accessibility and HTML semantics.
 
-One of the crucial rules of web accessibility is that each page must have **one and only one `<h1>` element** on any given page; meaning, never _more than one_ and never _zero_ `<h1>` elements.
+One of the crucial rules of web accessibility is that each page must have **one and only one `<h1>` element** on any given page.
 
-Typically, the `<h1>` would be for the main heading of your page, usually within the page's hero section.
+Typically, the `<h1>` would be for the main heading of your page, usually in the hero section.
 
-### NEVER skip a heading level
+#### NEVER skip a heading level
 
 > Do not skip heading levels: always start from `<h1>`, followed by `<h2>` and so on.
 
-The above is quoted from [MDN's page on heading tags](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements#nesting). This is another very important rule. The rule indicates that that you should **always** start with an `<h1>`. Then, when you start to have more headings, use `<h2>` elements after that. Then, if there are other headings that are lower level than `<h2>` elements, start using `<h3>` elements for those, and so on...
+The above is quoted from [MDN's page on heading tags](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements#nesting). It indicates that that you should **always** start with an `<h1>`. Then, when you start to have more headings, use `<h2>` elements after that. Then, if there are other headings that are lower level than `<h2>`, start using `<h3>` elements for those, and so on...
 
-So, you let the document's semantic hierarchy decide your use of `h` tags and follow that with your own styling for each, not the other way around ‒ where you choose the `h` tag for the styles, then choose its role in the document based on its size.
+So, you let the document's semantic hierarchy decide your use of `h` tags. _Then_ you style each according to your needs, not the other way around.
 
-In fact, there might be some rare cases where you might want to use smaller font sizes for higher level headings. Let's take [Tailwind's](https://tailwindcss.com) landing page as an example.
+## Example from Tailwind's landing page
 
-![screenshot from Tailwind's landing page, showing a small heading as an h2 tag with larger text below it as a p tag](/images/blog/tailwind-tags-example.png)
+There might be, in fact, some rare cases where you might want to use smaller font sizes for higher level headings. Take [Tailwind's](https://tailwindcss.com) landing page as an example.
 
-Here, the smaller text at the top ‒ if we ignore the font sizes ‒ sounds like the title of the section, _more so_ than the larger text in the middle. Many people naturally will use `<h2>` for the larger text and an `<h3>` or `<p>` for the smaller text at the top.
+![screenshot from Tailwind's landing page, annotated to show that a small heading is an h2 with larger text below it as a p tag](/images/blog/tailwind-tags-example.jpg)
+
+Here, the smaller text at the top - if we ignore the font sizes - sounds like the title of the section, _more so_ than the larger text in the middle. Many people naturally will use `<h2>` for the larger text and an `<h3>` or `<p>` for the smaller text at the top.
+
+In the above example, we notice something else...
+
+## Headings are rarely right next to each other
+
+Since headings are realistically like bookmarks that mark specific sections or subsections of a document, it would _usually_ not make sense to have headings directly beside each other without content in between. However that's not always the case, since sometimes you would want to start a new section with no paragraphs before your first subheading.
+
+To end this post, I'd like to clarify that the **_rules_** that I mentioned are not hard rules, but accessibility guidelines.
+
+This does not mean, though, that we should care less about these guidelines. Not caring for such issues will cause a sub-optimal experience for screen-reader users.

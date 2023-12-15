@@ -21,12 +21,12 @@ export function useButtonStyles({ attractive }: ButtonStyleOptions) {
             defaultVariant: {} satisfies Variant,
 
             focusVariant: {
-                scale: 1.035,
+                scale: 1.025,
                 filter: attractive ? 'brightness(1.1)' : '',
             } satisfies Variant,
 
             tapVariant: {
-                scale: 0.95,
+                scale: 0.975,
                 filter: attractive ? 'brightness(0.9)' : '',
             } satisfies Variant,
 

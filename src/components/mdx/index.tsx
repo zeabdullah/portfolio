@@ -9,6 +9,7 @@ const mdxComponents: MDXComponents = {
     h3: props => <Heading level={3} {...props} />,
     h4: props => <Heading level={4} {...props} />,
     h5: props => <Heading level={5} {...props} />,
+    h6: props => <Heading level={6} {...props} />,
     a: Anchor,
     code: Code,
     img: ResponsiveImage,

@@ -73,10 +73,10 @@ export default function BlogPostPage({
                     <H1 id='header-heading' className='mb-3 font-extrabold'>
                         {post.title}
                     </H1>
-                    <PostDate>{post.date}</PostDate>
+                    <PostDate date={post.date}>Posted on</PostDate>
                 </hgroup>
 
-                <article className='prose prose-brand max-w-none dark:prose-invert lg:prose-lg prose-h4:font-bold'>
+                <article className='prose prose-brand max-w-none dark:prose-invert lg:prose-lg prose-headings:font-semibold prose-p:text-base/[1.7]'>
                     <MDXContent components={mdxComponents} />
                 </article>
             </Section>
