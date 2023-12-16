@@ -1,6 +1,7 @@
 import { LazyMotion, domAnimation } from 'framer-motion'
 import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
+import Script from 'next/script'
 import NextNProgress from 'nextjs-progressbar'
 import CustomHead from '@/components/CustomHead'
 import Footer from '@/components/layouts/Footer'
@@ -14,6 +15,11 @@ export default function App({ Component, pageProps }: AppProps) {
     return (
         <>
             <CustomHead />
+            <Script
+                async
+                src='https://umami-zeabdullah.vercel.app/script.js'
+                data-website-id='a9d78ec7-c5cd-48c3-8b4c-43eb2ce3ad9d'
+            />
 
             <LazyMotion features={domAnimation} strict>
                 <ThemeProvider
