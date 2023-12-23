@@ -12,24 +12,19 @@ import H1 from './typography/H1'
 const sectionLabel = 'header-heading'
 
 export default function HeroSection() {
-    const [firstTyperDone, setFirstTyperDone] = useState(false)
-
     return (
         <Section id='header' role='banner' aria-labelledby={sectionLabel}>
             <h1 className='sr-only' id={sectionLabel}>
                 <strong>I&apos;m Abdullah.</strong> A dev with a passion to make
                 the web a greater place.
             </h1>
-            <HeroTextTypewriter
-                firstTyperDone={firstTyperDone}
-                onFirstTyperDone={done => setFirstTyperDone(done)}
-            />
+            <HeroTextTypewriter />
 
             <article className='max-w-[75ch] space-y-5'>
                 <P>
-                    I&apos;m a developer with over a year of experience. I like
-                    to make awesome things on the web and see people enjoy and
-                    benefit from them.
+                    I&apos;m a developer with over two years of experience. I
+                    like to make awesome things on the web and see people enjoy
+                    and benefit from them.
                 </P>
                 <P>
                     As a current software engineer at{' '}
@@ -89,14 +84,8 @@ function Socials() {
     )
 }
 
-function HeroTextTypewriter({
-    firstTyperDone,
-    onFirstTyperDone,
-}: {
-    firstTyperDone: boolean
-    onFirstTyperDone: (done: boolean) => void
-}) {
-    const endFirstTypewriter = () => onFirstTyperDone(true)
+function HeroTextTypewriter() {
+    const [firstTyperDone, setFirstTyperDone] = useState(false)
 
     return (
         <H1
@@ -116,7 +105,7 @@ function HeroTextTypewriter({
                                     .pauseFor(250)
                                     .typeString('Abdullah.')
                                     .pauseFor(250)
-                                    .callFunction(endFirstTypewriter)
+                                    .callFunction(() => setFirstTyperDone(true))
                                     .start()
                             }}
                         />

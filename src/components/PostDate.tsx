@@ -10,7 +10,7 @@ export default function PostDate({
     return (
         <time
             dateTime={date}
-            className='mb-2 block text-neutral-700 dark:text-neutral-400'
+            className='mb-2 block text-sm text-neutral-700 dark:text-neutral-400'
         >
             {children} {format(parseISO(date), 'LLLL d, yyyy')}
         </time>
