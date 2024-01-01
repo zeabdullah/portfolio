@@ -1,4 +1,5 @@
 import { type Post, allPosts } from 'contentlayer/generated'
+import fs from 'fs'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import { NextSeo } from 'next-seo'
 import Link from 'next/link'
@@ -7,6 +8,7 @@ import type {
     GetStaticProps,
     InferGetStaticPropsType,
 } from 'next/types'
+import path from 'path'
 import { FaArrowLeft } from 'react-icons/fa'
 import PostDate from '@/components/PostDate'
 import PostNotPublishedAlert from '@/components/PostNotPublishedAlert'
@@ -16,7 +18,13 @@ import mdxComponents from '@/components/mdx'
 import H1 from '@/components/typography/H1'
 import { filterPublishedPosts } from '.'
 
+function getMDXFiles(dir: fs.PathLike) {
+    return fs.readdirSync(dir).filter(file => path.extname(file) === '.mdx')
+}
+
 export const getStaticPaths: GetStaticPaths = () => {
+    const mdxFiles = getMDXFiles(path.join(process.cwd(), 'src', 'posts'))
+
     return {
         paths: allPosts
             .filter(filterPublishedPosts)

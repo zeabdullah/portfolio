@@ -9,6 +9,7 @@ const config = {
         'prettier',
     ],
     rules: {
+        'prefer-const': 'off',
         '@typescript-eslint/consistent-type-imports': [
             'warn',
             {
