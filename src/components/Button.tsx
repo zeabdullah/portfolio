@@ -13,7 +13,7 @@ export default function Button({
     children,
     className,
     attractive,
-    lazyMotion,
+    lazyMotion = true,
     ...props
 }: ButtonProps) {
     const {

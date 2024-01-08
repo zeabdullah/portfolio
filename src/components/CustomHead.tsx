@@ -1,6 +1,5 @@
 import { DefaultSeo } from 'next-seo'
 import { useRouter } from 'next/router'
-import React from 'react'
 import { MY_DOMAIN } from '@/utils/config'
 import { colors } from '@/utils/tailwind'
 

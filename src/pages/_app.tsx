@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
             <CustomHead />
             <Script
                 async
-                src='https://umami-zeabdullah.vercel.app/script.js'
+                src='https://analytics.zabd.dev/script.js'
                 data-website-id='a9d78ec7-c5cd-48c3-8b4c-43eb2ce3ad9d'
             />
 

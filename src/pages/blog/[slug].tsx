@@ -1,14 +1,8 @@
-import { type Post, allPosts } from 'contentlayer/generated'
-import fs from 'fs'
-import { useMDXComponent } from 'next-contentlayer/hooks'
+import { MDXRemote } from 'next-mdx-remote'
+import { serialize } from 'next-mdx-remote/serialize'
 import { NextSeo } from 'next-seo'
 import Link from 'next/link'
-import type {
-    GetStaticPaths,
-    GetStaticProps,
-    InferGetStaticPropsType,
-} from 'next/types'
-import path from 'path'
+import type { InferGetStaticPropsType } from 'next/types'
 import { FaArrowLeft } from 'react-icons/fa'
 import PostDate from '@/components/PostDate'
 import PostNotPublishedAlert from '@/components/PostNotPublishedAlert'
@@ -16,44 +10,37 @@ import Section from '@/components/Section'
 import Container from '@/components/layouts/Container'
 import mdxComponents from '@/components/mdx'
 import H1 from '@/components/typography/H1'
-import { filterPublishedPosts } from '.'
+import { filterPublishedPosts, getAllPosts } from '@/utils/mdx'
 
-function getMDXFiles(dir: fs.PathLike) {
-    return fs.readdirSync(dir).filter(file => path.extname(file) === '.mdx')
-}
-
-export const getStaticPaths: GetStaticPaths = () => {
-    const mdxFiles = getMDXFiles(path.join(process.cwd(), 'src', 'posts'))
-
+export async function getStaticPaths() {
+    const allPosts = getAllPosts()
     return {
         paths: allPosts
             .filter(filterPublishedPosts)
-            .map(post => ({ params: { slug: post._raw.flattenedPath } })),
+            .map(post => ({ params: { slug: post.slug } })),
         fallback: false,
     }
 }
 
-export const getStaticProps: GetStaticProps<
-    { post: Post },
-    { slug: string }
-> = ({ params }) => {
-    const matchingPost = allPosts.find(
-        post => post._raw.flattenedPath === params?.slug,
-    )
+export async function getStaticProps({ params }: { params: { slug: string } }) {
+    const allPosts = getAllPosts()
+
+    const matchingPost = allPosts.find(post => post.slug === params.slug)
     if (!matchingPost) {
-        throw new Error(`Could not find post of slug '${params?.slug}'`)
+        throw new Error(`Could not find post of slug '${params.slug}'`)
     }
+    const serializedContent = await serialize(matchingPost.content)
 
     return {
-        props: { post: matchingPost },
+        props: {
+            post: { ...matchingPost, source: serializedContent },
+        },
     }
 }
 
 export default function BlogPostPage({
     post,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-    const MDXContent = useMDXComponent(post.body.code)
-
     return (
         <Container className='max-w-3xl'>
             <NextSeo title={`${post.title} | Abdullah Zeidan`} />
@@ -85,7 +72,7 @@ export default function BlogPostPage({
                 </hgroup>
 
                 <article className='prose prose-brand max-w-none dark:prose-invert lg:prose-lg prose-headings:font-semibold prose-p:text-base/[1.7]'>
-                    <MDXContent components={mdxComponents} />
+                    <MDXRemote {...post.source} components={mdxComponents} />
                 </article>
             </Section>
         </Container>

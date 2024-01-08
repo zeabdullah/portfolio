@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 import NavItem from '@/components/NavItem'
 import { navAndFooterClassName } from '@/utils/classnames'

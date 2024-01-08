@@ -1,30 +1,25 @@
-// import { type Post, allPosts } from 'contentlayer/generated'
 import { NextSeo } from 'next-seo'
-import type { GetStaticProps, InferGetStaticPropsType } from 'next/types'
-import React from 'react'
+import type { InferGetStaticPropsType } from 'next/types'
 import PostCard from '@/components/PostCard'
 import Section from '@/components/Section'
 import Container from '@/components/layouts/Container'
 import H1 from '@/components/typography/H1'
+import { filterPublishedPosts, getAllPosts } from '@/utils/mdx'
 
-export const getStaticProps: GetStaticProps = async () => {
+export async function getStaticProps() {
     const { compareDesc } = await import('date-fns')
+
+    const allPosts = await getAllPosts()
+
     return {
         props: {
-            posts: [], // posts: allPosts
-            //     .filter(filterPublishedPosts)
-            //     .sort((a, b) =>
-            //         compareDesc(new Date(a.date), new Date(b.date)),
-            //     ),
+            posts: allPosts
+                .filter(filterPublishedPosts)
+                .sort((a, b) =>
+                    compareDesc(new Date(a.date), new Date(b.date)),
+                ),
         },
     }
-}
-
-export const filterPublishedPosts = ({ isPublished }: any) => {
-    const isDevModeAndNotPublished =
-        !isPublished && process.env.NODE_ENV === 'development'
-
-    return isDevModeAndNotPublished || isPublished
 }
 
 const headerLabel = 'header-heading'
@@ -45,8 +40,8 @@ export default function BlogIndexPage({
                 </H1>
 
                 <ul className='space-y-6'>
-                    {posts.map((post: any) => (
-                        <PostCard key={post._id} {...post} />
+                    {posts.map(post => (
+                        <PostCard key={post.slug} {...post} />
                     ))}
                 </ul>
             </Section>

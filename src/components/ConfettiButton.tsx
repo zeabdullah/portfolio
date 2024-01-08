@@ -1,3 +1,5 @@
+'use client'
+
 import confetti from 'canvas-confetti'
 import Button, { type ButtonProps } from './Button'
 

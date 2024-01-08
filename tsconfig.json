@@ -19,7 +19,8 @@
             "contentlayer/generated": ["./.contentlayer/generated"],
             "@/*": ["./src/*"],
             "$/*": ["./public/*"]
-        }
+        },
+        "plugins": [{ "name": "next" }]
     },
     "include": [
         "next-env.d.ts",
