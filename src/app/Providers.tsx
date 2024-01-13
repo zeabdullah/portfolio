@@ -2,6 +2,9 @@
 
 import { LazyMotion, domAnimation } from 'framer-motion'
 import { ThemeProvider } from 'next-themes'
+import { Suspense } from 'react'
+import { NextProgressBar } from '@/components/ProgressBar'
+import { colors } from '@/utils/tailwind'
 
 export default function Providers({
     children,
@@ -16,6 +19,12 @@ export default function Providers({
                 enableSystem={false}
             >
                 {children}
+                <Suspense fallback={null}>
+                    <NextProgressBar
+                        color={colors.brand['500']}
+                        options={{ showSpinner: false, speed: 300 }}
+                    />
+                </Suspense>
             </ThemeProvider>
         </LazyMotion>
     )

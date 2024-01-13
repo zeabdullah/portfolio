@@ -3,8 +3,9 @@ import { useRouter } from 'next/router'
 import { MY_DOMAIN } from '@/utils/config'
 import { colors } from '@/utils/tailwind'
 
-const title = 'Abdullah Zeidan | Web Engineer'
-const description = 'A dev with the passion to make the web a greater place.'
+const DEFAULT_TITLE = 'Abdullah Zeidan | Web Engineer'
+const DEFAULT_DESCRIPTION =
+    'A dev with the passion to make the web a greater place.'
 
 export default function CustomHead() {
     const router = useRouter()
@@ -12,17 +13,17 @@ export default function CustomHead() {
 
     return (
         <DefaultSeo
-            title={title}
-            description={description}
+            title={DEFAULT_TITLE}
+            description={DEFAULT_DESCRIPTION}
             canonical={canonicalURL}
             twitter={{
-                site: canonicalURL,
+                site: '@zabd_dev',
                 cardType: 'summary_large_image',
             }}
             themeColor={colors.dark}
             openGraph={{
-                title,
-                description,
+                title: DEFAULT_TITLE,
+                description: DEFAULT_DESCRIPTION,
                 url: canonicalURL,
                 type: 'website',
                 siteName: "Abdullah Zeidan's Personal Website/Portfolio",
@@ -66,6 +67,12 @@ export default function CustomHead() {
                     type: 'image/svg',
                     sizes: '256x256',
                     href: '/favicon.svg',
+                },
+                {
+                    rel: 'icon',
+                    type: 'image/png',
+                    sizes: '32x32',
+                    href: '/favicon-32x32.png',
                 },
                 {
                     rel: 'manifest',

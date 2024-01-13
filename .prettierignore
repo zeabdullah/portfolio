@@ -38,6 +38,8 @@ next-env.d.ts
 public/sitemap.xml
 public/sitemap*
 
+public/
+
 # package manager lock-files
 yarn.lock
 package-lock.json
