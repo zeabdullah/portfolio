@@ -21,9 +21,9 @@ export function generateMetadata({
 }: {
     params: { slug: string }
 }): Metadata {
-    const post = getPostBySlug(params.slug)
+    const { title, description } = getPostBySlug(params.slug)
 
-    return generateSomeMeta({ title: post.title })
+    return generateSomeMeta({ title, description })
 }
 
 export default function BlogPostPage({ params }: { params: { slug: string } }) {
@@ -36,13 +36,15 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 className='pt-6 md:pt-6'
                 aria-labelledby='header-heading'
             >
-                <Link
-                    href='/blog'
-                    className='group mb-8 flex items-center gap-2 text-sm text-neutral-700 hover:text-brand-700 dark:text-neutral-400 dark:hover:text-brand-500'
-                >
-                    <FaArrowLeft className='transition-transform duration-200 group-hover:-translate-x-0.5' />
-                    Back to main blog page
-                </Link>
+                <div>
+                    <Link
+                        href='/blog'
+                        className='group mb-8 inline-flex items-center gap-2 text-sm text-neutral-700 hover:text-brand-700 hover:underline dark:text-neutral-400 dark:hover:text-brand-500'
+                    >
+                        <FaArrowLeft className='transition-transform duration-200 group-hover:-translate-x-0.5' />
+                        Back to main blog page
+                    </Link>
+                </div>
 
                 {process.env.NODE_ENV === 'development' &&
                     !post.isPublished && (

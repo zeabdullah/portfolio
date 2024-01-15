@@ -17,7 +17,7 @@ const headerLabelId = 'header-heading'
 export default function BlogPage() {
     const posts = getAllPosts()
         .filter(filterPublishedPosts)
-        .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
+        .sort((a, b) => compareDesc(a.date, b.date))
 
     return (
         <Container>
