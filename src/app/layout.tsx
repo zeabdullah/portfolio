@@ -1,6 +1,6 @@
 import type { Metadata } from 'next/types'
 import DEFAULT_SEO from 'seo.config'
-import CustomHead2 from '@/components/CustomHead2'
+import CustomHead from '@/components/CustomHead'
 import Footer from '@/components/layouts/Footer'
 import Navbar from '@/components/layouts/Navbar'
 import { jetBrainsMono, spaceGrotesk } from '@/styles/fonts'
@@ -21,7 +21,8 @@ export default function RootLayout({
             className='scroll-pt-24 scroll-smooth'
             suppressHydrationWarning
         >
-            <CustomHead2 />
+            <CustomHead />
+
             <body>
                 <Providers>
                     <div

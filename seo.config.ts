@@ -49,6 +49,8 @@ const DEFAULT_SEO: Metadata = {
         ],
     },
     twitter: {
+        // title: { absolute: DEFAULT_TITLE, template: '%s | Abdullah Zeidan' },
+        // description: DEFAULT_DESCRIPTION,
         site: '@zabd_dev',
         card: 'summary_large_image',
     },

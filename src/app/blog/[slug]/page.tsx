@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next/types'
 import { FaArrowLeft } from 'react-icons/fa'
-import DEFAULT_SEO from 'seo.config'
+import { generateSomeMeta } from 'seo.config'
 import PostDate from '@/components/PostDate'
 import PostNotPublishedAlert from '@/components/PostNotPublishedAlert'
 import Section from '@/components/Section'
@@ -23,18 +23,7 @@ export function generateMetadata({
 }): Metadata {
     const post = getPostBySlug(params.slug)
 
-    const postTitle = `${post.title} | Abdullah Zeidan`
-
-    let metadata: Metadata = {
-        ...DEFAULT_SEO,
-        title: postTitle,
-        openGraph: {
-            ...DEFAULT_SEO.openGraph,
-            title: postTitle,
-        },
-    }
-
-    return metadata
+    return generateSomeMeta({ title: post.title })
 }
 
 export default function BlogPostPage({ params }: { params: { slug: string } }) {

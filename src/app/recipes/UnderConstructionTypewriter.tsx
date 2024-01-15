@@ -7,11 +7,11 @@ export default function UnderConstructionTypewriter() {
     return (
         <>
             <H2 aria-hidden className='font-extrabold'>
-                Under Constr
+                Under Const
                 <Typewriter
                     options={{ delay: 80 }}
                     onInit={typewriter => {
-                        typewriter.pauseFor(250).typeString('uction').start()
+                        typewriter.pauseFor(250).typeString('ruction').start()
                     }}
                 />
             </H2>

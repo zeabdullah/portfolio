@@ -1,16 +1,16 @@
 import compareDesc from 'date-fns/compareDesc'
-import type { Metadata } from 'next/types'
+import { generateSomeMeta } from 'seo.config'
 import PostCard from '@/components/PostCard'
 import Section from '@/components/Section'
 import Container from '@/components/layouts/Container'
 import H1 from '@/components/typography/H1'
 import { filterPublishedPosts, getAllPosts } from '@/utils/mdx'
 
-export const metadata: Metadata = {
-    title: 'Blog | Abdullah Zeidan',
+export const metadata = generateSomeMeta({
+    title: 'Blog',
     description:
         'A place to share my knowledge with the world. Come and read interesting web dev topics like animations, accessibility, and more.',
-}
+})
 
 const headerLabelId = 'header-heading'
 
