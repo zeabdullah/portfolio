@@ -13,11 +13,8 @@ import Subtitle from '@/components/typography/Subtitle'
 import { cn } from '@/utils/css'
 
 const title = 'Technologies'
-const logoCls = cn(
-    'opacity-60 hover:!opacity-100 group-hover:opacity-40',
-    'duration-300',
-    'transition',
-)
+const logoCls =
+    'opacity-60 hover:!opacity-100 group-hover:opacity-40 duration-300 transition'
 
 const ICONS: { label: string; iconName: IconType; classes?: string }[] = [
     {
@@ -70,11 +67,7 @@ export default function Technologies() {
 
             <div
                 id='tech-logos'
-                className={cn(
-                    'flex flex-wrap justify-center gap-6 sm:gap-8',
-                    'text-4xl sm:text-5xl',
-                    'group',
-                )}
+                className='group flex flex-wrap justify-center gap-6 text-4xl sm:gap-8 sm:text-5xl'
             >
                 {ICONS.map(({ label, classes, iconName: IconName }) => (
                     <div

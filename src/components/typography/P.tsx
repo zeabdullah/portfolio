@@ -1,4 +1,3 @@
-import { m } from 'framer-motion'
 import { forwardRef, type ComponentPropsWithoutRef } from 'react'
 import { cn } from '@/utils/css'
 
@@ -20,5 +19,3 @@ const P = forwardRef<Ref, Props>(function P(
     )
 })
 export default P
-
-export const MotionP = m(P)

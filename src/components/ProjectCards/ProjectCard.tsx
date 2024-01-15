@@ -1,3 +1,5 @@
+'use client'
+
 import { m } from 'framer-motion'
 import Image, { type StaticImageData } from 'next/image'
 import { FaBroadcastTower, FaCode } from 'react-icons/fa'

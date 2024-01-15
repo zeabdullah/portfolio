@@ -1,27 +1,29 @@
 import { m } from 'framer-motion'
+import Link from 'next/link'
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
 import { navItemCls } from '@/utils/classnames'
 import { cn } from '@/utils/css'
 import { tapMotionProps } from '@/utils/css'
-import MotionLink from './MotionLink'
-import PulseEffect from './PulseEffect'
 
-interface BaseProps {
+const MotionLink = m(Link)
+
+export interface NavItemBaseProps {
     pulseEffect?: boolean
     children?: ReactNode
     className?: string
 }
+
 type ComponentWithBaseProps<T extends ElementType> = Omit<
     ComponentPropsWithoutRef<T>,
-    keyof BaseProps
+    keyof NavItemBaseProps
 >
 
-type NavItemProps = (
+export type NavItemProps = (
     | ({ element: 'next-link' } & ComponentWithBaseProps<typeof MotionLink>)
     | ({ element: 'a' } & ComponentWithBaseProps<(typeof m)['a']>)
     | ({ element: 'button' } & ComponentWithBaseProps<(typeof m)['button']>)
 ) &
-    BaseProps
+    NavItemBaseProps
 
 export default function NavItem({
     pulseEffect,
@@ -31,7 +33,11 @@ export default function NavItem({
 }: NavItemProps) {
     const content = (
         <>
-            {pulseEffect && <PulseEffect />}
+            {pulseEffect && (
+                <span className='absolute -start-0.5 -top-0.5 aspect-square h-2.5 rounded-full bg-brand-500 dark:bg-brand-400 sm:-end-0.5 sm:start-auto'>
+                    <span className='absolute h-full w-full animate-ping rounded-full bg-inherit opacity-80' />
+                </span>
+            )}
             {children}
         </>
     )

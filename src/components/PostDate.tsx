@@ -1,18 +1,18 @@
-import { format, parseISO } from 'date-fns'
+import { format } from 'date-fns'
 
 export default function PostDate({
     date,
     children,
 }: {
-    date: string
+    date: Date
     children?: React.ReactNode
 }) {
     return (
         <time
-            dateTime={date}
+            dateTime={date.toISOString()}
             className='mb-2 block text-sm text-neutral-700 dark:text-neutral-400'
         >
-            {children} {format(parseISO(date), 'LLLL d, yyyy')}
+            {children} {format(date, 'LLLL d, yyyy')}
         </time>
     )
 }

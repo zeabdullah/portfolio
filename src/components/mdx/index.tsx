@@ -1,5 +1,6 @@
 import type { MDXComponents } from 'mdx/types'
 import Anchor from '@/components/typography/Anchor'
+import ConfettiButton from '../ConfettiButton'
 import Code from './Code'
 import Heading from './Heading'
 import ResponsiveImage from './ResponsiveImage'
@@ -13,6 +14,7 @@ const mdxComponents: MDXComponents = {
     a: Anchor,
     code: Code,
     img: ResponsiveImage,
+    ConfettiButton,
 }
 
 export default mdxComponents

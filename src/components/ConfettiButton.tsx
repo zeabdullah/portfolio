@@ -1,7 +1,13 @@
-import confetti from 'canvas-confetti'
-import Button, { type ButtonProps } from './Button'
+'use client'
 
-export default function ConfettiButton(props: ButtonProps) {
+import confetti from 'canvas-confetti'
+import Button from './Button'
+
+export default function ConfettiButton({
+    children,
+}: {
+    children: React.ReactNode
+}) {
     const confettiOptions: (angle: number) => confetti.Options = angle => ({
         angle,
         spread: randomInRange(45, 80),
@@ -13,7 +19,11 @@ export default function ConfettiButton(props: ButtonProps) {
         confetti({ origin: { x: 1 }, ...confettiOptions(100) })
     }
 
-    return <Button {...props} onClick={celebrate} />
+    return (
+        <Button attractive onClick={celebrate}>
+            {children}
+        </Button>
+    )
 }
 
 const randomInRange = (min: number, max: number) =>

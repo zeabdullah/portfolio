@@ -1,3 +1,5 @@
+'use client'
+
 import { m } from 'framer-motion'
 import type { ComponentPropsWithoutRef } from 'react'
 import { cn } from '@/utils/css'

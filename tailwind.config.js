@@ -5,7 +5,7 @@ const { screens, colors, fontFamilies } = require('./src/utils/tailwind')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ['./src/**/*.{js,ts,jsx,tsx,mdx}', 'contentlayer.config.ts'],
+    content: ['./src/**/*.{js,ts,jsx,tsx,md,mdx}'],
     darkMode: 'class',
 
     theme: {

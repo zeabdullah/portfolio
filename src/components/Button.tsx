@@ -1,3 +1,5 @@
+'use client'
+
 import { m, motion } from 'framer-motion'
 import type { ComponentPropsWithoutRef } from 'react'
 import { cn } from '@/utils/css'
@@ -13,7 +15,7 @@ export default function Button({
     children,
     className,
     attractive,
-    lazyMotion,
+    lazyMotion = true,
     ...props
 }: ButtonProps) {
     const {
