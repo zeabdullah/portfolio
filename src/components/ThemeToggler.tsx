@@ -1,3 +1,5 @@
+'use client'
+
 import { AnimatePresence, type AnimationProps, m } from 'framer-motion'
 import { RiMoonClearFill, RiSunFill, RiContrastFill } from 'react-icons/ri'
 import { navBtnCls } from '@/utils/classnames'

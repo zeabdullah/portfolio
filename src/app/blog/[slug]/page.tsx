@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
 import type { Metadata } from 'next/types'
 import { FaArrowLeft } from 'react-icons/fa'
 import { generateSomeMeta } from 'seo.config'
@@ -10,8 +11,10 @@ import CustomMDXRemote from '@/components/mdx/MDXRemote'
 import H1 from '@/components/typography/H1'
 import { filterPublishedPosts, getAllPosts, getPostBySlug } from '@/utils/mdx'
 
+const allPosts = getAllPosts()
+
 export function generateStaticParams() {
-    return getAllPosts()
+    return allPosts
         .filter(filterPublishedPosts)
         .map(post => ({ slug: post.slug }))
 }
@@ -21,13 +24,22 @@ export function generateMetadata({
 }: {
     params: { slug: string }
 }): Metadata {
-    const { title, description } = getPostBySlug(params.slug)
+    const post = getPostBySlug(allPosts, params.slug)
 
+    if (!post) {
+        return notFound()
+    }
+
+    const { title, description } = post
     return generateSomeMeta({ title, description })
 }
 
 export default function BlogPostPage({ params }: { params: { slug: string } }) {
-    const post = getPostBySlug(params.slug)
+    const post = getPostBySlug(allPosts, params.slug)
+
+    if (!post) {
+        return notFound()
+    }
 
     return (
         <Container className='max-w-3xl'>

@@ -18,7 +18,7 @@ export interface Post extends PostMeta {
     content: string
 }
 
-export const POSTS_DIR = path.join(process.cwd(), 'src', 'posts')
+export const POSTS_DIR = path.join(process.cwd(), 'posts')
 
 export function getMDXFiles(dir: PathLike) {
     try {
@@ -54,15 +54,11 @@ export function getAllPosts(): Post[] {
     })
 }
 
-export function getPostBySlug(slug: string): Post {
-    const allPosts = getAllPosts()
-
-    const matchingPost = allPosts.find(post => post.slug === slug)
-    if (!matchingPost) {
-        throw new Error(`No blog post found with slug '${slug}'`)
-    }
-
-    return matchingPost
+export function getPostBySlug(
+    posts: Post[] = getAllPosts(),
+    slug: string,
+): Post | undefined {
+    return posts.find(post => post.slug === slug)
 }
 
 export function parseMDX(file: string) {
