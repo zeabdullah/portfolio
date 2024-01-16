@@ -1,6 +1,7 @@
 import { useTheme as useNextTheme } from 'next-themes'
 
 export type Theme = 'light' | 'dark'
+
 export interface UseNextThemeProps {
     themes: Theme[]
     forcedTheme?: Theme
@@ -9,6 +10,7 @@ export interface UseNextThemeProps {
     resolvedTheme?: Theme
     systemTheme?: 'dark' | 'light'
 }
+
 export interface UseThemeProps {
     theme?: Theme
     isDarkMode: boolean

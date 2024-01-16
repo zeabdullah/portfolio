@@ -1,3 +1,5 @@
+'use client'
+
 import type { NavigateOptions } from 'next/dist/shared/lib/app-router-context.shared-runtime'
 import {
     usePathname,
