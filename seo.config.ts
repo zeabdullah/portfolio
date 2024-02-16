@@ -14,9 +14,11 @@ export function generateSomeMeta({
     description?: string
 }): Metadata {
     return {
+        ...DEFAULT_SEO,
         title,
         description: description ?? DEFAULT_DESCRIPTION,
         openGraph: {
+            ...DEFAULT_SEO.openGraph,
             title,
             description: description ?? DEFAULT_DESCRIPTION,
         },

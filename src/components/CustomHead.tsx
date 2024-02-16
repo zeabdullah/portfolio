@@ -14,11 +14,13 @@ export default function CustomHead() {
         <head>
             <link rel='canonical' href={CANONICAL_URL} />
             <meta property='og:url' content={CANONICAL_URL} />
-            <Script
-                async
-                src='https://analytics.zabd.dev/script.js'
-                data-website-id='a9d78ec7-c5cd-48c3-8b4c-43eb2ce3ad9d'
-            />
+            {process.env.NODE_ENV === 'production' && (
+                <Script
+                    async
+                    src='https://analytics.zabd.dev/script.js'
+                    data-website-id='a9d78ec7-c5cd-48c3-8b4c-43eb2ce3ad9d'
+                />
+            )}
         </head>
     )
 }
