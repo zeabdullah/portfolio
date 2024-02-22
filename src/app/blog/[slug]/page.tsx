@@ -1,9 +1,9 @@
+import format from 'date-fns/format'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next/types'
 import { FaArrowLeft } from 'react-icons/fa'
-import { generateSomeMeta } from 'seo.config'
-import PostDate from '@/components/PostDate'
+import DEFAULT_SEO from 'seo.config'
 import PostNotPublishedAlert from '@/components/PostNotPublishedAlert'
 import Section from '@/components/Section'
 import Container from '@/components/layouts/Container'
@@ -31,7 +31,17 @@ export function generateMetadata({
     }
 
     const { title, description } = post
-    return generateSomeMeta({ title, description })
+
+    return {
+        ...DEFAULT_SEO,
+        title,
+        description,
+        openGraph: {
+            // ...DEFAULT_SEO.openGraph,
+            title,
+            description,
+        },
+    }
 }
 
 export default function BlogPostPage({ params }: { params: { slug: string } }) {
@@ -69,7 +79,12 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                     <H1 id='header-heading' className='mb-3 font-extrabold'>
                         {post.title}
                     </H1>
-                    <PostDate date={post.date}>Posted on</PostDate>
+                    <time
+                        dateTime={post.date.toISOString()}
+                        className='mb-2 block text-sm text-neutral-700 dark:text-neutral-400'
+                    >
+                        {format(post.date, 'LLLL do, yyyy')}
+                    </time>
                 </hgroup>
 
                 <article className='prose prose-brand max-w-none dark:prose-invert lg:prose-lg prose-headings:font-semibold prose-p:text-base/[1.7]'>

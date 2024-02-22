@@ -1,6 +1,6 @@
+import format from 'date-fns/format'
 import Link from 'next/link'
 import { type PostMeta } from '@/utils/mdx'
-import PostDate from './PostDate'
 
 export default function PostCard(post: PostMeta) {
     return (
@@ -13,7 +13,12 @@ export default function PostCard(post: PostMeta) {
                     {post.title}
                 </Link>
             </h2>
-            <PostDate date={post.date} />
+            <time
+                dateTime={post.date.toISOString()}
+                className='mb-2 block text-sm text-neutral-700 dark:text-neutral-400'
+            >
+                {format(post.date, 'LLLL do, yyyy')}
+            </time>
         </li>
     )
 }

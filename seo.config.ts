@@ -30,9 +30,7 @@ const DEFAULT_SEO: Metadata = {
     title: { absolute: DEFAULT_TITLE, template: '%s | Abdullah Zeidan' },
     description: DEFAULT_DESCRIPTION,
     manifest: '/meta/site.webmanifest',
-    viewport: 'width=device-width, initial-scale=1',
     applicationName: 'zabd.dev',
-    themeColor: colors.dark,
 
     // generates metadata for both `og:` and `twitter:`
     openGraph: {

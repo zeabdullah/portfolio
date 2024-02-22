@@ -1,4 +1,4 @@
-import type { Metadata } from 'next/types'
+import type { Metadata, Viewport } from 'next/types'
 import DEFAULT_SEO from 'seo.config'
 import CustomHead from '@/components/CustomHead'
 import Footer from '@/components/layouts/Footer'
@@ -6,9 +6,15 @@ import Navbar from '@/components/layouts/Navbar'
 import { jetBrainsMono, spaceGrotesk } from '@/styles/fonts'
 import '@/styles/globals.css'
 import { cn } from '@/utils/css'
+import { colors } from '@/utils/tailwind'
 import Providers from './Providers'
 
 export const metadata: Metadata = DEFAULT_SEO
+export const viewport: Viewport = {
+    width: 'device-width',
+    initialScale: 1,
+    themeColor: colors.dark,
+}
 
 export default function RootLayout({
     children,
