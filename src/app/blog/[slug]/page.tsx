@@ -7,7 +7,6 @@ import BlinkingCursor from '@/components/BlinkingCursor'
 import PostNotPublishedAlert from '@/components/PostNotPublishedAlert'
 import Section from '@/components/Section'
 import CustomMDXRemote from '@/components/mdx/MDXRemote'
-import H1 from '@/components/typography/H1'
 import { containerCls } from '@/utils/classnames'
 import { cn } from '@/utils/css'
 import { filterPublishedPosts, getAllPosts, getPostBySlug } from '@/utils/mdx'
@@ -51,12 +50,13 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     return (
         <>
             <header className='relative isolate flex aspect-[2/1] max-h-80 w-full flex-col justify-end border-b border-b-neutral-500/20 object-cover xl:max-h-96'>
-                <div className='absolute inset-0 -z-10 bg-gradient-to-b from-black/30 to-neutral-950/90' />
+                <div className='absolute inset-0 -z-10 bg-gradient-to-b from-black/10 to-black/90' />
                 <Image
-                    src='https://images.unsplash.com/photo-1701505708176-63194ee8f0e8?q=80&w=2664&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+                    src={post.thumbnailUrl ?? '/images/og-template.png'}
                     alt=''
-                    className='-z-20 select-none object-cover'
+                    className='-z-20 select-none bg-neutral-400 object-cover'
                     fill
+                    quality={85}
                     priority
                 />
 
@@ -66,10 +66,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                         'mb-4 w-full max-w-3xl md:mb-6',
                     )}
                 >
-                    <H1 className='mb-4 me-auto w-full font-extrabold text-light [text-wrap:balance] md:mb-6'>
+                    <h1 className='mb-4 me-auto w-full font-mono text-4xl font-extrabold tracking-tighter text-light [text-wrap:balance] sm:text-5xl md:mb-6 lg:text-6xl'>
                         {post.title}
                         <BlinkingCursor type='|' />
-                    </H1>
+                    </h1>
                     <time
                         dateTime={post.date.toISOString()}
                         className='block text-sm text-neutral-400'

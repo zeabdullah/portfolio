@@ -25,22 +25,42 @@ export default async function Image({ params }: { params: { slug: string } }) {
         }).then(res => res.arrayBuffer()),
     ])
 
+    let bgUrl: string
+    if (typeof post.thumbnailUrl === 'undefined') {
+        bgUrl = `${MY_DOMAIN}/images/og-template.png`
+    } else if (post.thumbnailUrl.startsWith('/')) {
+        bgUrl = `${MY_DOMAIN}${post.thumbnailUrl}`
+    } else {
+        bgUrl = post.thumbnailUrl
+    }
+
     return new ImageResponse(
         (
             <div
                 tw='bg-neutral-900 relative flex justify-center items-center text-neutral-200 w-full h-full p-8'
                 style={{
                     fontFamily: '"JetBrains Mono", sans-serif',
-                    backgroundImage: `url('${MY_DOMAIN}/images/og-template.png')`,
+                    backgroundImage: `${
+                        true
+                            ? 'linear-gradient(to bottom,#0000001A,#000000E6), '
+                            : ''
+                    }url("${bgUrl}")`,
                 }}
             >
                 <div tw='flex flex-col mt-auto items-start justify-start w-full'>
-                    <h1 tw='text-7xl font-extrabold tracking-tighter max-w-[42rem] mb-8'>
-                        {post.title.slice(0, 46).trim() + '...'}
+                    <h1
+                        tw='text-7xl font-extrabold tracking-tighter max-w-[46rem] mb-8'
+                        style={{
+                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                            // @ts-ignore
+                            textWrap: 'balance',
+                        }}
+                    >
+                        {truncate(post.title)}
                     </h1>
 
                     <div
-                        tw='text-neutral-500 text-lg font-medium flex items-center'
+                        tw='text-neutral-400 text-lg font-medium flex items-center'
                         style={{ fontFamily: '"Space Grotesk", sans-serif' }}
                     >
                         <div tw='flex items-center justify-center'>
@@ -125,4 +145,12 @@ export default async function Image({ params }: { params: { slug: string } }) {
             ],
         },
     )
+}
+
+function truncate(phrase: string, maxLength = 46) {
+    const trimmedPhrase = phrase.trim()
+    if (trimmedPhrase.length <= maxLength) {
+        return trimmedPhrase
+    }
+    return trimmedPhrase.slice(0, maxLength).trim() + '...'
 }
