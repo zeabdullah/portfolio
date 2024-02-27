@@ -16,8 +16,6 @@ export default async function Image({ params }: { params: { slug: string } }) {
         return notFound()
     }
 
-    console.log(import.meta.url)
-
     const [jetBrainsMonoExtrabold, spaceGroteskMedium] = await Promise.all([
         fetch(new URL('/fonts/JetBrainsMono-ExtraBold.ttf', MY_DOMAIN), {
             cache: 'force-cache',

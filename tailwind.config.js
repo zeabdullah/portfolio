@@ -21,6 +21,15 @@ module.exports = {
                     },
                 },
             },
+            animation: {
+                blink: '1s blink linear infinite',
+            },
+            keyframes: {
+                blink: {
+                    'from, to': { opacity: '0%' },
+                    '50%': { opacity: '100%' },
+                },
+            },
         },
     },
 

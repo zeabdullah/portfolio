@@ -22,11 +22,7 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html
-            lang='en'
-            className='scroll-pt-24 scroll-smooth'
-            suppressHydrationWarning
-        >
+        <html lang='en' className='scroll-pt-24 scroll-smooth'>
             <CustomHead />
 
             <body>

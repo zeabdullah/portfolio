@@ -1,14 +1,15 @@
 import format from 'date-fns/format'
-import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next/types'
-import { FaArrowLeft } from 'react-icons/fa'
 import DEFAULT_SEO from 'seo.config'
+import BlinkingCursor from '@/components/BlinkingCursor'
 import PostNotPublishedAlert from '@/components/PostNotPublishedAlert'
 import Section from '@/components/Section'
-import Container from '@/components/layouts/Container'
 import CustomMDXRemote from '@/components/mdx/MDXRemote'
 import H1 from '@/components/typography/H1'
+import { containerCls } from '@/utils/classnames'
+import { cn } from '@/utils/css'
 import { filterPublishedPosts, getAllPosts, getPostBySlug } from '@/utils/mdx'
 
 const allPosts = getAllPosts()
@@ -36,11 +37,7 @@ export function generateMetadata({
         ...DEFAULT_SEO,
         title,
         description,
-        openGraph: {
-            // ...DEFAULT_SEO.openGraph,
-            title,
-            description,
-        },
+        openGraph: { title, description },
     }
 }
 
@@ -52,22 +49,36 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     }
 
     return (
-        <Container className='max-w-3xl'>
-            <Section
-                id='header'
-                className='pt-6 md:pt-6'
-                aria-labelledby='header-heading'
-            >
-                <div>
-                    <Link
-                        href='/blog'
-                        className='group mb-8 inline-flex items-center gap-2 text-sm text-neutral-700 hover:text-brand-700 hover:underline dark:text-neutral-400 dark:hover:text-brand-500'
-                    >
-                        <FaArrowLeft className='transition-transform duration-200 group-hover:-translate-x-0.5' />
-                        Back to main blog page
-                    </Link>
-                </div>
+        <>
+            <header className='relative isolate flex aspect-[2/1] max-h-80 w-full flex-col justify-end border-b border-b-neutral-500/20 object-cover xl:max-h-96'>
+                <div className='absolute inset-0 -z-10 bg-gradient-to-b from-black/30 to-neutral-950/90' />
+                <Image
+                    src='https://images.unsplash.com/photo-1701505708176-63194ee8f0e8?q=80&w=2664&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+                    alt=''
+                    className='-z-20 select-none object-cover'
+                    fill
+                    priority
+                />
 
+                <hgroup
+                    className={cn(
+                        containerCls,
+                        'mb-4 w-full max-w-3xl md:mb-6',
+                    )}
+                >
+                    <H1 className='mb-4 me-auto w-full font-extrabold text-light [text-wrap:balance] md:mb-6'>
+                        {post.title}
+                        <BlinkingCursor type='|' />
+                    </H1>
+                    <time
+                        dateTime={post.date.toISOString()}
+                        className='block text-sm text-neutral-400'
+                    >
+                        Posted on {format(post.date, 'LLLL do, yyyy')}
+                    </time>
+                </hgroup>
+            </header>
+            <Section className={cn(containerCls, 'max-w-3xl pt-6 md:pt-6')}>
                 {process.env.NODE_ENV === 'development' &&
                     !post.isPublished && (
                         <div className='mb-8'>
@@ -75,22 +86,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                         </div>
                     )}
 
-                <hgroup className='mb-12'>
-                    <H1 id='header-heading' className='mb-3 font-extrabold'>
-                        {post.title}
-                    </H1>
-                    <time
-                        dateTime={post.date.toISOString()}
-                        className='mb-2 block text-sm text-neutral-700 dark:text-neutral-400'
-                    >
-                        {format(post.date, 'LLLL do, yyyy')}
-                    </time>
-                </hgroup>
-
                 <article className='prose prose-brand max-w-none dark:prose-invert lg:prose-lg prose-headings:font-semibold prose-p:text-base/[1.7]'>
                     <CustomMDXRemote source={post.content} />
                 </article>
             </Section>
-        </Container>
+        </>
     )
 }
