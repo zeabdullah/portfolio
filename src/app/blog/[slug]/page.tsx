@@ -1,14 +1,14 @@
-import Link from 'next/link'
+import format from 'date-fns/format'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next/types'
-import { FaArrowLeft } from 'react-icons/fa'
-import { generateSomeMeta } from 'seo.config'
-import PostDate from '@/components/PostDate'
+import DEFAULT_SEO from 'seo.config'
+import BlinkingCursor from '@/components/BlinkingCursor'
 import PostNotPublishedAlert from '@/components/PostNotPublishedAlert'
 import Section from '@/components/Section'
-import Container from '@/components/layouts/Container'
 import CustomMDXRemote from '@/components/mdx/MDXRemote'
-import H1 from '@/components/typography/H1'
+import { containerCls } from '@/utils/classnames'
+import { cn } from '@/utils/css'
 import { filterPublishedPosts, getAllPosts, getPostBySlug } from '@/utils/mdx'
 
 const allPosts = getAllPosts()
@@ -31,7 +31,13 @@ export function generateMetadata({
     }
 
     const { title, description } = post
-    return generateSomeMeta({ title, description })
+
+    return {
+        ...DEFAULT_SEO,
+        title,
+        description,
+        openGraph: { title, description },
+    }
 }
 
 export default function BlogPostPage({ params }: { params: { slug: string } }) {
@@ -42,22 +48,37 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     }
 
     return (
-        <Container className='max-w-3xl'>
-            <Section
-                id='header'
-                className='pt-6 md:pt-6'
-                aria-labelledby='header-heading'
-            >
-                <div>
-                    <Link
-                        href='/blog'
-                        className='group mb-8 inline-flex items-center gap-2 text-sm text-neutral-700 hover:text-brand-700 hover:underline dark:text-neutral-400 dark:hover:text-brand-500'
-                    >
-                        <FaArrowLeft className='transition-transform duration-200 group-hover:-translate-x-0.5' />
-                        Back to main blog page
-                    </Link>
-                </div>
+        <>
+            <header className='relative isolate flex aspect-[2/1] max-h-80 w-full flex-col justify-end border-b border-b-neutral-500/20 object-cover xl:max-h-96'>
+                <div className='absolute inset-0 -z-10 bg-gradient-to-b from-black/10 to-black/90' />
+                <Image
+                    src={post.thumbnailUrl ?? '/images/og-template.png'}
+                    alt=''
+                    className='-z-20 select-none bg-neutral-400 object-cover'
+                    fill
+                    quality={85}
+                    priority
+                />
 
+                <hgroup
+                    className={cn(
+                        containerCls,
+                        'mb-4 w-full max-w-3xl md:mb-6',
+                    )}
+                >
+                    <h1 className='mb-4 me-auto w-full font-mono text-4xl font-extrabold tracking-tighter text-light [text-wrap:balance] sm:text-5xl md:mb-6 lg:text-6xl'>
+                        {post.title}
+                        <BlinkingCursor type='|' />
+                    </h1>
+                    <time
+                        dateTime={post.date.toISOString()}
+                        className='block text-sm text-neutral-400'
+                    >
+                        Posted on {format(post.date, 'LLLL do, yyyy')}
+                    </time>
+                </hgroup>
+            </header>
+            <Section className={cn(containerCls, 'max-w-3xl pt-6 md:pt-6')}>
                 {process.env.NODE_ENV === 'development' &&
                     !post.isPublished && (
                         <div className='mb-8'>
@@ -65,17 +86,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                         </div>
                     )}
 
-                <hgroup className='mb-12'>
-                    <H1 id='header-heading' className='mb-3 font-extrabold'>
-                        {post.title}
-                    </H1>
-                    <PostDate date={post.date}>Posted on</PostDate>
-                </hgroup>
-
                 <article className='prose prose-brand max-w-none dark:prose-invert lg:prose-lg prose-headings:font-semibold prose-p:text-base/[1.7]'>
                     <CustomMDXRemote source={post.content} />
                 </article>
             </Section>
-        </Container>
+        </>
     )
 }

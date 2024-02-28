@@ -8,6 +8,7 @@ export interface PostFrontmatter {
     date: Date
     isPublished: boolean
     description: string
+    thumbnailUrl?: string
 }
 
 export interface PostMeta extends PostFrontmatter {
@@ -38,9 +39,9 @@ export function getAllPosts(): Post[] {
     return mdxFiles.map(filename => {
         const parsedMDX = parseMDX(filename)
 
-        // `data` = the frontmatter
-        // `content` = the md(x) content, excluding frontmatter
-        const { title, date, isPublished, description } =
+        // `parseMDX(f).data` = the frontmatter
+        // `.content` = the md(x) content, excluding frontmatter
+        const { title, date, isPublished, description, thumbnailUrl } =
             parsedMDX.data as PostFrontmatter
 
         return {
@@ -50,6 +51,7 @@ export function getAllPosts(): Post[] {
             description,
             slug: path.basename(filename, path.extname(filename)),
             content: parsedMDX.content,
+            thumbnailUrl,
         }
     })
 }
