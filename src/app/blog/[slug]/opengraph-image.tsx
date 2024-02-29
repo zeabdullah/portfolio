@@ -37,19 +37,20 @@ export default async function Image({ params }: { params: { slug: string } }) {
     return new ImageResponse(
         (
             <div
-                tw='bg-neutral-900 relative flex justify-center items-center text-neutral-200 w-full h-full p-8'
+                tw='bg-neutral-900 relative flex justify-center items-center text-neutral-100 w-full h-full p-12'
                 style={{
                     fontFamily: '"JetBrains Mono", sans-serif',
                     backgroundImage: `${
-                        true
-                            ? 'linear-gradient(to bottom,#0000001A,#000000E6), '
-                            : ''
+                        typeof post.thumbnailUrl === 'undefined'
+                            ? 'linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,0.5)), '
+                            : 'linear-gradient(to bottom,rgba(0,0,0,0.05),rgba(0,0,0,0.97)), '
                     }url("${bgUrl}")`,
                 }}
             >
-                <div tw='flex flex-col mt-auto items-start justify-start w-full'>
+                <div tw='flex flex-col items-start justify-start w-full h-full'>
+                    <span tw='text-4xl opacity-80 mb-auto'>{'<Z/>'}</span>
                     <h1
-                        tw='text-7xl font-extrabold tracking-tighter max-w-[46rem] mb-8'
+                        tw='text-[5rem] leading-none font-extrabold tracking-tighter max-w-[46rem] mb-8'
                         style={{
                             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                             // @ts-ignore
@@ -60,13 +61,13 @@ export default async function Image({ params }: { params: { slug: string } }) {
                     </h1>
 
                     <div
-                        tw='text-neutral-400 text-lg font-medium flex items-center'
+                        tw='text-neutral-400 text-3xl font-medium flex items-center'
                         style={{ fontFamily: '"Space Grotesk", sans-serif' }}
                     >
                         <div tw='flex items-center justify-center'>
                             <svg
-                                width='24'
-                                height='24'
+                                width='1em'
+                                height='1em'
                                 viewBox='0 0 24 24'
                                 fill='none'
                             >
@@ -92,15 +93,15 @@ export default async function Image({ params }: { params: { slug: string } }) {
                                     stroke-linejoin='round'
                                 />
                             </svg>
-                            <span tw='ml-2'>
+                            <span tw='ml-3'>
                                 {format(post.date, 'LLLL do, yyyy')}
                             </span>
                         </div>
                         <span tw='ml-6 text-sm'>•</span>
                         <div tw='ml-6 flex items-center justify-center'>
                             <svg
-                                width='24'
-                                height='24'
+                                width='1em'
+                                height='1em'
                                 viewBox='0 0 24 24'
                                 fill='none'
                                 xmlns='http://www.w3.org/2000/svg'
@@ -121,7 +122,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
                                 />
                             </svg>
 
-                            <span tw='ml-2'>zabd.dev/blog</span>
+                            <span tw='ml-3'>zabd.dev/blog</span>
                         </div>
                     </div>
                 </div>
