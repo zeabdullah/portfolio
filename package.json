@@ -13,7 +13,7 @@
         "start": "next start"
     },
     "dependencies": {
-        "autoprefixer": "10.4.15",
+        "autoprefixer": "10.4.17",
         "canvas-confetti": "^1.6.0",
         "clsx": "^2.0.0",
         "date-fns": "^2.30.0",
