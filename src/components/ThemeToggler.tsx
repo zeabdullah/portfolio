@@ -6,7 +6,7 @@ import { navBtnCls } from '@/utils/classnames'
 import { cn } from '@/utils/css'
 import { useMounted } from '@/utils/hooks/use-mounted'
 import { useTheme } from '@/utils/theme'
-import NavItem from './NavItem'
+import Tooltip from './Tooltip'
 
 const animationProps: AnimationProps = {
     animate: { scale: 1, opacity: 1 },
@@ -24,32 +24,33 @@ export default function ThemeToggler() {
     const { toggleTheme, isDarkMode } = useTheme()
     const mounted = useMounted()
 
-    const ariaLabel = mounted
-        ? `Change to ${isDarkMode ? 'light' : 'dark'} theme`
-        : 'Change theme'
-
     return (
-        <NavItem
-            element='button'
-            type='button'
-            className={cn(
-                navBtnCls,
-                'text-2xl transition-[background-color,box-shadow] disabled:cursor-not-allowed disabled:opacity-30',
-            )}
-            aria-label={ariaLabel}
-            title={ariaLabel}
-            onClick={toggleTheme}
-        >
-            {!mounted ? (
-                <RiContrastFill />
-            ) : (
-                <AnimatePresence mode='popLayout'>
-                    <m.div key={String(isDarkMode)} {...animationProps}>
-                        {isDarkMode && <RiSunFill />}
-                        {!isDarkMode && <RiMoonClearFill />}
-                    </m.div>
-                </AnimatePresence>
-            )}
-        </NavItem>
+        <Tooltip>
+            <Tooltip.Content>
+                {mounted
+                    ? `Switch to ${isDarkMode ? 'light' : 'dark'} theme`
+                    : 'Switch theme'}
+            </Tooltip.Content>
+
+            <Tooltip.Trigger
+                type='button'
+                className={cn(
+                    navBtnCls,
+                    'text-2xl transition-[background-color,box-shadow] disabled:cursor-not-allowed disabled:opacity-30',
+                )}
+                onClick={toggleTheme}
+            >
+                {!mounted ? (
+                    <RiContrastFill />
+                ) : (
+                    <AnimatePresence mode='popLayout'>
+                        <m.div key={String(isDarkMode)} {...animationProps}>
+                            {isDarkMode && <RiSunFill />}
+                            {!isDarkMode && <RiMoonClearFill />}
+                        </m.div>
+                    </AnimatePresence>
+                )}
+            </Tooltip.Trigger>
+        </Tooltip>
     )
 }

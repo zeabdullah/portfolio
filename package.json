@@ -13,6 +13,7 @@
         "start": "next start"
     },
     "dependencies": {
+        "@radix-ui/react-tooltip": "^1.0.7",
         "autoprefixer": "10.4.17",
         "canvas-confetti": "^1.6.0",
         "clsx": "^2.0.0",

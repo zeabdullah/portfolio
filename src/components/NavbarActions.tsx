@@ -6,6 +6,7 @@ import { navBtnCls } from '@/utils/classnames'
 import { cn } from '@/utils/css'
 import { tapMotionProps } from '@/utils/css'
 import NavItem from './NavItem'
+import Tooltip from './Tooltip'
 
 const LINKS: Array<{
     href: string
@@ -13,7 +14,7 @@ const LINKS: Array<{
     pulseEffect?: boolean
 }> = [
     { href: '/', children: 'Home' },
-    { href: '/blog', children: 'Blog', pulseEffect: true },
+    { href: '/blog', children: 'Blog' },
     { href: '/recipes', children: 'Recipes' },
 ]
 
@@ -33,16 +34,21 @@ export default function NavbarActions({
         <>
             <div className='inline-flex items-center gap-x-3 md:gap-x-2'>
                 <ThemeToggler />
-                <m.button
-                    type='button'
-                    title='Menu'
-                    aria-label='Menu'
-                    className={cn(navBtnCls, 'text-2xl sm:hidden')}
-                    onClick={toggleNavCollapse}
-                    {...tapMotionProps}
-                >
-                    {mobileNavActive ? <RiCloseLine /> : <RiMenuFill />}
-                </m.button>
+                <Tooltip>
+                    <Tooltip.Content>
+                        {mobileNavActive ? 'Close menu' : 'Menu'}
+                    </Tooltip.Content>
+                    <Tooltip.Trigger asChild>
+                        <m.button
+                            type='button'
+                            className={cn(navBtnCls, 'text-2xl sm:hidden')}
+                            onClick={toggleNavCollapse}
+                            {...tapMotionProps}
+                        >
+                            {mobileNavActive ? <RiCloseLine /> : <RiMenuFill />}
+                        </m.button>
+                    </Tooltip.Trigger>
+                </Tooltip>
             </div>
 
             <div

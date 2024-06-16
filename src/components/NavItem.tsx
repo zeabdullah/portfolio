@@ -1,6 +1,7 @@
 import { m } from 'framer-motion'
 import Link from 'next/link'
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
+import React from 'react'
 import { navItemCls } from '@/utils/classnames'
 import { cn } from '@/utils/css'
 import { tapMotionProps } from '@/utils/css'
@@ -25,57 +26,60 @@ export type NavItemProps = (
 ) &
     NavItemBaseProps
 
-export default function NavItem({
-    pulseEffect,
-    className,
-    children,
-    ...props
-}: NavItemProps) {
-    const content = (
-        <>
-            {pulseEffect && (
-                <span className='absolute -start-0.5 -top-0.5 aspect-square h-2.5 rounded-full bg-brand-500 dark:bg-brand-400 sm:-end-0.5 sm:start-auto'>
-                    <span className='absolute h-full w-full animate-ping rounded-full bg-inherit opacity-80' />
-                </span>
-            )}
-            {children}
-        </>
-    )
+const NavItem = React.forwardRef<HTMLElement, NavItemProps>(
+    ({ pulseEffect, className, children, ...props }, ref) => {
+        const content = (
+            <>
+                {pulseEffect && (
+                    <span className='absolute -start-0.5 -top-0.5 aspect-square h-2.5 rounded-full bg-brand-500 dark:bg-brand-400 sm:-end-0.5 sm:start-auto'>
+                        <span className='absolute h-full w-full animate-ping rounded-full bg-inherit opacity-80' />
+                    </span>
+                )}
+                {children}
+            </>
+        )
 
-    if (props.element === 'next-link') {
+        if (props.element === 'next-link') {
+            const { element: _e, ...restProps } = props
+            return (
+                <MotionLink
+                    ref={ref}
+                    className={cn(navItemCls, 'relative', className)}
+                    scroll={false}
+                    {...restProps}
+                    {...tapMotionProps}
+                >
+                    {content}
+                </MotionLink>
+            )
+        }
+        if (props.element === 'a') {
+            const { element: _e, ...restProps } = props
+            return (
+                <m.a
+                    ref={ref as React.ForwardedRef<HTMLAnchorElement>}
+                    className={cn(navItemCls, 'relative', className)}
+                    {...restProps}
+                    {...tapMotionProps}
+                >
+                    {content}
+                </m.a>
+            )
+        }
+
         const { element: _e, ...restProps } = props
         return (
-            <MotionLink
+            <m.button
+                ref={ref as React.ForwardedRef<HTMLButtonElement>}
                 className={cn(navItemCls, 'relative', className)}
-                scroll={false}
                 {...restProps}
                 {...tapMotionProps}
             >
                 {content}
-            </MotionLink>
+            </m.button>
         )
-    }
-    if (props.element === 'a') {
-        const { element: _e, ...restProps } = props
-        return (
-            <m.a
-                className={cn(navItemCls, 'relative', className)}
-                {...restProps}
-                {...tapMotionProps}
-            >
-                {content}
-            </m.a>
-        )
-    }
+    },
+)
+NavItem.displayName = 'NavItem'
 
-    const { element: _e, ...restProps } = props
-    return (
-        <m.button
-            className={cn(navItemCls, 'relative', className)}
-            {...restProps}
-            {...tapMotionProps}
-        >
-            {content}
-        </m.button>
-    )
-}
+export default NavItem
