@@ -22,7 +22,7 @@ module.exports = {
                 },
             },
             animation: {
-                marquee: '20s marquee linear infinite',
+                marquee: '30s marquee linear infinite',
                 blink: '1s blink linear infinite',
                 slideDownAndFade:
                     'slideDownAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',

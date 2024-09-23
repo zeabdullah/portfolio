@@ -132,7 +132,7 @@ export default function Technologies() {
                     'relative -my-2 overflow-hidden [--bg-clr:#ffffff] dark:[--bg-clr:#121212]',
                 )}
             >
-                <div className='group flex max-w-full shrink-0 items-center gap-[--gap] px-2 py-2 [--gap:2rem]'>
+                <div className='group flex max-w-full shrink-0 items-center gap-[--gap] px-2 py-2 [--gap:3rem]'>
                     <div className='flex shrink-0 animate-marquee items-center justify-around gap-[--gap] will-change-[transform,opacity]'>
                         {marquee}
                     </div>

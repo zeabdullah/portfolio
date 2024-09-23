@@ -3,7 +3,7 @@
 import { AnimatePresence, type AnimationProps, m } from 'framer-motion'
 import { RiMoonClearFill, RiSunFill, RiContrastFill } from 'react-icons/ri'
 import { navBtnCls } from '@/utils/classnames'
-import { cn } from '@/utils/css'
+import { cn, tapMotionProps } from '@/utils/css'
 import { useMounted } from '@/utils/hooks/use-mounted'
 import { useTheme } from '@/utils/theme'
 import Tooltip from './Tooltip'
@@ -32,24 +32,27 @@ export default function ThemeToggler() {
                     : 'Switch theme'}
             </Tooltip.Content>
 
-            <Tooltip.Trigger
-                type='button'
-                className={cn(
-                    navBtnCls,
-                    'text-2xl transition-[background-color,box-shadow] disabled:cursor-not-allowed disabled:opacity-30',
-                )}
-                onClick={toggleTheme}
-            >
-                {!mounted ? (
-                    <RiContrastFill />
-                ) : (
-                    <AnimatePresence mode='popLayout'>
-                        <m.div key={String(isDarkMode)} {...animationProps}>
-                            {isDarkMode && <RiSunFill />}
-                            {!isDarkMode && <RiMoonClearFill />}
-                        </m.div>
-                    </AnimatePresence>
-                )}
+            <Tooltip.Trigger asChild>
+                <m.button
+                    type='button'
+                    className={cn(
+                        navBtnCls,
+                        'text-2xl transition-[background-color,box-shadow] disabled:cursor-not-allowed disabled:opacity-30',
+                    )}
+                    {...tapMotionProps}
+                    onClick={toggleTheme}
+                >
+                    {!mounted ? (
+                        <RiContrastFill />
+                    ) : (
+                        <AnimatePresence mode='popLayout'>
+                            <m.div key={String(isDarkMode)} {...animationProps}>
+                                {isDarkMode && <RiSunFill />}
+                                {!isDarkMode && <RiMoonClearFill />}
+                            </m.div>
+                        </AnimatePresence>
+                    )}
+                </m.button>
             </Tooltip.Trigger>
         </Tooltip>
     )

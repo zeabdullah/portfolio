@@ -27,7 +27,7 @@ export default function NavbarActions({
     mobileNavActive,
     onMobileNavStateChange,
 }: NavbarActionsProps) {
-    const toggleNavCollapse = () => onMobileNavStateChange(!mobileNavActive)
+    const toggleMobileNav = () => onMobileNavStateChange(!mobileNavActive)
     const hideMobileNav = () => onMobileNavStateChange(false)
 
     return (
@@ -42,7 +42,7 @@ export default function NavbarActions({
                         <m.button
                             type='button'
                             className={cn(navBtnCls, 'text-2xl sm:hidden')}
-                            onClick={toggleNavCollapse}
+                            onClick={toggleMobileNav}
                             {...tapMotionProps}
                         >
                             {mobileNavActive ? <RiCloseLine /> : <RiMenuFill />}
@@ -64,6 +64,7 @@ export default function NavbarActions({
                         element='next-link'
                         {...props}
                         key={props.href}
+                        // hide the mobile nav when clicking any of the navlinks
                         onClick={hideMobileNav}
                     />
                 ))}
