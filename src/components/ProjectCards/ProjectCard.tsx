@@ -8,7 +8,6 @@ import { cn } from '@/utils/css'
 import { cardVariants } from '@/utils/css'
 import { screens } from '@/utils/tailwind'
 import BtnLink from '../BtnLink'
-import TechStackText from './TechStackText'
 
 export type ProjectCardProps = {
     title: string
@@ -91,7 +90,11 @@ export default function ProjectCard({
                     <h3 className='shrink-0 text-lg font-bold text-dark dark:text-light'>
                         {props.title}
                     </h3>
-                    <TechStackText>{props.stack}</TechStackText>
+                    <em>
+                        <p className='shrink text-xs text-neutral-700 dark:text-neutral-300'>
+                            ({props.stack})
+                        </p>
+                    </em>
                 </div>
                 <p className='text-md font-normal leading-relaxed text-neutral-800 dark:text-light'>
                     {props.content}

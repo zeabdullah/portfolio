@@ -4,7 +4,7 @@ import bootstrapLogo from '$/images/bootstrap-logo.png'
 import jsLogo from '$/images/js-logo.png'
 import reactLogo from '$/images/react-logo.png'
 import vueLogo from '$/images/vue-logo.png'
-import { githubProfileUrl } from '@/utils/config'
+import { GITHUB_PROFILE_URL } from '@/utils/config'
 import ProjectCard, { type ProjectCardProps } from './ProjectCard'
 
 const PROJECT_LIST: ProjectCardProps[] = [
@@ -20,7 +20,7 @@ const PROJECT_LIST: ProjectCardProps[] = [
     {
         title: 'RGB Guessing Game',
         liveLink: 'https://rgbguess-game.netlify.app',
-        sourceLink: `${githubProfileUrl}/RGBGuessingGame`,
+        sourceLink: `${GITHUB_PROFILE_URL}/RGBGuessingGame`,
         content:
             'A lightweight educational guessing game which teaches people how to determine colors from their RGB values',
         stack: 'HTML/CSS, JavaScript',
@@ -30,7 +30,7 @@ const PROJECT_LIST: ProjectCardProps[] = [
     {
         title: 'Car Rental Website',
         liveLink: 'https://mock-carrentals.netlify.app',
-        sourceLink: `${githubProfileUrl}/MockCarRental`,
+        sourceLink: `${GITHUB_PROFILE_URL}/MockCarRental`,
         content: "A simple Bootstrap car rental website's frontend",
         stack: 'HTML/CSS, Bootstrap, jQuery',
         image: { data: bootstrapLogo, alt: 'Bootstrap logo' },
@@ -39,7 +39,7 @@ const PROJECT_LIST: ProjectCardProps[] = [
     {
         title: 'Simple Weather App',
         liveLink: 'https://abdullahzeidan-vue-weather.netlify.app',
-        sourceLink: `${githubProfileUrl}/vue-weather-app`,
+        sourceLink: `${GITHUB_PROFILE_URL}/vue-weather-app`,
         content:
             'A super simple and basic weather application, used to quickly show weather data of any city. Built for trying out Vue.js',
         stack: 'Vue 2, Sass, REST API',
@@ -48,7 +48,7 @@ const PROJECT_LIST: ProjectCardProps[] = [
     },
     {
         title: 'ttf2woff2r',
-        sourceLink: `${githubProfileUrl}/ttf2woff2r`,
+        sourceLink: `${GITHUB_PROFILE_URL}/ttf2woff2r`,
         content:
             'Font optimization CLI tool, used to convert TrueType fonts (.ttf) to the optimized Web Open Font Format (.woff2) format',
         stack: 'JavaScript, Node.js',
@@ -57,7 +57,7 @@ const PROJECT_LIST: ProjectCardProps[] = [
     },
     {
         title: 'react-scaffold',
-        sourceLink: `${githubProfileUrl}/react-scaffold`,
+        sourceLink: `${GITHUB_PROFILE_URL}/react-scaffold`,
         content:
             'Scaffold your React app from the command line. Built with TypeScript',
         stack: 'Node.js, TypeScript, oclif, Mocha TDD',
@@ -66,7 +66,7 @@ const PROJECT_LIST: ProjectCardProps[] = [
     },
     {
         title: 'MIPS.js',
-        sourceLink: `${githubProfileUrl}/mips.js`,
+        sourceLink: `${GITHUB_PROFILE_URL}/mips.js`,
         content:
             'A terminal-based MIPS emulator written in vanilla JavaScript; a simple CLI app that can be used for educational purposes',
         stack: 'JavaScript, Node.js',

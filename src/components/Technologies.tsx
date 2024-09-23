@@ -22,13 +22,13 @@ const title = 'Technologies'
 const logoCls =
     'opacity-60 transition duration-300 hover:!opacity-100 group-hover:opacity-30'
 
-const ICONS: {
+const ICONS: Array<{
     label: string
     icon: IconType
     classes?: string
     color?: string
     href?: string
-}[] = [
+}> = [
     {
         label: 'Visual Studio Code',
         icon: SiVisualstudiocode,

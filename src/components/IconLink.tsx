@@ -1,3 +1,5 @@
+'use client'
+
 import { m } from 'framer-motion'
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import { btnColorsCls, focusRingCls } from '@/utils/classnames'

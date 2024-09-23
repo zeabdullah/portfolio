@@ -6,7 +6,11 @@ import IconLink from '@/components/IconLink'
 import Section from '@/components/Section'
 import Anchor from '@/components/typography/Anchor'
 import P from '@/components/typography/P'
-import { githubProfileUrl } from '@/utils/config'
+import {
+    GITHUB_PROFILE_URL,
+    LINKEDIN_PROFILE_URL,
+    MAIL_TO_ME,
+} from '@/utils/config'
 import H1 from './typography/H1'
 
 const sectionLabel = 'header-heading'
@@ -61,7 +65,7 @@ function Socials() {
     return (
         <div className='mt-16 flex flex-wrap gap-2'>
             <IconLink
-                href={githubProfileUrl}
+                href={GITHUB_PROFILE_URL}
                 aria-label={githubLabel}
                 title={githubLabel}
                 external
@@ -69,7 +73,7 @@ function Socials() {
                 <FaGithub role='img' aria-label={githubLabel} />
             </IconLink>
             <IconLink
-                href='https://www.linkedin.com/in/abdullah-zd'
+                href={LINKEDIN_PROFILE_URL}
                 aria-label={linkedinLabel}
                 title={linkedinLabel}
                 external
@@ -77,7 +81,7 @@ function Socials() {
                 <FaLinkedin role='img' aria-label={linkedinLabel} />
             </IconLink>
 
-            <BtnLink href='mailto:abdullahzeidan@gmail.com' attractive>
+            <BtnLink href={MAIL_TO_ME} attractive className='ms-2'>
                 <FaPaperPlane /> Work with me
             </BtnLink>
         </div>

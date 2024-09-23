@@ -1,3 +1,5 @@
+'use client'
+
 import { m } from 'framer-motion'
 import Link from 'next/link'
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
@@ -53,6 +55,7 @@ const NavItem = React.forwardRef<HTMLElement, NavItemProps>(
                 </MotionLink>
             )
         }
+
         if (props.element === 'a') {
             const { element: _e, ...restProps } = props
             return (
