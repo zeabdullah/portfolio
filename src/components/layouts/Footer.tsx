@@ -38,7 +38,7 @@ export default function Footer() {
             className='border-t border-neutral-200 bg-neutral-100 px-3.5 py-6 transition-[background-color] duration-300 dark:border-opacity-10 dark:bg-neutral-900 dark:text-light'
         >
             <div className={cn(containerCls)}>
-                <div className='mb-6 flex items-center justify-between'>
+                <div className='mb-8 flex items-center justify-between'>
                     <div className='select-none font-mono text-2xl font-extrabold opacity-50 transition duration-300 hover:opacity-100'>
                         {'<Z/>'}
                     </div>
@@ -61,7 +61,7 @@ export default function Footer() {
                     </ul>
                 </div>
 
-                <div className='flex items-center justify-between'>
+                <div className='flex flex-wrap items-center justify-between gap-x-6 gap-y-2'>
                     <p className='opacity-70'>
                         &copy; {new Date().getUTCFullYear()} Abdullah Zeidan.
                         All rights reserved.
