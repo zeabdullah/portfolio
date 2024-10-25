@@ -8,7 +8,10 @@ export default function H2({
 }: ComponentPropsWithoutRef<'h2'>) {
     return (
         <h2
-            className={cn('mb-2 text-xl font-bold sm:text-2xl', className)}
+            className={cn(
+                'mb-2 text-2xl font-bold sm:mb-3 sm:text-3xl',
+                className,
+            )}
             {...props}
         >
             {children}

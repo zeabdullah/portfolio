@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './pretty-code.css';
-
 .Typewriter {
     display: inline;
 }

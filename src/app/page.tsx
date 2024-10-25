@@ -1,13 +1,10 @@
-'use client'
-
-import dynamic from 'next/dynamic'
+import BlogSection from '@/components/BlogSection'
 import HR from '@/components/HR'
 import HeroSection from '@/components/HeroSection'
 import Projects from '@/components/Projects'
+import Resume from '@/components/Resume'
 import Technologies from '@/components/Technologies'
 import Container from '@/components/layouts/Container'
-
-const Resume = dynamic(() => import('@/components/Resume'), { ssr: false })
 
 export default function IndexPage() {
     return (
@@ -18,6 +15,8 @@ export default function IndexPage() {
             <Technologies />
             <HR />
             <Resume />
+            <HR />
+            <BlogSection />
         </Container>
     )
 }

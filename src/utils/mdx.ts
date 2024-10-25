@@ -1,5 +1,4 @@
-import { type PathLike } from 'fs'
-import fs from 'fs'
+import fs, { type PathLike } from 'fs'
 import matter from 'gray-matter'
 import path from 'path'
 

@@ -1,4 +1,6 @@
-import clsx from 'clsx'
+'use client'
+
+import cx from 'classix'
 import { FaReact, FaNodeJs } from 'react-icons/fa'
 import type { IconType } from 'react-icons/lib'
 import {
@@ -26,7 +28,6 @@ const ICONS: Array<{
     label: string
     icon: IconType
     classes?: string
-    color?: string
     href?: string
 }> = [
     {
@@ -101,58 +102,63 @@ const ICONS: Array<{
 ]
 
 export default function Technologies() {
-    const marquee = ICONS.map(({ label, href, classes, icon: Icon }, i) => (
-        <a
-            key={label + i}
-            href={href}
-            target='_blank'
-            rel='noreferrer noopener'
-        >
-            <Icon
-                className={cn(
-                    'aspect-square h-9 w-auto opacity-60 transition duration-300 hover:!opacity-100 group-hover:opacity-30 sm:h-10',
-                    classes,
-                )}
-            />
-        </a>
-    ))
-
     return (
-        <Section id='tech' aria-label={title} className='!pt-8 text-center'>
+        <Section id='tech' aria-label={title} className='!pt-24 text-center'>
             <SectionHeading>
                 <H2>{title}</H2>
-                <Subtitle>
+                <Subtitle className='[text-wrap:balance]'>
                     The arsenal of technologies that power my day-to-day craft.
                 </Subtitle>
             </SectionHeading>
 
+            <IconsMarquee />
+        </Section>
+    )
+}
+
+function IconsMarquee() {
+    return (
+        <>
             <div
-                id='tech-logos-wrapper'
-                className={clsx(
-                    'relative -my-2 overflow-hidden [--bg-clr:#ffffff] dark:[--bg-clr:#121212]',
+                id='marquee-wrapper'
+                className={cx(
+                    'relative overflow-hidden [--bg-clr:#ffffff] dark:[--bg-clr:#121212]',
                 )}
             >
-                <div className='group flex max-w-full shrink-0 items-center gap-[--gap] px-2 py-2 [--gap:3rem]'>
-                    <div className='flex shrink-0 animate-marquee items-center justify-around gap-[--gap] will-change-[transform,opacity]'>
-                        {marquee}
-                    </div>
-                    <div
-                        aria-hidden
-                        className='flex shrink-0 animate-marquee items-center justify-around gap-[--gap] will-change-[transform,opacity]'
-                    >
-                        {marquee}
-                    </div>
-                    <div
-                        aria-hidden
-                        className='flex shrink-0 animate-marquee items-center justify-around gap-[--gap] will-change-[transform,opacity]'
-                    >
-                        {marquee}
-                    </div>
+                <div className='group flex max-w-full shrink-0 items-center gap-[--gap] py-2 [--gap:3rem]'>
+                    {Array.from({ length: 3 }).map((_, containerIdx) => (
+                        <div
+                            key={containerIdx}
+                            aria-hidden={containerIdx === 0}
+                            className='flex shrink-0 animate-marquee items-center justify-around gap-[--gap] will-change-[transform,opacity]'
+                        >
+                            {ICONS.map(
+                                ({ label, href, classes, icon: Icon }) => (
+                                    <a
+                                        key={label}
+                                        href={href}
+                                        target='_blank'
+                                        rel='noreferrer noopener'
+                                        tabIndex={
+                                            containerIdx === 0 ? undefined : -1
+                                        }
+                                    >
+                                        <Icon
+                                            className={cn(
+                                                'aspect-square h-9 w-auto opacity-60 transition duration-300 hover:!opacity-100 group-hover:opacity-30 sm:h-10',
+                                                classes,
+                                            )}
+                                        />
+                                    </a>
+                                ),
+                            )}
+                        </div>
+                    ))}
                 </div>
             </div>
             <style jsx>{`
-                #tech-logos-wrapper::before,
-                #tech-logos-wrapper::after {
+                #marquee-wrapper::before,
+                #marquee-wrapper::after {
                     content: '';
                     position: absolute;
                     width: 20%;
@@ -161,7 +167,7 @@ export default function Technologies() {
                     pointer-events: none;
                     top: 0;
                 }
-                #tech-logos-wrapper::before {
+                #marquee-wrapper::before {
                     left: 0;
                     background-image: linear-gradient(
                         to right,
@@ -169,7 +175,7 @@ export default function Technologies() {
                         transparent 40%
                     );
                 }
-                #tech-logos-wrapper::after {
+                #marquee-wrapper::after {
                     right: 0;
                     background-image: linear-gradient(
                         to left,
@@ -178,6 +184,6 @@ export default function Technologies() {
                     );
                 }
             `}</style>
-        </Section>
+        </>
     )
 }

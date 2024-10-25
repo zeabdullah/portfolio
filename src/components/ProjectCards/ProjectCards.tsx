@@ -1,3 +1,5 @@
+'use client'
+
 import { m } from 'framer-motion'
 import astroLogo from '$/images/astro-logo.png'
 import bootstrapLogo from '$/images/bootstrap-logo.png'
@@ -10,7 +12,7 @@ import ProjectCard, { type ProjectCardProps } from './ProjectCard'
 const PROJECT_LIST: ProjectCardProps[] = [
     {
         title: 'IMT',
-        liveLink: 'http://imt-med.com',
+        liveDemoLink: 'http://imt-med.com',
         content:
             'A landing page for a medical company client, powered by Astro.',
         stack: 'React, TypeScript, Tailwind, Astro.js',
@@ -19,7 +21,7 @@ const PROJECT_LIST: ProjectCardProps[] = [
     },
     {
         title: 'RGB Guessing Game',
-        liveLink: 'https://rgbguess-game.netlify.app',
+        liveDemoLink: 'https://rgbguess-game.netlify.app',
         sourceLink: `${GITHUB_PROFILE_URL}/RGBGuessingGame`,
         content:
             'A lightweight educational guessing game which teaches people how to determine colors from their RGB values',
@@ -29,7 +31,7 @@ const PROJECT_LIST: ProjectCardProps[] = [
     },
     {
         title: 'Car Rental Website',
-        liveLink: 'https://mock-carrentals.netlify.app',
+        liveDemoLink: 'https://mock-carrentals.netlify.app',
         sourceLink: `${GITHUB_PROFILE_URL}/MockCarRental`,
         content: "A simple Bootstrap car rental website's frontend",
         stack: 'HTML/CSS, Bootstrap, jQuery',
@@ -38,7 +40,7 @@ const PROJECT_LIST: ProjectCardProps[] = [
     },
     {
         title: 'Simple Weather App',
-        liveLink: 'https://abdullahzeidan-vue-weather.netlify.app',
+        liveDemoLink: 'https://abdullahzeidan-vue-weather.netlify.app',
         sourceLink: `${GITHUB_PROFILE_URL}/vue-weather-app`,
         content:
             'A super simple and basic weather application, used to quickly show weather data of any city. Built for trying out Vue.js',

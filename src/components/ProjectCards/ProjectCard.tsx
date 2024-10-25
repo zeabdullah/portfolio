@@ -3,16 +3,14 @@
 import { m } from 'framer-motion'
 import Image, { type StaticImageData } from 'next/image'
 import { FaBroadcastTower, FaCode } from 'react-icons/fa'
-import { useMedia } from 'use-media'
 import { cn } from '@/utils/css'
 import { cardVariants } from '@/utils/css'
-import { screens } from '@/utils/tailwind'
 import BtnLink from '../BtnLink'
 
 export type ProjectCardProps = {
     title: string
+    liveDemoLink?: string
     sourceLink?: string
-    liveLink?: string
     content: string
     stack: string
     image: {
@@ -22,16 +20,18 @@ export type ProjectCardProps = {
     extraClasses?: string
 }
 export default function ProjectCard({
+    liveDemoLink,
     sourceLink,
-    liveLink,
     ...props
 }: ProjectCardProps) {
-    const isBeyondLg = useMedia({ minWidth: screens.lg })
-
     const cardLinks = (
         <>
-            {liveLink && (
-                <BtnLink href={liveLink} className='flex-1 text-sm' external>
+            {liveDemoLink && (
+                <BtnLink
+                    href={liveDemoLink}
+                    className='flex-1 text-sm'
+                    external
+                >
                     <FaBroadcastTower /> Live Demo
                 </BtnLink>
             )}
@@ -47,9 +47,10 @@ export default function ProjectCard({
         <m.div
             className={cn(
                 'flex flex-col justify-start gap-4 rounded-xl bg-neutral-100 p-8 shadow shadow-brand-900/20 transition-[color,border-color,background-color] focus-visible:border-neutral-400 focus-visible:bg-neutral-200 hocus-visible:!opacity-100 dark:border dark:border-neutral-700 dark:bg-neutral-800 dark:shadow-none dark:focus-visible:border-neutral-600 sm:flex-row md:hover:border-neutral-400 md:hover:bg-neutral-200 md:group-hover/container:opacity-75 dark:md:group-hover/container:opacity-60 dark:md:hocus-within:border-neutral-600 dark:md:hocus-within:bg-neutral-700',
-                'group/card relative overflow-hidden',
+                'group/card relative overflow-hidden [--card-scale:1] lg:[--card-scale:1.05]',
             )}
-            whileHover={{ scale: isBeyondLg ? 1.05 : 1 }}
+            // whileHover={{ scale: isBeyondLg ? 1.05 : 1 }}
+            whileHover={{ scale: 'var(--card-scale)' }}
             variants={cardVariants}
             transition={{
                 opacity: { type: 'tween', duration: 0.3 },
