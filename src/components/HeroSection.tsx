@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 import { FaGithub, FaLinkedin, FaPaperPlane } from 'react-icons/fa'
 import Typewriter from 'typewriter-effect'

@@ -1,13 +1,13 @@
-import clsx from 'clsx'
+import cx from 'classix'
 import { cn } from './css'
 
-export const containerCls = clsx('mx-auto max-w-4xl px-4 lg:px-0')
+export const containerCls = cx('mx-auto max-w-4xl px-4 lg:px-0')
 
-export const btnColorsCls = clsx(
+export const btnColorsCls = cx(
     'text-neutral-600 hover:duration-75 hocus-visible:bg-neutral-300 hocus-visible:text-dark dark:text-neutral-400 dark:hocus-visible:bg-opacity-25 dark:hocus-visible:text-light',
 )
 
-export const focusRingCls = clsx(
+export const focusRingCls = cx(
     'outline-none ring-0 ring-accent-400 focus-visible:ring',
 )
 
