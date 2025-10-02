@@ -7,7 +7,7 @@ export default function Section({
     ...props
 }: ComponentPropsWithoutRef<'section'>) {
     return (
-        <section className={cn('py-12 md:py-16', className)} {...props}>
+        <section className={cn('py-16 md:py-24', className)} {...props}>
             {children}
         </section>
     )
