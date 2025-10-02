@@ -4,7 +4,8 @@ import { m } from 'framer-motion'
 import Image, { type StaticImageData } from 'next/image'
 import { FaBroadcastTower, FaCode } from 'react-icons/fa'
 import { cn } from '@/utils/css'
-import { cardVariants } from '@/utils/css'
+import { baseBounceTransition } from '@/utils/motion/transitions'
+import { cardVariants } from '@/utils/motion/variants'
 import BtnLink from '../BtnLink'
 
 export type ProjectCardProps = {
@@ -49,21 +50,11 @@ export default function ProjectCard({
                 'flex flex-col justify-start gap-4 rounded-xl bg-neutral-100 p-8 shadow shadow-brand-900/20 transition-[color,border-color,background-color] focus-visible:border-neutral-400 focus-visible:bg-neutral-200 hocus-visible:!opacity-100 dark:border dark:border-neutral-700 dark:bg-neutral-800 dark:shadow-none dark:focus-visible:border-neutral-600 sm:flex-row md:hover:border-neutral-400 md:hover:bg-neutral-200 md:group-hover/container:opacity-75 dark:md:group-hover/container:opacity-60 dark:md:hocus-within:border-neutral-600 dark:md:hocus-within:bg-neutral-700',
                 'group/card relative overflow-hidden [--card-scale:1] lg:[--card-scale:1.05]',
             )}
-            // whileHover={{ scale: isBeyondLg ? 1.05 : 1 }}
             whileHover={{ scale: 'var(--card-scale)' }}
             variants={cardVariants}
             transition={{
                 opacity: { type: 'tween', duration: 0.3 },
-                scale: {
-                    type: 'spring',
-                    stiffness: 400,
-                    damping: 14,
-                    mass: 0.5,
-                },
-                type: 'spring',
-                stiffness: 200,
-                damping: 18,
-                mass: 1,
+                ...baseBounceTransition,
             }}
         >
             <div className='absolute inset-0 z-10 hidden items-center justify-center bg-transparent opacity-0 backdrop-blur transition sm:flex sm:group-focus-within/card:opacity-100 sm:group-hover/card:opacity-100'>

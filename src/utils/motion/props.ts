@@ -1,6 +1,6 @@
 import type { MotionProps } from 'framer-motion'
 
-export const tapMotionProps: Partial<MotionProps> = {
+export const tapMotionProps = {
     whileTap: { scale: 0.975 },
     transition: {
         type: 'spring',
@@ -8,4 +8,4 @@ export const tapMotionProps: Partial<MotionProps> = {
         damping: 12,
         mass: 0.3,
     },
-}
+} as const satisfies Partial<MotionProps>
