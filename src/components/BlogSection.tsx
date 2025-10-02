@@ -22,10 +22,8 @@ export default function BlogSection() {
             <div className='mx-auto mb-4 flex items-center justify-center'></div>
 
             <SectionHeading>
-                <H2 id={labelId} className='text-center'>
-                    Read my blog
-                </H2>
-                <Subtitle className='text-center'>
+                <H2 id={labelId}>Read my blog</H2>
+                <Subtitle>
                     I write a bit from time to time. Check my posts out.
                 </Subtitle>
             </SectionHeading>
