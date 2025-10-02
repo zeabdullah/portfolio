@@ -6,7 +6,7 @@ import type { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
 import React from 'react'
 import { navItemCls } from '@/utils/classnames'
 import { cn } from '@/utils/css'
-import { tapMotionProps } from '@/utils/css'
+import { tapMotionProps } from '@/utils/motion/props'
 
 const MotionLink = m(Link)
 
@@ -49,7 +49,7 @@ const NavItem = React.forwardRef<HTMLElement, NavItemProps>(
                     className={cn(navItemCls, 'relative', className)}
                     scroll={false}
                     {...restProps}
-                    {...tapMotionProps}
+                    {...(tapMotionProps as any)}
                 >
                     {content}
                 </MotionLink>

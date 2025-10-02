@@ -3,8 +3,9 @@
 import { AnimatePresence, type AnimationProps, m } from 'framer-motion'
 import { RiMoonClearFill, RiSunFill, RiContrastFill } from 'react-icons/ri'
 import { navBtnCls } from '@/utils/classnames'
-import { cn, tapMotionProps } from '@/utils/css'
+import { cn } from '@/utils/css'
 import { useMounted } from '@/utils/hooks/use-mounted'
+import { tapMotionProps } from '@/utils/motion/props'
 import { useTheme } from '@/utils/theme'
 import Tooltip from './Tooltip'
 
