@@ -1,6 +1,7 @@
 'use client'
 
 import { m } from 'framer-motion'
+import angularLogo from '$/images/angular-logo.png'
 import astroLogo from '$/images/astro-logo.png'
 import bootstrapLogo from '$/images/bootstrap-logo.png'
 import jsLogo from '$/images/js-logo.png'
@@ -10,6 +11,15 @@ import { GITHUB_PROFILE_URL } from '@/utils/config'
 import ProjectCard, { type ProjectCardProps } from './ProjectCard'
 
 const PROJECT_LIST: ProjectCardProps[] = [
+    {
+        title: 'Source',
+        sourceLink: `${GITHUB_PROFILE_URL}/source`,
+        content:
+            "The AI-powered hub for all your digital product's experiences",
+        stack: 'Angular, Laravel, AI Agents, n8n',
+        image: { data: angularLogo, alt: 'Angular logo' },
+        extraClasses: 'bg-stone-800?',
+    },
     {
         title: 'IMT',
         liveDemoLink: 'http://imt-med.com',
